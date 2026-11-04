@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heavy Industry Laser Workshop Layout & Material Flow Planner | ACTCNC</title>
+  <meta name="description" content="Interactive factory floor layout and material handling planner for ultra-high power laser cutting machines (1.5kW to 60kW), heavy tube cutters, and automated crane loading bays.">
+  <link rel="canonical" href="https://actcnc.com/engineering/factory-space-layout-planner.html">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --accent: #38bdf8;
+      --dark-bg: #070a11;
+      --dark-surface: #0f172a;
+      --dark-card: #1e293b;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; }
+    .nav-links a:hover { color: var(--accent); }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    .hero-sec { text-align: center; margin-bottom: 50px; }
+    .hero-sec h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .hero-sec p { color: var(--text-muted); max-width: 820px; margin: 0 auto 30px; font-size: 16px; }
+    
+    .planner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+    .panel { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 18px; padding: 32px; }
+    .canvas-box { background: #020617; border: 2px dashed rgba(56, 189, 248, 0.3); border-radius: 14px; min-height: 380px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; position: relative; }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 700; color: #e2e8f0; margin-bottom: 8px; }
+    .form-group select, .form-group input { width: 100%; background: #030712; border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 16px; color: #fff; font-size: 15px; font-weight: 600; outline: none; }
+    
+    .dim-pill { background: rgba(2, 132, 199, 0.15); border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; display: inline-block; margin-bottom: 12px; }
+    .stat-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.08); font-size: 14px; }
+    .stat-row:last-of-type { border-bottom: none; }
+    .stat-row .val { font-weight: 800; color: #fff; }
+    
+    .btn-action { display: block; width: 100%; text-align: center; background: #22c55e; color: #fff; padding: 15px; border-radius: 10px; font-weight: 800; font-size: 15px; margin-top: 24px; }
+    
+    @media (max-width: 900px) {
+      .planner-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Industrial Laser Workshop Space and Material Handling Layout Guide",
+    "description": "Calculate workshop footprint, crane clearance, and pneumatic safety buffer zones for heavy industrial fiber laser machines.",
+    "author": { "@type": "Organization", "name": "ACTCNC Heavy Industry" },
+    "publisher": { "@type": "Organization", "name": "ACTCNC" }
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <span>ACTCNC Workshop Engineering & Spatial Logistics Planner</span>
+    <span>WhatsApp Engineering Support: +86 155 6620 6930</span>
+  </div>
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30kW–60kW Cutters</a></li>
+      <li><a href="/products/heavy-tube-pipe-fiber-laser-cutters.html">Tube Cutters</a></li>
+      <li><a href="/engineering/fiber-laser-cutting-parameters-database.html">Tech Parameters</a></li>
+      <li><a href="/engineering/laser-cleaning-welding-roi-calculator.html">ROI Calculator</a></li>
+    </ul>
+  </header>
+
+  <div class="container">
+    <div class="hero-sec">
+      <span class="dim-pill">Factory Spatial Engineering Tool</span>
+      <h1>Laser Workshop Layout & Material Flow Planner</h1>
+      <p>Estimate minimum floor footprint, overhead crane lifting clearance, and auxiliary gas/dust exhaust safety buffer zones for heavy-duty laser installations.</p>
+    </div>
+
+    <div class="planner-grid">
+      <div class="panel">
+        <h3 style="color:#fff;font-size:18px;font-weight:800;margin-bottom:20px;">1. Select Machine & Material Handling Configuration</h3>
+        
+        <div class="form-group">
+          <label>Target Machine Architecture</label>
+          <select id="machineType" onchange="updateLayout()">
+            <option value="standard" selected>Standard Dual Exchange Sheet Cutter (3015 / 4020 / 6025)</option>
+            <option value="groundrail">Ultra-High Power Ground Rail Mega Cutter (12m to 36m Bed)</option>
+            <option value="tube">3-Chuck Heavy CNC Tube & Pipe Cutter (6m / 9m / 12m)</option>
+            <option value="robot">3D 5-Axis Gantry Robotic Laser Cutting Cell</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Material Loading/Unloading System</label>
+          <select id="handlingSystem" onchange="updateLayout()">
+            <option value="manual">Manual Forklift / Overhead Factory Crane</option>
+            <option value="semi">Semi-Automatic Vacuum Suction Lifter</option>
+            <option value="auto">Fully Automated Tower Storage & Robotic Palletizer</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Dust Collector & Water Chiller Placement</label>
+          <select id="auxPlacement" onchange="updateLayout()">
+            <option value="indoor">Indoor Acoustic Enclosure (Adjacent)</option>
+            <option value="outdoor" selected>Outdoor Partitioned Ducting (Recommended for 20kW+)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 style="color:#fff;font-size:18px;font-weight:800;margin-bottom:20px;">2. Calculated Workshop Footprint & Clearances</h3>
+        
+        <div class="canvas-box">
+          <span class="dim-pill" id="footprintTag">Recommended Area: 96 m² (12m x 8m)</span>
+          <div style="font-size:14px;color:#bae6fd;text-align:center;margin:12px 0;" id="layoutDesc">
+            Optimized for 3015/4020 dual exchange table with safety light curtains and 2.5m material staging area.
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div class="stat-row">
+            <span>Minimum Workshop Height (Hook Clearance)</span>
+            <span class="val" id="hookHeight">4.5 Meters</span>
+          </div>
+          <div class="stat-row">
+            <span>Electrical Power Supply Requirement</span>
+            <span class="val" id="powerReq">380V 3-Phase / 80kVA</span>
+          </div>
+          <div class="stat-row">
+            <span>Exhaust Ducting Diameter</span>
+            <span class="val" id="ductDia">Φ 300 mm (12,000 m³/h)</span>
+          </div>
+          <div class="stat-row">
+            <span>Safety Isolation Buffer Zone</span>
+            <span class="val" id="bufferZone">1.5m Perimeter Light Curtains</span>
+          </div>
+        </div>
+
+        <a href="https://wa.me/8615566206930?text=Direct%20Inquiry%20Workshop%20Layout%20CAD%20Consultation" target="_blank" class="btn-action">
+          Request Custom 2D/3D CAD Workshop Layout Plan &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function updateLayout() {
+      const mType = document.getElementById('machineType').value;
+      const hType = document.getElementById('handlingSystem').value;
+      
+      let area = "96 m² (12m x 8m)";
+      let desc = "Optimized for dual exchange table sheet cutter with safety perimeter.";
+      let height = "4.5 Meters";
+      let power = "380V 3-Phase / 80kVA";
+      let duct = "Φ 300 mm (12,000 m³/h)";
+      
+      if (mType === 'groundrail') {
+        area = "280 m² (28m x 10m)";
+        desc = "Includes modular heavy ground-rail bed, segmented downdraft tables, and dual crane loading span.";
+        height = "6.5 Meters (Crane Hook)";
+        power = "380V 3-Phase / 180kVA (for 30kW–60kW)";
+        duct = "Φ 450 mm (25,000 m³/h Dual Stage)";
+      } else if (mType === 'tube') {
+        area = "160 m² (20m x 8m)";
+        desc = "Accommodates 12m raw tube bundling rack, 3 pneumatic chucks, and automatic unloading conveyor.";
+        height = "4.8 Meters";
+        power = "380V 3-Phase / 95kVA";
+        duct = "Φ 300 mm (14,000 m³/h)";
+      } else if (mType === 'robot') {
+        area = "120 m² (12m x 10m)";
+        desc = "Full Class-1 safety laser enclosure with dual rotary positioner stations and interlocking doors.";
+        height = "5.5 Meters";
+        power = "380V 3-Phase / 65kVA";
+        duct = "Φ 350 mm (16,000 m³/h)";
+      }
+      
+      document.getElementById('footprintTag').innerText = "Recommended Area: " + area;
+      document.getElementById('layoutDesc').innerText = desc;
+      document.getElementById('hookHeight').innerText = height;
+      document.getElementById('powerReq').innerText = power;
+      document.getElementById('ductDia').innerText = duct;
+    }
+  </script>
+</body>
+</html>

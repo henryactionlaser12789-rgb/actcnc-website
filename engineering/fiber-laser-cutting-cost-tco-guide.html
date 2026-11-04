@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiber Laser Cutting Operating Cost & TCO Guide | ACTCNC Engineering</title>
+  <meta name="description" content="Detailed operating cost and Total Cost of Ownership (TCO) breakdown for industrial fiber laser cutters, including electricity, assist gas, and consumable budgets.">
+  <link rel="canonical" href="https://actcnc.com/engineering/fiber-laser-cutting-cost-tco-guide.html">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent: #f59e0b;
+      --dark-bg: #090d16;
+      --dark-surface: #111827;
+      --dark-card: #1f2937;
+      --dark-border: #374151;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+    .top-bar { background: #030712; padding: 8px 24px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid #1f2937; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(9,13,22,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 1.5px; }
+    .brand-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 20px; list-style: none; font-size: 14px; font-weight: 600; align-items: center; }
+    .btn-wa { background: #22c55e; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-outline { border: 1px solid var(--primary); color: #38bdf8; padding: 12px 24px; border-radius: 8px; font-weight: 700; }
+    .page-hero { padding: 70px 24px 60px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2,132,199,0.18) 0%, rgba(9,13,22,0) 75%); border-bottom: 1px solid #1f2937; }
+    .hero-tag { display: inline-block; padding: 4px 14px; background: rgba(2,132,199,0.2); color: #38bdf8; border: 1px solid rgba(2,132,199,0.3); border-radius: 20px; font-size: 12px; font-weight: 700; margin-bottom: 14px; letter-spacing: 0.5px; }
+    .page-hero h1 { font-size: clamp(28px, 4.5vw, 44px); font-weight: 900; margin-bottom: 16px; color: #fff; line-height: 1.25; }
+    .page-hero p { max-width: 860px; margin: 0 auto; color: var(--text-muted); font-size: clamp(15px, 2vw, 18px); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 36px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; padding: 28px; }
+    .spec-table-box { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; overflow-x: auto; margin: 30px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; }
+    th { background: #111827; color: #38bdf8; padding: 14px 18px; border-bottom: 1px solid var(--dark-border); font-weight: 700; }
+    td { padding: 14px 18px; border-bottom: 1px solid #1f2937; color: #e5e7eb; }
+    .highlight-badge { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+    .cta-banner { background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%); border-radius: 16px; padding: 48px; text-align: center; margin: 60px 0; border: 1px solid rgba(56,189,248,0.3); }
+    footer { background: #030712; border-top: 1px solid #1f2937; padding: 60px 24px 30px; color: var(--text-muted); font-size: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div>
+      <span style="background:#1e3a8a;color:#93c5fd;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;">ISO 9001 / CE / FDA CERTIFIED</span>
+      <span style="margin-left:12px;">ACTCNC Global Heavy Industry & High-Power Laser Solutions</span>
+    </div>
+    <div>WhatsApp: <strong style="color:#fff;">+86 155 6620 6930</strong> | Telegram: <strong style="color:#fff;">@ACTCNC_Laser</strong></div>
+  </div>
+
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/fiber-laser-cutting-machines.html">Sheet Cutters</a></li>
+      <li><a href="/products/heavy-tube-pipe-fiber-laser-cutters.html">Tube Cutters</a></li>
+      <li><a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30kW-60kW</a></li>
+      <li><a href="/products/laser-cladding-hardening-remanufacturing.html">Cladding</a></li>
+      <li><a href="/engineering/laser-source-comparison-ipg-raycus-max-nlight.html">Tech Guide</a></li>
+      <li>
+        <a href="https://wa.me/8615566206930?text=Direct%20Inquiry%20ACTCNC%20Equipment" class="btn-wa" target="_blank">Contact Engineers</a>
+      </li>
+    </ul>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-tag">TCO & ROI FINANCIAL MODEL</div>
+    <h1>Industrial Fiber Laser Cutting Cost & TCO Master Guide</h1>
+    <p>How to calculate cost-per-hour and cost-per-part: A transparent analysis of electricity, nitrogen vs air assist gas, and optical consumables.</p>
+  </section>
+
+  <div class="container">
+    
+<div style="background:var(--dark-surface);border:1px solid var(--dark-border);border-radius:12px;padding:32px;margin-bottom:50px;">
+  <h2 style="color:#fff;font-size:24px;font-weight:800;margin-bottom:16px;">Fiber Laser Operating Cost Breakdown: Electricity, Gas & Consumables</h2>
+  <p style="color:#9ca3af;margin-bottom:20px;">Understanding your hourly cost per meter is critical to quoting parts competitively while preserving profit margins. Below is a real-world operating cost model for a 12kW fiber laser cutting 6mm carbon steel and 3mm stainless steel.</p>
+
+  <div class="grid-3" style="margin-bottom:30px;">
+    <div class="card" style="background:#1f2937;">
+      <h3 style="color:#38bdf8;font-size:18px;margin-bottom:8px;">1. Electrical Power</h3>
+      <p style="color:#9ca3af;font-size:13px;">Laser source + water chiller + CNC motion system consumes ~28 kWh on a 12kW system ($0.12/kWh = <strong>$3.36 / hour</strong>).</p>
+    </div>
+    <div class="card" style="background:#1f2937;">
+      <h3 style="color:#38bdf8;font-size:18px;margin-bottom:8px;">2. Assist Gas Consumption</h3>
+      <p style="color:#9ca3af;font-size:13px;">Oxygen for carbon steel ($0.80/hr) vs Liquid Nitrogen ($12.00/hr) vs High-Pressure Compressed Air (<strong>$1.50 / hour</strong>).</p>
+    </div>
+    <div class="card" style="background:#1f2937;">
+      <h3 style="color:#38bdf8;font-size:18px;margin-bottom:8px;">3. Consumable Wear</h3>
+      <p style="color:#9ca3af;font-size:13px;">Protective windows, copper nozzles, ceramic rings, and focal lens replacement averages <strong>$0.60 / hour</strong>.</p>
+    </div>
+  </div>
+
+  <div class="cta-banner" style="margin:30px 0 0;">
+    <h3 style="color:#fff;font-size:22px;margin-bottom:12px;">Get a Custom Cost-Per-Part Calculation for Your Metal Inventory</h3>
+    <p style="color:#e0f2fe;margin-bottom:20px;">Provide your daily cutting volumes, material grades, and local electricity rate. We will generate an automated Excel payback forecast.</p>
+    <a href="https://wa.me/8615566206930?text=Request%20Custom%20TCO%20Cost%20Forecast" class="btn-primary" target="_blank" style="background:#22c55e;">Calculate My Payback with an Engineer</a>
+  </div>
+</div>
+
+  </div>
+
+  <footer>
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:32px;text-align:left;margin-bottom:40px;">
+      <div>
+        <h4 style="color:#fff;margin-bottom:12px;">ACTCNC Systems</h4>
+        <p style="font-size:13px;line-height:1.7;">Leading manufacturer of ultra-high power fiber laser cutting, automated tube beveling, 3D 5-axis robotic cells, and industrial cladding machines.</p>
+      </div>
+      <div>
+        <h4 style="color:#fff;margin-bottom:12px;">High-Value Machinery</h4>
+        <ul style="list-style:none;font-size:13px;line-height:2;">
+          <li><a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30kW–60kW Heavy Sheet Cutters</a></li>
+          <li><a href="/products/heavy-tube-pipe-fiber-laser-cutters.html">CNC Tube & Pipe Bevel Cutters</a></li>
+          <li><a href="/products/3d-5-axis-fiber-laser-cutting-robot.html">3D 5-Axis Robotic Laser Cells</a></li>
+          <li><a href="/products/laser-cladding-hardening-remanufacturing.html">Laser Cladding & Hardening</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#fff;margin-bottom:12px;">Engineering Knowledge</h4>
+        <ul style="list-style:none;font-size:13px;line-height:2;">
+          <li><a href="/engineering/laser-source-comparison-ipg-raycus-max-nlight.html">Laser Source Benchmark: IPG vs Raycus vs MAX</a></li>
+          <li><a href="/engineering/fiber-laser-cutting-cost-tco-guide.html">Operating Cost & TCO Analysis Guide</a></li>
+          <li><a href="/engineering/laser-welding-vs-mig-tig-cost-analysis.html">Handheld Laser vs TIG/MIG ROI Model</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="color:#fff;margin-bottom:12px;">Global Sales & Tech Support</h4>
+        <p style="font-size:13px;line-height:1.8;">WhatsApp: +86 155 6620 6930<br>Telegram: @ACTCNC_Laser<br>Email: sales@actcnc.com<br>Response: &lt; 2 Hours (24/7)</p>
+      </div>
+    </div>
+    <div style="border-top:1px solid #1f2937;padding-top:24px;">
+      &copy; 2026 ACTCNC Heavy Industry & Laser Tech Co., Ltd. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

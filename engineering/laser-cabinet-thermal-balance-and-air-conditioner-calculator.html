@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNC Laser Electrical Cabinet Thermal Balance & Industrial A/C Sizing Calculator | ACTCNC</title>
+  <meta name="description" content="Calculate electrical cabinet internal heat dissipation (Watts / BTU), thermal equilibrium delta-T, and required closed-loop industrial cabinet air conditioner cooling capacity for 10kW to 60kW fiber lasers in extreme ambient heat.">
+  <link rel="canonical" href="https://actcnc.com/engineering/laser-cabinet-thermal-balance-and-air-conditioner-calculator.html">
+  <style>
+    :root { --primary: #0284c7; --accent: #38bdf8; --dark-bg: #070a11; --dark-surface: #0f172a; --dark-card: #1e293b; --dark-border: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    .hero-sec { text-align: center; margin-bottom: 50px; }
+    .hero-sec h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .hero-sec p { color: var(--text-muted); max-width: 820px; margin: 0 auto 30px; font-size: 16px; }
+    
+    .calc-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; }
+    .panel { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 18px; padding: 32px; }
+    .results { background: linear-gradient(145deg, #0c4a6e 0%, #082f49 100%); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 18px; padding: 32px; }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 700; color: #e2e8f0; margin-bottom: 8px; }
+    .form-group select, .form-group input { width: 100%; background: #030712; border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 16px; color: #fff; font-size: 15px; font-weight: 600; outline: none; }
+    
+    .stat-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 15px; }
+    .stat-row:last-of-type { border-bottom: none; }
+    .stat-row .val { font-weight: 800; color: #fff; }
+    .stat-row .val.green { color: #4ade80; font-size: 20px; }
+    
+    .btn-action { display: block; width: 100%; text-align: center; background: #22c55e; color: #fff; padding: 16px; border-radius: 10px; font-weight: 800; font-size: 16px; margin-top: 24px; }
+    
+    @media (max-width: 900px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "CNC Laser Electrical Enclosure Thermal Equilibrium and Industrial AC Sizing Standards",
+    "description": "Calculate servo driver internal heat loss, PLC enclosure thermal dissipation, and industrial air conditioner cooling power to prevent electronic over-temperature shutdown.",
+    "author": { "@type": "Organization", "name": "ACTCNC Heavy Industry" }
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <span>ACTCNC Electrical Thermal Management & Enclosure Engineering Tool</span>
+    <span>WhatsApp Support: +86 155 6620 6930</span>
+  </div>
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <div style="font-size:14px;font-weight:700;"><a href="/" style="color:var(--accent);">&larr; Back to Main Portal</a></div>
+  </header>
+
+  <div class="container">
+    <div class="hero-sec">
+      <span style="background:rgba(2,132,199,0.15);color:#38bdf8;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:800;text-transform:uppercase;">Electrical Thermal Tool</span>
+      <h1 style="margin-top:14px;">Laser Cabinet Thermal Balance & Industrial A/C Sizing Calculator</h1>
+      <p>High-torque servo drives and CNC bus controllers generate severe internal heat. In desert ambient environments (45°C–50°C), calculate required closed-loop IP55 industrial cabinet air conditioning cooling power.</p>
+    </div>
+
+    <div class="calc-grid">
+      <div class="panel">
+        <h3 style="color:#fff;font-size:18px;font-weight:800;margin-bottom:20px;">1. Cabinet Electronics & Climate Parameters</h3>
+
+        <div class="form-group">
+          <label>Machine Motion Axis Configuration</label>
+          <select id="axisConfig" onchange="calculateCabinetHeat()">
+            <option value="standard">Standard 3-Axis Sheet Cutter (X/Y1/Y2/Z Servos ~1,200W Heat)</option>
+            <option value="groundrail" selected>Heavy Ground Rail Mega Cutter (Dual Gantry Servos + Heavy Exhaust ~2,200W Heat)</option>
+            <option value="tube5axis">5-Axis Heavy CNC Tube Cutter (Dual Rotary Chucks + 3 Follow-ups ~2,800W Heat)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Maximum Peak Ambient Workshop Temperature (°C)</label>
+          <input type="number" id="ambTempCab" value="48" min="20" max="60" oninput="calculateCabinetHeat()">
+        </div>
+
+        <div class="form-group">
+          <label>Target Internal Cabinet Regulated Temperature (°C)</label>
+          <input type="number" id="targetTempCab" value="30" min="20" max="35" oninput="calculateCabinetHeat()">
+        </div>
+
+        <div class="form-group">
+          <label>Cabinet Surface Area Exposed to Ambient (m²)</label>
+          <input type="number" id="cabSurface" value="6.5" min="2.0" max="25.0" step="0.5" oninput="calculateCabinetHeat()">
+        </div>
+      </div>
+
+      <div class="results">
+        <h3 style="color:#fff;font-size:20px;font-weight:800;margin-bottom:20px;">2. Required Industrial A/C Capacity</h3>
+
+        <div class="stat-row">
+          <span>Internal Component Heat Dissipation</span>
+          <span class="val" id="internalHeat">2,200 Watts</span>
+        </div>
+        <div class="stat-row">
+          <span>Solar / Ambient Radiant Heat Transfer (Qin)</span>
+          <span class="val" id="ambientTransfer">643 Watts</span>
+        </div>
+        <div class="stat-row">
+          <span>Total Required Cooling Capacity (Qtotal)</span>
+          <span class="val green" id="requiredCooling">3,412 Watts (11,640 BTU/h)</span>
+        </div>
+        <div class="stat-row">
+          <span>Recommended Industrial A/C Model</span>
+          <span class="val green" id="recommendedAc">ACTCNC AC-3500 (3.5 kW Closed-Loop IP55)</span>
+        </div>
+
+        <a href="https://wa.me/8615566206930?text=Direct%20Inquiry%20Industrial%20Cabinet%20AC%20Scheme" target="_blank" class="btn-action">
+          Inquire About Desert-Grade Tropicalized Electrical Enclosures &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateCabinetHeat() {
+      const axis = document.getElementById('axisConfig').value;
+      const tAmb = parseFloat(document.getElementById('ambTempCab').value) || 45;
+      const tTgt = parseFloat(document.getElementById('targetTempCab').value) || 30;
+      const area = parseFloat(document.getElementById('cabSurface').value) || 6.0;
+      
+      let qComp = 2200;
+      if (axis === 'standard') qComp = 1200;
+      if (axis === 'tube5axis') qComp = 2800;
+      
+      // Heat transfer coefficient for sheet steel k ~ 5.5 W/m²·K
+      const deltaT = Math.max(0, tAmb - tTgt);
+      const qIn = Math.round(5.5 * area * deltaT);
+      const totalQ = Math.round((qComp + qIn) * 1.2); // 20% safety margin
+      const btu = Math.round(totalQ * 3.412142);
+      
+      let model = "ACTCNC AC-3500 (3.5 kW Closed-Loop IP55)";
+      if (totalQ > 4000) model = "ACTCNC AC-5000 (5.0 kW Heavy Duty IP55)";
+      if (totalQ < 2000) model = "ACTCNC AC-2000 (2.0 kW Compact IP55)";
+      
+      document.getElementById('internalHeat').innerText = qComp + " Watts";
+      document.getElementById('ambientTransfer').innerText = qIn + " Watts";
+      document.getElementById('requiredCooling').innerText = totalQ + " Watts (" + btu.toLocaleString() + " BTU/h)";
+      document.getElementById('recommendedAc').innerText = model;
+    }
+    calculateCabinetHeat();
+  </script>
+</body>
+</html>

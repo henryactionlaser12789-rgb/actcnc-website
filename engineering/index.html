@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Hub & Online Calculators | ACTCNC Heavy Laser Machinery</title>
+  <meta name="description" content="Central engineering resource portal: online CNC laser calculators, cutting parameter databases, troubleshooting matrices, and in-depth industrial laser whitepapers.">
+  <link rel="canonical" href="https://actcnc.com/engineering/">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --accent: #38bdf8;
+      --dark-bg: #070a11;
+      --dark-surface: #0f172a;
+      --dark-card: #1e293b;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; align-items: center; }
+    .nav-links a:hover { color: var(--accent); }
+    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    
+    .hero { padding: 90px 24px 70px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.25) 0%, rgba(7, 10, 17, 0) 70%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); }
+    .hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 900; margin-bottom: 18px; color: #fff; }
+    .hero p { max-width: 800px; margin: 0 auto 30px; font-size: 18px; color: var(--text-muted); }
+    
+    .container { max-width: 1240px; margin: 0 auto; padding: 60px 24px; }
+    .section-title { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 30px; display: flex; align-items: center; gap: 12px; }
+    .section-title .badge { background: rgba(56, 189, 248, 0.15); color: var(--accent); font-size: 13px; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3); }
+    
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 24px; margin-bottom: 60px; }
+    .card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; transition: all 0.3s; }
+    .card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(2, 132, 199, 0.15); }
+    .card .icon { font-size: 28px; margin-bottom: 14px; }
+    .card h3 { font-size: 19px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; flex: 1; }
+    .card .btn-link { color: var(--accent); font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; }
+    
+    footer { background: #030712; border-top: 1px solid var(--dark-border); padding: 50px 24px; text-align: center; color: var(--text-muted); font-size: 14px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "ACTCNC Engineering Resource Portal & Online Calculators",
+    "description": "Comprehensive engineering toolset for fiber laser cutting, tube nesting, chiller thermal load, and proportional pressure control.",
+    "url": "https://actcnc.com/engineering/"
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <div><span>ACTCNC Heavy Industry Engineering Portal</span></div>
+    <div>WhatsApp Support: <strong style="color:#fff;">+86 155 6620 6930</strong></div>
+  </div>
+
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30kW–60kW Cutters</a></li>
+      <li><a href="/products/heavy-tube-pipe-fiber-laser-cutters.html">Tube Cutters</a></li>
+      <li><a href="/products/laser-cladding-hardening-remanufacturing.html">Laser Cladding</a></li>
+      <li><a href="/engineering/" style="color:var(--accent);">Engineering Hub</a></li>
+    </ul>
+    <a href="https://wa.me/8615566206930" class="btn-wa" target="_blank">Contact Engineers</a>
+  </header>
+
+  <section class="hero">
+    <h1>Engineering Hub & Technical Calculators</h1>
+    <p>Precision simulation tools, parametric databases, and peer-reviewed application whitepapers for heavy-duty fiber laser cutting, tube beveling, and laser cladding.</p>
+  </section>
+
+  <div class="container">
+    <div class="section-title">
+      <span>🛠️ Interactive Engineering Calculators</span>
+      <span class="badge">9 Live Tools</span>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Nitrogen-Oxygen (MixGas) Cutting Guide & Sizer</h3>
+        <p>Intelligent N2+O2 gas blending physics, 50% feed rate acceleration on 10mm–35mm plates, and interactive gas mixing cost calculator.</p>
+        <a href="/engineering/nitrogen-oxygen-mixgas-laser-cutting-guide.html" class="btn-link">Open MixGas Guide &rarr;</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>NanoJoints vs MicroJoints Anti-Tilt Sorting Guide</h3>
+        <p>Eliminate 99% of cutting head tip-up collisions, reduce deburring labor, and optimize automated robotic vacuum sorting.</p>
+        <a href="/engineering/nanotab-nanojoint-microjoint-sorting-guide.html" class="btn-link">Open NanoJoints Guide &rarr;</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">📐</div>
+        <h3>Tube Nesting & Tailing Loss Calculator</h3>
+        <p>Calculate material savings with 3-chuck zero-tailing tube laser cutting versus conventional dual-chuck machines across round, square, and profile tubes.</p>
+        <a href="/engineering/tube-laser-nesting-savings-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Laser Cleaning & Welding ROI Calculator</h3>
+        <p>Interactive payback model comparing handheld fiber laser cleaning and welding against chemical stripping and traditional TIG/MIG processes.</p>
+        <a href="/engineering/laser-cleaning-welding-roi-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">💨</div>
+        <h3>Gas Pipeline Pressure Drop Calculator</h3>
+        <p>Simulate pneumatic dynamic pressure drop (0–30 Bar) across factory piping length, diameter, and nitrogen/oxygen flow rates for high-power lasers.</p>
+        <a href="/engineering/laser-gas-pipeline-pressure-drop-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">❄️</div>
+        <h3>Laser Chiller Thermal Load & Dew Point Tool</h3>
+        <p>Calculate optical and laser source heat dissipation, chiller cooling tonnage, and ambient psychrometric dew point to prevent condensation.</p>
+        <a href="/engineering/laser-chiller-cooling-capacity-and-dew-point-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🌡️</div>
+        <h3>Electrical Cabinet Thermal Balance Calculator</h3>
+        <p>Size IP55 industrial air conditioning units and calculate heat dissipation for high-power servo drives, PLC racks, and laser power supplies.</p>
+        <a href="/engineering/laser-cabinet-thermal-balance-and-air-conditioner-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Gantry Dynamic Deflection & Acceleration Tool</h3>
+        <p>Calculate aluminum aviation gantry deflection under 1.5G–4.0G dynamic acceleration, natural resonance frequency, and tool tip position error.</p>
+        <a href="/engineering/laser-gantry-acceleration-and-deflection-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔄</div>
+        <h3>Dual Pallet Shuttle Exchange Takt Calculator</h3>
+        <p>Optimize sheet metal loading/unloading takt times, hydraulic cycle speeds, and 24/7 continuous duty cycle efficiency for dual exchange tables.</p>
+        <a href="/engineering/dual-exchange-table-shuttle-takt-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">⭕</div>
+        <h3>Thin-Wall Tube Clamping Force Calculator</h3>
+        <p>Determine proportional pneumatic clamping pressures to prevent thin-wall tube deformation and crushing during high-speed rotation.</p>
+        <a href="/engineering/thin-wall-tube-clamping-force-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔀</div>
+        <h3>Tube Intersection & Branch Opening Calculator</h3>
+        <p>Calculate 3D intersecting saddle lines, branch hole geometries, and bevel angles for structural truss and piping assemblies.</p>
+        <a href="/engineering/tube-laser-intersection-branch-calculator.html" class="btn-link">Open Calculator &rarr;</a>
+      </div>
+    </div>
+
+    <div class="section-title">
+      <span>📚 Technical Whitepapers & Engineering Guides</span>
+      <span class="badge">12 Technical Papers</span>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon">🧪</div>
+        <h3>Nitrogen-Oxygen (MixGas) Cutting Guide & Sizer</h3>
+        <p>Intelligent N2+O2 gas blending physics, 50% feed rate acceleration on 10mm–35mm plates, and interactive gas mixing cost calculator.</p>
+        <a href="/engineering/nitrogen-oxygen-mixgas-laser-cutting-guide.html" class="btn-link">Open MixGas Guide &rarr;</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>NanoJoints vs MicroJoints Anti-Tilt Sorting Guide</h3>
+        <p>Eliminate 99% of cutting head tip-up collisions, reduce deburring labor, and optimize automated robotic vacuum sorting.</p>
+        <a href="/engineering/nanotab-nanojoint-microjoint-sorting-guide.html" class="btn-link">Open NanoJoints Guide &rarr;</a>
+      </div>
+
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Proportional Valve Step Response & Corner Anti-Burn</h3>
+        <p>Millisecond-level pressure step response (<15ms) to prevent acute corner overheating and edge burnout in high-power cutting.</p>
+        <a href="/engineering/proportional-valve-response-and-corner-anti-burn-guide.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>1kW–60kW Fiber Laser Cutting Parameter Database</h3>
+        <p>Comprehensive cutting speed, assist gas pressure, and nozzle height lookup tables for carbon steel, stainless, aluminum, brass, and copper.</p>
+        <a href="/engineering/fiber-laser-cutting-parameters-database.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🎯</div>
+        <h3>Thick Plate Flash Piercing Technology</h3>
+        <p>Multi-stage progressive frequency and gas stepping algorithms for blast-free piercing on 20mm–100mm heavy structural carbon steel.</p>
+        <a href="/engineering/thick-plate-flash-piercing-technology.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🌪️</div>
+        <h3>Supersonic Laval Nozzle Design & Slag Ejection</h3>
+        <p>Fluid dynamics of convergent-divergent supersonic nozzles for 30kW–60kW nitrogen thick plate cutting and dross elimination.</p>
+        <a href="/engineering/supersonic-laval-nozzle-laser-cutting.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">✨</div>
+        <h3>Stainless Steel Mirror & Bright Surface Cutting</h3>
+        <p>High-purity nitrogen fluid mechanics and optical focal positioning for burr-free mirror finish on 6mm–30mm stainless steel.</p>
+        <a href="/engineering/stainless-steel-bright-surface-laser-cutting.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h3>Optical Thermal Lensing & Dynamic Focus Shift</h3>
+        <p>Root causes of focal drift in high-power cutting heads and real-time motorized Z-axis adaptive optical compensation.</p>
+        <a href="/engineering/thermal-focus-shift-and-optical-lensing-guide.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔶</div>
+        <h3>Copper & Aluminum High-Reflectivity Processing</h3>
+        <p>Back-reflection optical isolation, beam shaping, and short-pulse modulation for processing pure copper, brass, and 6061 aluminum.</p>
+        <a href="/engineering/copper-aluminum-high-reflectivity-laser-processing.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🌬️</div>
+        <h3>High-Pressure Air Cutting Economics & ISO 8573-1</h3>
+        <p>Cost reduction models using 16–20 Bar compressed air for carbon steel and aluminum cutting, with multi-stage oil and moisture filtration.</p>
+        <a href="/engineering/high-pressure-air-cutting-economics.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🤖</div>
+        <h3>Robotic 3D Laser Offline Programming (OLP)</h3>
+        <p>Digital twin trajectory generation, TCP kinematic calibration, and collision/singularity avoidance for automotive hydroformed parts.</p>
+        <a href="/engineering/robotic-laser-offline-programming-and-singularity-avoidance.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🏗️</div>
+        <h3>Heavy Laser Foundation & Vibration Damping</h3>
+        <p>Civil engineering requirements, seismic isolation joints, and inertia block calculations for 40-meter ground rail laser beds.</p>
+        <a href="/engineering/heavy-laser-foundation-and-vibration-damping-guide.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🌿</div>
+        <h3>Laser Welding Energy Efficiency & ESG Guide</h3>
+        <p>Carbon footprint reduction and kWh energy savings of fiber laser welding compared with conventional arc and resistance welding.</p>
+        <a href="/engineering/laser-welding-energy-carbon-esg-guide.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+      <div class="card">
+        <div class="icon">🔧</div>
+        <h3>Tube Laser Dynamic Balance & Runout Calibration</h3>
+        <p>Pneumatic chuck dynamic balance calibration, radial runout limits, and servo follower roller synchronization for high-speed tube rotation.</p>
+        <a href="/engineering/tube-laser-dynamic-balance-and-runout-calibration.html" class="btn-link">Read Whitepaper &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 ACTCNC Heavy Industry & Laser Tech Co., Ltd. All technical models subject to material test verification.
+  </footer>
+</body>
+</html>

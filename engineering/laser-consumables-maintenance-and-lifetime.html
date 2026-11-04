@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiber Laser Consumables Maintenance & Lifetime Prediction Guide | ACTCNC</title>
+  <meta name="description" content="Engineering maintenance guide for fiber laser protective windows, cutting nozzles, ceramic rings, and collimating lenses. Includes replacement cycle checklists and failure troubleshooting.">
+  <link rel="canonical" href="https://actcnc.com/engineering/laser-consumables-maintenance-and-lifetime.html">
+  <style>
+    :root { --primary: #0284c7; --accent: #38bdf8; --dark-bg: #070a11; --dark-surface: #0f172a; --dark-card: #1e293b; --dark-border: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+    h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; margin-bottom: 20px; line-height: 1.25; }
+    h2 { font-size: 24px; font-weight: 800; color: #fff; margin: 40px 0 16px; border-left: 4px solid var(--accent); padding-left: 14px; }
+    p { color: #cbd5e1; margin-bottom: 20px; font-size: 16px; }
+    .pill { background: rgba(2,132,199,0.15); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; border: 1px solid rgba(56,189,248,0.3); text-transform: uppercase; }
+    .table-box { width: 100%; border-collapse: collapse; margin: 24px 0; background: var(--dark-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--dark-border); }
+    .table-box th, .table-box td { padding: 14px 18px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+    .table-box th { background: #030712; color: #fff; font-weight: 800; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Fiber Laser Optical Consumables Maintenance and Replacement Lifecycle Guide",
+    "description": "Standard operating procedures for cleaning and replacing protective windows, cutting nozzles, and ceramic bodies on high-power fiber lasers.",
+    "author": { "@type": "Organization", "name": "ACTCNC Heavy Industry" }
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <span>ACTCNC Preventative Maintenance & Consumables SOP</span>
+    <span>WhatsApp Support: +86 155 6620 6930</span>
+  </div>
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <div style="font-size:14px;font-weight:700;"><a href="/" style="color:var(--accent);">&larr; Back to Main Portal</a></div>
+  </header>
+  <div class="container">
+    <span class="pill">Maintenance Engineering SOP</span>
+    <h1 style="margin-top:14px;">Fiber Laser Consumables Maintenance & Lifetime Prediction Matrix</h1>
+    <p>Optical contamination and nozzle wear account for over 80% of cut edge degradation, dross formation, and premature cutting head failures. This engineering guide outlines daily inspection SOPs and service life benchmarks across 1.5kW to 60kW fiber laser cutting heads.</p>
+    
+    <h2>1. Optical Consumable Replacement & Service Life Matrix</h2>
+    <p>Protective windows must be inspected daily using dust-free swabs and 99.9% anhydrous alcohol. Operating with burned or pitted cover slides causes severe thermal lensing and irreversible focus shift.</p>
+
+    <table class="table-box">
+      <thead>
+        <tr>
+          <th>Consumable Item</th>
+          <th>Typical Service Life (Under Clean Air/N2)</th>
+          <th>Inspection Frequency</th>
+          <th>Primary Failure Symptoms</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Lower Protective Window (Cover Slide)</strong></td>
+          <td><strong>120 – 240 Arc Hours</strong></td>
+          <td>Every 8 Hours (Shift Start)</td>
+          <td>Bottom slag burrs, beam divergence, focal shift</td>
+        </tr>
+        <tr>
+          <td><strong>Copper Cutting Nozzle (Single/Double)</strong></td>
+          <td><strong>150 – 300 Arc Hours</strong></td>
+          <td>Every 12 Hours</td>
+          <td>Orifice out-of-round (>0.05mm), spatters on tip</td>
+        </tr>
+        <tr>
+          <td><strong>Ceramic Ring / Sensor Body</strong></td>
+          <td><strong>800 – 1,500 Hours</strong></td>
+          <td>Weekly / After Head Collision</td>
+          <td>Capacitance height tracking error, Z-axis jitter</td>
+        </tr>
+        <tr>
+          <td><strong>Upper Collimating / Focus Window</strong></td>
+          <td><strong>2,000 – 4,000 Hours</strong></td>
+          <td>Monthly (Clean Room Environment)</td>
+          <td>Thermal drift, power drop >5%</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Clean Room Cleaning SOP for Protective Windows</h2>
+    <p>Always perform window replacement in a draft-free environment with nitrile powder-free gloves. Never blow compressed shop air directly onto open optical cavities.</p>
+
+    <div style="background:var(--dark-surface);border:1px solid var(--dark-border);border-radius:14px;padding:28px;text-align:center;margin-top:40px;">
+      <h3 style="color:#fff;font-size:20px;font-weight:800;margin-bottom:10px;">Download Preventative Maintenance Wall Chart (PDF)</h3>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;">Laminated workshop maintenance checklist covering Raytools, Precitec, and BOCI intelligent autofocus heads.</p>
+      <a href="https://wa.me/8615566206930?text=Request%20Laser%20Maintenance%20SOP%20Chart" target="_blank" style="background:#0284c7;color:#fff;padding:12px 24px;border-radius:8px;font-weight:800;display:inline-block;">
+        Inquire via WhatsApp: +86 155 6620 6930
+      </a>
+    </div>
+  </div>
+</body>
+</html>

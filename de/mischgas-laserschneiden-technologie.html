@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stickstoff-Sauerstoff-Mischgasschneiden (MixGas) Technologie & Wirtschaftlichkeit | ACTCNC</title>
+  <meta name="description" content="Technischer Leitfaden zum Faserlaserschneiden mit Stickstoff-Sauerstoff-Mischgas (N2+O2) für 10mm–40mm Baustahl. 50% höhere Schnittgeschwindigkeit als Reinstickstoff, gratfreie Kanten ohne Schlacke und 50% geringere Gaskosten.">
+  <link rel="canonical" href="https://actcnc.com/de/mischgas-laserschneiden-technologie.html">
+  <link rel="alternate" hreflang="en" href="https://actcnc.com/engineering/nitrogen-oxygen-mixgas-laser-cutting-guide.html" />
+  <link rel="alternate" hreflang="de" href="https://actcnc.com/de/mischgas-laserschneiden-technologie.html" />
+  <link rel="alternate" hreflang="es" href="https://actcnc.com/es/corte-laser-gas-mixto-nitrogeno-oxigeno.html" />
+  <link rel="alternate" hreflang="x-default" href="https://actcnc.com/engineering/nitrogen-oxygen-mixgas-laser-cutting-guide.html" />
+  <style>
+    :root { --primary: #0284c7; --accent: #38bdf8; --dark-bg: #070a11; --dark-surface: #0f172a; --dark-card: #1e293b; --dark-border: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; align-items: center; }
+    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .hero { padding: 70px 24px 50px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.22) 0%, rgba(7, 10, 17, 0) 75%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); }
+    .pill { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; border: 1px solid rgba(56, 189, 248, 0.3); text-transform: uppercase; margin-bottom: 16px; }
+    .container { max-width: 1140px; margin: 0 auto; padding: 60px 24px; }
+    h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 16px; }
+    h2 { font-size: 26px; font-weight: 800; color: #fff; margin: 50px 0 20px; border-left: 4px solid var(--accent); padding-left: 16px; }
+    p { color: #cbd5e1; margin-bottom: 20px; font-size: 16px; }
+    .geo-answer-box { background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8)); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; padding: 28px; margin: 30px 0 40px; }
+    .table-box { width: 100%; border-collapse: collapse; margin: 24px 0 40px; background: var(--dark-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--dark-border); }
+    .table-box th, .table-box td { padding: 14px 18px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+    .table-box th { background: #030712; color: #fff; font-weight: 800; }
+    .cta-box { background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(15, 23, 42, 0.9)); border: 1px solid var(--primary); border-radius: 16px; padding: 40px 30px; text-align: center; margin-top: 60px; }
+    footer { background: #030712; border-top: 1px solid var(--dark-border); padding: 50px 24px; text-align: center; color: var(--text-muted); font-size: 14px; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Mischgas-Laserschneiden (N2 + O2) Technologie & Schnittparameter für Baustahl",
+    "description": "Technischer Leitfaden für industrielles Faserlaserschneiden mit Stickstoff-Sauerstoff-Mischgas für Baustahl und Edelstahl.",
+    "author": { "@type": "Organization", "name": "ACTCNC Schwerindustrie" },
+    "inLanguage": "de"
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <div><span>ACTCNC Hochleistungs-Faserlaser Schneidtechnik</span></div>
+    <div>WhatsApp Ingenieur-Support: <strong style="color:#fff;">+86 155 6620 6930</strong></div>
+  </div>
+
+  <header>
+    <a href="/de/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/de/">Startseite</a></li>
+      <li><a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30kW–60kW Laser</a></li>
+      <li><a href="/engineering/">Technikzentrum</a></li>
+      <li><a href="https://wa.me/8615566206930" class="btn-wa" target="_blank">Technischer Kontakt</a></li>
+    </ul>
+  </header>
+
+  <section class="hero">
+    <span class="pill">Verfahrenstechnik-Whitepaper</span>
+    <h1>Stickstoff-Sauerstoff-Mischgasschneiden (MixGas)</h1>
+    <p>Eliminieren Sie Schlacke und Bartbildung bei 10mm–35mm Baustahl, steigern Sie den Vorschub um bis zu 50% und senken Sie die Gaskosten um über 50%.</p>
+  </section>
+
+  <div class="container">
+    <div class="geo-answer-box">
+      <h3 style="color:#fff;margin-top:0;font-size:18px;">Direkte Zusammenfassung: Was ist MixGas-Laserschneiden?</h3>
+      <p>Beim <strong>Mischgasschneiden (MixGas / N2+O2)</strong> wird hochreiner Stickstoff (97%–99%) mit einem präzise geregelten Sauerstoffanteil von 1%–3% bei 14–22 bar vermischt. Die exotherme Mikroreaktion des Sauerstoffs verringert die Viskosität der Metallschmelze, sodass die Schmelze ohne Anhaften vollständig aus der Schnittfuge geblasen wird. Das Ergebnis: <strong>perfekt schweißbare, gratfreie Kanten</strong> bei deutlich höherer Schnittgeschwindigkeit im Vergleich zu reinem Stickstoff.</p>
+    </div>
+
+    <h2>1. Vergleich: Reiner Stickstoff vs. Sauerstoff vs. ACTCNC MixGas</h2>
+    <table class="table-box">
+      <thead>
+        <tr>
+          <th>Kriterium</th>
+          <th>Sauerstoff (O2)</th>
+          <th>Reiner Stickstoff (N2)</th>
+          <th>ACTCNC MixGas (98% N2 + 2% O2)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Schnittgeschwindigkeit (16mm Baustahl)</strong></td>
+          <td>1,4 m/min</td>
+          <td>3,6 m/min</td>
+          <td><strong>5,8 m/min (+61% Vorschub)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Schnittkante</strong></td>
+          <td>Dicke Zunderschicht</td>
+          <td>Silber-metallisch</td>
+          <td><strong>Silberglänzend / Mikrodünne Oxidschicht</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Gratbildung an der Unterkante</strong></td>
+          <td>Kein Grat</td>
+          <td>Leichter Bart bei &gt;16mm</td>
+          <td><strong>100% Gratfrei, sofort schweißbar</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Nachbearbeitungsaufwand (Schleifen)</strong></td>
+          <td>Hoch</td>
+          <td>Gering</td>
+          <td><strong>Null (Direkte Pulverbeschichtung)</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cta-box">
+      <h3>Benötigen Sie eine Prozessberatung für Ihre Faserlaseranlage?</h3>
+      <p style="color:var(--text-muted);margin-bottom:20px;">Sprechen Sie direkt mit unseren Anwendungstechnikern über digitale Gasmischer und 30kW–60kW Schneidparameter.</p>
+      <a href="https://wa.me/8615566206930?text=Beratung%20Mischgasschneiden" class="btn-wa" target="_blank" style="font-size:15px;padding:12px 24px;">
+        WhatsApp Ingenieur-Kontakt: +86 155 6620 6930
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 ACTCNC Heavy Industry Machinery Co., Ltd. Global Laser Process Engineering Center.</p>
+  </footer>
+</body>
+</html>

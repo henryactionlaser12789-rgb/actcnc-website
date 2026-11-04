@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>High-Pressure Proportional Valve Response & Corner Anti-Burn Pressure Modulation | ACTCNC</title>
+  <meta name="description" content="Technical guide on millisecond-level proportional valve step response (<15ms), closed-loop pressure modulation, and eliminating thermal overburn on sharp corners in high-power laser cutting.">
+  <link rel="canonical" href="https://actcnc.com/engineering/proportional-valve-response-and-corner-anti-burn-guide.html">
+  <style>
+    :root { --primary: #0284c7; --accent: #38bdf8; --dark-bg: #070a11; --dark-surface: #0f172a; --dark-card: #1e293b; --dark-border: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+    h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; margin-bottom: 20px; line-height: 1.25; }
+    h2 { font-size: 24px; font-weight: 800; color: #fff; margin: 40px 0 16px; border-left: 4px solid var(--accent); padding-left: 14px; }
+    p { color: #cbd5e1; margin-bottom: 20px; font-size: 16px; }
+    .pill { background: rgba(2,132,199,0.15); color: #38bdf8; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 800; border: 1px solid rgba(56,189,248,0.3); text-transform: uppercase; }
+    .table-box { width: 100%; border-collapse: collapse; margin: 24px 0; background: var(--dark-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--dark-border); }
+    .table-box th, .table-box td { padding: 14px 18px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+    .table-box th { background: #030712; color: #fff; font-weight: 800; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "High-Pressure Proportional Valve Step Response and Corner Anti-Overburn Dynamics",
+    "description": "Engineering guide on high-speed pneumatic gas pressure modulation, eliminating acute corner thermal burnout, and lead-in slag crater suppression.",
+    "author": { "@type": "Organization", "name": "ACTCNC Heavy Industry" }
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <span>ACTCNC Pneumatic Servo & Pressure Modulation Engineering Series</span>
+    <span>WhatsApp Support: +86 155 6620 6930</span>
+  </div>
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <div style="font-size:14px;font-weight:700;"><a href="/" style="color:var(--accent);">&larr; Back to Main Portal</a></div>
+  </header>
+  <div class="container">
+    <span class="pill">Pneumatic Servo Engineering Whitepaper</span>
+    <h1 style="margin-top:14px;">High-Pressure Proportional Valve Response & Corner Anti-Burn Pressure Modulation</h1>
+    <p>When high-power fiber lasers decelerate into acute corners (<90°), excessive heat builds up in the localized melt pool. If assist gas pressure cannot be stepped down within milliseconds, violent uncontrolled oxidation results in severe corner overburn and rounded melt edges. ACTCNC ultra-fast proportional servo valves achieve a 0–25 Bar step response in under 15ms, synchronizing gas pressure with CNC motion acceleration in real time.</p>
+    
+    <h2>1. Conventional Solenoid Valves vs. ACTCNC Ultra-Fast Proportional Servo Valves</h2>
+
+    <table class="table-box">
+      <thead>
+        <tr>
+          <th>Pneumatic Control System</th>
+          <th>Pressure Step Response Time</th>
+          <th>Pressure Regulation Resolution</th>
+          <th>Corner Quality on 20mm Carbon Steel</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>ACTCNC Fast Proportional Servo Valve</strong></td>
+          <td><strong>&lt; 15 Milliseconds (&le;15ms)</strong></td>
+          <td><strong>&plusmn;0.05 Bar (Closed-Loop Sensor)</strong></td>
+          <td><strong>Crisp Sharp Corner (Zero Melting Overburn)</strong></td>
+        </tr>
+        <tr>
+          <td>Standard Industrial Proportional Valve</td>
+          <td>120 – 250 Milliseconds</td>
+          <td>&plusmn;0.30 Bar</td>
+          <td>Slight corner rounding & slag bead</td>
+        </tr>
+        <tr>
+          <td>Digital High/Low Solenoid Valve</td>
+          <td>>400 Milliseconds (Lagging)</td>
+          <td>Fixed binary pressure only</td>
+          <td>Severe thermal burnout / corner blowout</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Dynamic Power-Pressure-Frequency Curve Coupling</h2>
+    <p>By coupling CNC travel speed with laser peak pulse duty cycle and proportional valve pressure, ACTCNC intelligent corner algorithms ensure consistent heat input per unit length regardless of path geometry.</p>
+
+    <div style="background:var(--dark-surface);border:1px solid var(--dark-border);border-radius:14px;padding:28px;text-align:center;margin-top:40px;">
+      <h3 style="color:#fff;font-size:20px;font-weight:800;margin-bottom:10px;">Download CNC Corner Anti-Burn Macro Configurations (CypCut / HypCut)</h3>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px;">Complete parameter lookup tables for sharp corner deceleration and gas pressure stepping.</p>
+      <a href="https://wa.me/8615566206930?text=Request%20Corner%20AntiBurn%20Macros" target="_blank" style="background:#0284c7;color:#fff;padding:12px 24px;border-radius:8px;font-weight:800;display:inline-block;">
+        Request Macro Files via WhatsApp: +86 155 6620 6930
+      </a>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Промышленные ЧПУ станки для лазерной резки металла (1.5кВт–30кВт) | ACTCNC</title>
+  <meta name="description" content="Высокоточные промышленные оптоволоконные станки лазерной резки от 1.5 до 30 кВт со сменными столами, сертифицированные CE/FDA, поставка в РФ и СНГ.">
+  <link rel="canonical" href="https://actcnc.com/ru/fiber-laser-cutting.html">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --primary-dark: #0c4a6e;
+      --accent: #f59e0b;
+      --dark-bg: #090d16;
+      --dark-surface: #111827;
+      --dark-card: #1f2937;
+      --dark-border: #374151;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --success: #10b981;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    .top-bar {
+      background: #030712;
+      border-bottom: 1px solid #1f2937;
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 8px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .badge-iso {
+      background: #1e3a8a;
+      color: #93c5fd;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(9, 13, 22, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo { font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 1.5px; }
+    .brand-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 15px; font-weight: 600; align-items: center; }
+    .nav-links a:hover { color: var(--primary); }
+    .lang-switcher { display: flex; gap: 8px; font-size: 13px; font-weight: 700; }
+    .lang-btn { padding: 4px 8px; border-radius: 4px; border: 1px solid var(--dark-border); color: var(--text-muted); }
+    .lang-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-wa {
+      background: #22c55e;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--primary-hover); }
+    .page-hero {
+      padding: 70px 24px 50px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.18) 0%, rgba(9, 13, 22, 0) 70%);
+      border-bottom: 1px solid #1f2937;
+    }
+    .page-hero h1 { font-size: clamp(28px, 4.5vw, 44px); font-weight: 900; margin-bottom: 16px; color: #fff; line-height: 1.2; }
+    .page-hero p { font-size: 17px; color: var(--text-muted); max-width: 840px; margin: 0 auto 24px; }
+    .content-container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .card {
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 30px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--primary); }
+    .card h3 { color: #fff; font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+    .card p { color: var(--text-muted); font-size: 14px; margin-bottom: 18px; }
+    .spec-table-box {
+      background: var(--dark-surface);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 30px 0;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; }
+    th { background: #111827; color: #38bdf8; padding: 14px 18px; border-bottom: 1px solid var(--dark-border); font-weight: 700; }
+    td { padding: 14px 18px; border-bottom: 1px solid #1f2937; color: #e5e7eb; }
+    tr:nth-child(even) { background: rgba(255, 255, 255, 0.02); }
+    .feature-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(2, 132, 199, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(2, 132, 199, 0.3);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+    .calc-card {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 12px;
+      padding: 30px;
+      margin: 40px 0;
+    }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 24px; }
+    .calc-group label { display: block; font-size: 13px; font-weight: 700; color: #9ca3af; margin-bottom: 8px; }
+    .calc-group select, .calc-group input {
+      width: 100%;
+      background: #1f2937;
+      border: 1px solid #4b5563;
+      border-radius: 6px;
+      color: #fff;
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    .calc-result-box {
+      background: rgba(2, 132, 199, 0.1);
+      border: 1px solid #0284c7;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 16px;
+      text-align: center;
+    }
+    .calc-stat-val { font-size: 26px; font-weight: 900; color: #38bdf8; }
+    .calc-stat-lbl { font-size: 12px; color: #9ca3af; text-transform: uppercase; font-weight: 700; margin-top: 4px; }
+    .cta-banner {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      margin: 50px 0;
+    }
+    .cta-banner h2 { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 12px; }
+    .cta-banner p { color: #e0f2fe; max-width: 640px; margin: 0 auto 24px; font-size: 16px; }
+    footer {
+      background: #030712;
+      border-top: 1px solid #1f2937;
+      padding: 60px 24px 30px;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 40px; }
+    .footer-grid h4 { color: #fff; font-size: 15px; font-weight: 800; margin-bottom: 16px; letter-spacing: 0.5px; }
+    .footer-grid ul { list-style: none; }
+    .footer-grid li { margin-bottom: 10px; }
+    .footer-grid a:hover { color: var(--primary); }
+    .footer-bottom { text-align: center; border-top: 1px solid #111827; padding-top: 24px; color: var(--text-dim); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div>
+      <span class="badge-iso">ISO 9001:2015</span>
+      <span class="badge-iso" style="background:#065f46;color:#a7f3d0;margin-left:6px;">CE & FDA CDRH Certified</span>
+      <span style="margin-left:12px;display:inline-block;">Industrial CNC & Laser Manufacturing Direct</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;">
+      <span>WhatsApp/Phone: <strong style="color:#fff;">+86 155 6620 6930</strong></span>
+      <div class="lang-switcher">
+        <a href="/" class="lang-btn ">EN</a>
+        <a href="/ru/" class="lang-btn active">RU</a>
+        <a href="/es/" class="lang-btn ">ES</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <a href="/ru/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/ru/">Главная</a></li>
+      <li><a href="/products/fiber-laser-cutting-machines.html">Продукция</a></li>
+      <li><a href="/solutions/automotive-sheet-metal-aerospace.html">Решения</a></li>
+      <li><a href="/ru/#calculators">Калькуляторы</a></li>
+      <li>
+        <a href="https://wa.me/8615566206930?text=Hello%20ACTCNC%20I%20need%20a%20quote" target="_blank" class="btn-wa">
+          <span>💬</span> Запрос КП
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <section class="page-hero">
+    <div style="display:inline-block;padding:4px 12px;background:rgba(2,132,199,0.2);color:#38bdf8;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:12px;">ПРЯМЫЕ ПОСТАВКИ С ЗАВОДА-ИЗГОТОВИТЕЛЯ</div>
+    <h1>Промышленные оптоволоконные лазерные станки ЧПУ (1.5кВт–30кВт)</h1>
+    <p>Надежное оборудование для скоростного высокоточного раскроя листового и трубного металлопроката (углеродистая сталь, нержавеющая сталь, алюминий, латунь).</p>
+    <a href="https://wa.me/8615566206930?text=Здравствуйте,%20интересует%20лазерный%20станок%20раскроя%20металла" class="btn-primary" target="_blank">
+      Получить каталог и расчет стоимости (WhatsApp)
+    </a>
+  </section>
+
+  <div class="content-container">
+    <h2 style="font-size:26px;font-weight:800;color:#fff;margin-bottom:16px;">Таблица толщин и скоростей резки</h2>
+    <div class="spec-table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Мощность источника</th>
+            <th>Углеродистая сталь (O2)</th>
+            <th>Нержавеющая сталь (N2)</th>
+            <th>Алюминиевые сплавы (N2)</th>
+            <th>Латунь / Медь</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>3,000 Вт</strong></td>
+            <td>до 20 мм (1.2 м/мин при 10 мм)</td>
+            <td>до 10 мм (2.5 м/мин при 4 мм)</td>
+            <td>до 8 мм (2.0 м/мин при 4 мм)</td>
+            <td>до 6 мм</td>
+          </tr>
+          <tr>
+            <td><strong>6,000 Вт</strong></td>
+            <td>до 25 мм (2.2 м/мин при 12 мм)</td>
+            <td>до 16 мм (4.5 м/мин при 6 мм)</td>
+            <td>до 16 мм (3.8 м/мин при 6 мм)</td>
+            <td>до 10 мм</td>
+          </tr>
+          <tr>
+            <td><strong>12,000 Вт</strong></td>
+            <td>до 40 мм (4.5 м/мин при 16 мм)</td>
+            <td>до 35 мм (8.0 м/мин при 8 мм)</td>
+            <td>до 30 мм (7.2 м/мин при 8 мм)</td>
+            <td>до 20 мм</td>
+          </tr>
+          <tr>
+            <td><strong>20,000 Вт</strong></td>
+            <td>до 60 мм (7.5 м/мин при 20 мм)</td>
+            <td>до 50 мм (14.0 м/мин при 10 мм)</td>
+            <td>до 50 мм (12.5 м/мин при 10 мм)</td>
+            <td>до 30 мм</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="cta-banner">
+      <h2>Прямая техническая поддержка и русскоязычные специалисты</h2>
+      <p>Оформление по контракту, шеф-монтаж, гарантия 2 года, склад расходных материалов и запчастей.</p>
+      <a href="https://wa.me/8615566206930?text=Запрос%20КП%20по%20лазерному%20станку" class="btn-primary" target="_blank" style="background:#22c55e;">
+        Связаться с инженером в WhatsApp (+86 155 6620 6930)
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom:12px;">ACT<span>CNC</span></div>
+        <p style="margin-bottom:16px;">Global Manufacturer of Industrial CNC Fiber Laser Cutters, 3-in-1 Laser Welders & Cleaners, and Automation Marking Systems.</p>
+        <p><strong>Hotline:</strong> +86 155 6620 6930<br>
+        <strong>Email:</strong> sales@actcnc.com<br>
+        <strong>Telegram:</strong> @ACTCNC_Laser</p>
+      </div>
+      <div>
+        <h4>CNC & Laser Equipment</h4>
+        <ul>
+          <li><a href="/products/fiber-laser-cutting-machines.html">High-Power Fiber Cutters (1.5kW–30kW)</a></li>
+          <li><a href="/products/handheld-laser-welder-cleaner.html">3-in-1 Handheld Laser Welder & Cleaner</a></li>
+          <li><a href="/products/flying-laser-marking-systems.html">High-Speed Industrial Flying Marking</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industry Solutions</h4>
+        <ul>
+          <li><a href="/solutions/automotive-sheet-metal-aerospace.html">Automotive & Aerospace Metal</a></li>
+          <li><a href="/solutions/kitchenware-hardware-fabrication.html">Kitchenware & Hardware Fabrication</a></li>
+          <li><a href="/solutions/precision-electronics-medical.html">Precision Electronics & Medical Devices</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Engineering & Compliance</h4>
+        <ul>
+          <li><a href="/#calculators">Laser Speed & ROI Calculators</a></li>
+          <li><a href="/ru/">Russian Portal (RU / СНГ)</a></li>
+          <li><a href="/es/">Spanish Portal (ES / LATAM)</a></li>
+          <li><a href="/sitemap.xml">XML Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 ACTCNC Heavy Industry & Laser Tech Co., Ltd. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>

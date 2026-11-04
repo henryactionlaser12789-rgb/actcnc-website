@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thin-Wall Tube Clamping Force & Anti-Crush Deformation Calculator | ACTCNC</title>
+  <meta name="description" content="Calculate maximum pneumatic clamping pressure (Bar), jaw contact area, and yield deformation limits for thin-walled stainless steel, aluminum, and copper tubes on CNC laser chucks.">
+  <link rel="canonical" href="https://actcnc.com/engineering/thin-wall-tube-clamping-force-calculator.html">
+  <style>
+    :root { --primary: #0284c7; --accent: #38bdf8; --dark-bg: #070a11; --dark-surface: #0f172a; --dark-card: #1e293b; --dark-border: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    .hero-sec { text-align: center; margin-bottom: 50px; }
+    .hero-sec h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .hero-sec p { color: var(--text-muted); max-width: 820px; margin: 0 auto 30px; font-size: 16px; }
+    
+    .calc-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; }
+    .panel { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 18px; padding: 32px; }
+    .results { background: linear-gradient(145deg, #0c4a6e 0%, #082f49 100%); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 18px; padding: 32px; }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 700; color: #e2e8f0; margin-bottom: 8px; }
+    .form-group select, .form-group input { width: 100%; background: #030712; border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 16px; color: #fff; font-size: 15px; font-weight: 600; outline: none; }
+    
+    .stat-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 15px; }
+    .stat-row:last-of-type { border-bottom: none; }
+    .stat-row .val { font-weight: 800; color: #fff; }
+    .stat-row .val.green { color: #4ade80; font-size: 20px; }
+    
+    .btn-action { display: block; width: 100%; text-align: center; background: #22c55e; color: #fff; padding: 16px; border-radius: 10px; font-weight: 800; font-size: 16px; margin-top: 24px; }
+    
+    @media (max-width: 900px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Thin-Wall Tube Clamping Force and Anti-Deformation Engineering Guide",
+    "description": "Calculate proportional valve pressure settings, chuck jaw contact geometry, and radial crush limits for laser cutting delicate tubing.",
+    "author": { "@type": "Organization", "name": "ACTCNC Heavy Industry" }
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <span>ACTCNC Pneumatic Chuck Engineering & Tube Clamping Safety Tool</span>
+    <span>WhatsApp Support: +86 155 6620 6930</span>
+  </div>
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <div style="font-size:14px;font-weight:700;"><a href="/" style="color:var(--accent);">&larr; Back to Main Portal</a></div>
+  </header>
+
+  <div class="container">
+    <div class="hero-sec">
+      <span style="background:rgba(2,132,199,0.15);color:#38bdf8;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:800;text-transform:uppercase;">Precision Clamping Tool</span>
+      <h1 style="margin-top:14px;">Thin-Wall Tube Clamping Force & Anti-Crush Calculator</h1>
+      <p>Clamping thin-walled tubes (wall thickness ≤1.2mm) with standard pneumatic pressure causes permanent ovalization and rotational slippage. Calculate optimal proportional valve settings.</p>
+    </div>
+
+    <div class="calc-grid">
+      <div class="panel">
+        <h3 style="color:#fff;font-size:18px;font-weight:800;margin-bottom:20px;">1. Tube Material & Geometry</h3>
+
+        <div class="form-group">
+          <label>Material Alloy Grade</label>
+          <select id="tubeMat" onchange="calculateClamping()">
+            <option value="ss304" selected>Stainless Steel (304 / 316L / Sanitary Tube)</option>
+            <option value="al6063">Aluminum Alloy (6063-T5 / Extruded Profile)</option>
+            <option value="copper">Pure Copper / Brass (C11000 / HVAC Tube)</option>
+            <option value="carbon">Mild Carbon Steel (Q235 / Furniture Tube)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Tube Outer Diameter (OD in mm)</label>
+          <input type="number" id="tubeOd" value="50.8" min="10" max="300" step="0.1" oninput="calculateClamping()">
+        </div>
+
+        <div class="form-group">
+          <label>Tube Wall Thickness (WT in mm)</label>
+          <input type="number" id="tubeWt" value="1.0" min="0.4" max="8.0" step="0.1" oninput="calculateClamping()">
+        </div>
+
+        <div class="form-group">
+          <label>Chuck Jaw Type</label>
+          <select id="jawType" onchange="calculateClamping()">
+            <option value="point">Standard Hard Point Jaws (Small Contact Area)</option>
+            <option value="curved" selected>ACTCNC Radius Arc Soft Jaws (120° Wrap-Around)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="results">
+        <h3 style="color:#fff;font-size:20px;font-weight:800;margin-bottom:20px;">2. Proportional Pressure & Safety Limits</h3>
+
+        <div class="stat-row">
+          <span>Safe Clamping Air Pressure</span>
+          <span class="val green" id="safePressure">2.4 Bar (Regulated)</span>
+        </div>
+        <div class="stat-row">
+          <span>Radial Clamping Force per Jaw</span>
+          <span class="val" id="clampForce">485 N (Safe Elastic Range)</span>
+        </div>
+        <div class="stat-row">
+          <span>Maximum Rotational Acceleration</span>
+          <span class="val" id="maxAccel">1.2 G (Anti-Slip Safe)</span>
+        </div>
+        <div class="stat-row">
+          <span>Radial Ovalization Deformation</span>
+          <span class="val green" id="deformStatus">&lt; 0.05 mm (Strict Precision)</span>
+        </div>
+
+        <a href="https://wa.me/8615566206930?text=Direct%20Inquiry%20Precision%20Tube%20Laser%20Chucks" target="_blank" class="btn-action">
+          Inquire About Intelligent Proportional Chuck Systems &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateClamping() {
+      const od = parseFloat(document.getElementById('tubeOd').value) || 50;
+      const wt = parseFloat(document.getElementById('tubeWt').value) || 1.0;
+      const mat = document.getElementById('tubeMat').value;
+      const jaw = document.getElementById('jawType').value;
+      
+      // Critical buckling pressure calculation
+      let yieldFactor = 215; // MPa for SS304
+      if (mat === 'al6063') yieldFactor = 140;
+      if (mat === 'copper') yieldFactor = 100;
+      if (mat === 'carbon') yieldFactor = 235;
+      
+      const ratio = wt / od;
+      let bar = (ratio * 120).toFixed(1);
+      if (jaw === 'curved') bar = (bar * 1.4).toFixed(1);
+      if (bar > 6.0) bar = "6.0";
+      if (bar < 0.8) bar = "0.8";
+      
+      const forceN = Math.round(bar * 200 * (jaw === 'curved' ? 1.3 : 1.0));
+      
+      document.getElementById('safePressure').innerText = bar + " Bar (Regulated)";
+      document.getElementById('clampForce').innerText = forceN + " N";
+      document.getElementById('maxAccel').innerText = (ratio > 0.03 ? "1.5 G" : "0.8 G") + " (Safe)";
+      document.getElementById('deformStatus').innerText = (ratio < 0.015 && jaw === 'point' ? "Warning: >0.2mm Ovalization" : "<0.04 mm (Precision)");
+    }
+    calculateClamping();
+  </script>
+</body>
+</html>

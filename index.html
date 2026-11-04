@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACTCNC | Heavy Industry Laser Cutting & CNC Machinery Manufacturer</title>
+  <meta name="description" content="ACTCNC is a premier global manufacturer of extreme-power fiber laser cutting machines (1.5kW to 60,000W), heavy-duty zero-tailing tube laser cutters, 3D 5-axis robotic laser cells, and laser cladding remanufacturing systems.">
+  <link rel="canonical" href="https://actcnc.com/">
+  
+  <!-- Preload High-Impact Visual Assets -->
+  <link rel="preload" as="image" href="/assets/heavy-sheet-metal-fiber-cutter-hero.jpg">
+  
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-glow: rgba(2, 132, 199, 0.4);
+      --accent: #38bdf8;
+      --accent-orange: #f97316;
+      --dark-bg: #070a11;
+      --dark-surface: #0f172a;
+      --dark-card: #141f36;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --dark-border-glow: rgba(56, 189, 248, 0.35);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-stack); background: var(--dark-bg); color: var(--text-main); line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    
+    /* Top Bar */
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .top-bar-badges { display: flex; gap: 8px; align-items: center; }
+    .cert-pill { background: linear-gradient(135deg, #1e3a8a, #0284c7); color: #fff; padding: 3px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+    .cert-pill.orange { background: linear-gradient(135deg, #c2410c, #ea580c); }
+    
+    /* Navigation */
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; display: flex; align-items: center; gap: 4px; }
+    .brand-logo span { color: var(--accent); text-shadow: 0 0 20px var(--primary-glow); }
+    .nav-links { display: flex; gap: 22px; list-style: none; font-size: 14px; font-weight: 600; align-items: center; }
+    .nav-links a { color: var(--text-muted); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 14px rgba(22,163,74,0.3); transition: all 0.2s; }
+    .btn-wa:hover { background: #15803d; transform: translateY(-1px); }
+    
+    /* Hero Section */
+    .hero { position: relative; padding: 110px 24px 100px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.3) 0%, rgba(7, 10, 17, 0) 70%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); overflow: hidden; }
+    .hero::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 800px; height: 350px; background: radial-gradient(ellipse, rgba(56, 189, 248, 0.15) 0%, transparent 70%); filter: blur(40px); pointer-events: none; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 18px; background: rgba(2, 132, 199, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 30px; font-size: 13px; font-weight: 700; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 0 15px rgba(2, 132, 199, 0.2); }
+    .hero h1 { font-size: clamp(34px, 5.5vw, 62px); font-weight: 900; line-height: 1.15; margin-bottom: 24px; color: #fff; letter-spacing: -0.5px; }
+    .hero h1 span.gradient-text { background: linear-gradient(135deg, #38bdf8 0%, #0284c7 50%, #818cf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { max-width: 880px; margin: 0 auto 40px; font-size: clamp(16px, 2vw, 20px); color: var(--text-muted); font-weight: 400; line-height: 1.8; }
+    .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4); border: 1px solid rgba(255,255,255,0.15); transition: all 0.2s; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(2, 132, 199, 0.6); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.03); color: #fff; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 15px; backdrop-filter: blur(8px); transition: all 0.2s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: var(--accent); color: var(--accent); }
+    
+    /* Layout & Containers */
+    .container { max-width: 1280px; margin: 0 auto; padding: 80px 24px; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-header h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; margin: 12px 0 16px; letter-spacing: -0.5px; }
+    .section-header p { color: var(--text-muted); max-width: 820px; margin: 0 auto; font-size: 16px; }
+    
+    /* Video Live Machinery Showcase Section */
+    .video-showcase-section { background: radial-gradient(circle at 50% 50%, rgba(2, 132, 199, 0.12) 0%, rgba(7, 10, 17, 0.95) 100%); border: 1px solid var(--dark-border-glow); border-radius: 24px; padding: 48px 36px; margin: 40px auto 80px; box-shadow: 0 20px 60px rgba(0,0,0,0.7); }
+    .video-grid { display: grid; grid-template-columns: 1.4fr 0.9fr; gap: 40px; align-items: center; }
+    .video-player-wrapper { position: relative; border-radius: 16px; overflow: hidden; background: #000; border: 1px solid rgba(56, 189, 248, 0.4); box-shadow: 0 15px 40px rgba(2, 132, 199, 0.3); aspect-ratio: 16/9; }
+    .video-player-wrapper video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .video-badge-live { position: absolute; top: 16px; left: 16px; background: rgba(220, 38, 38, 0.9); color: #fff; padding: 4px 12px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 10px rgba(220, 38, 38, 0.5); }
+    .video-badge-live .pulse-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; animation: pulse 1.5s infinite; }
+    @keyframes pulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.3); } 100% { opacity: 1; transform: scale(1); } }
+    
+    .video-info h3 { font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 16px; line-height: 1.25; }
+    .video-info p { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; line-height: 1.8; }
+    .video-features-list { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .video-features-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: #e2e8f0; }
+    .video-features-list li span.check-icon { color: #22c55e; font-weight: 900; background: rgba(34, 197, 94, 0.15); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    
+    /* Tier-1 Supply Chain Brand Wall Container */
+    .brand-wall-container { background: linear-gradient(180deg, var(--dark-surface) 0%, rgba(15, 23, 42, 0.4) 100%); border: 1px solid var(--dark-border); border-radius: 16px; padding: 36px; margin-bottom: 80px; text-align: center; position: relative; overflow: hidden; }
+    .brand-wall-container::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(2,132,199,0.08) 0%, transparent 70%); pointer-events: none; }
+    .brand-wall-img { max-height: 90px; margin: 0 auto; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5)); transition: transform 0.3s; }
+    .brand-wall-img:hover { transform: scale(1.02); }
+    
+    /* Featured Heavy Split Showcase Cards */
+    .featured-split-card { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-card) 100%); border: 1px solid var(--dark-border); border-radius: 20px; padding: 40px; margin-bottom: 50px; align-items: center; position: relative; overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+    .featured-split-card:hover { border-color: var(--dark-border-glow); box-shadow: 0 12px 40px rgba(2, 132, 199, 0.2); transform: translateY(-4px); }
+    .featured-split-card.reverse { grid-template-columns: 0.85fr 1.15fr; }
+    
+    /* Visual Frame Container for Images */
+    .img-frame { position: relative; border-radius: 14px; overflow: hidden; background: #020617; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 10px 30px rgba(0,0,0,0.6); aspect-ratio: 16/10; }
+    .img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+    .featured-split-card:hover .img-frame img { transform: scale(1.04); }
+    
+    /* Floating Engineering Badges on Images */
+    .img-floating-tag { position: absolute; bottom: 16px; left: 16px; background: rgba(3, 7, 18, 0.88); backdrop-filter: blur(10px); border: 1px solid rgba(56, 189, 248, 0.4); color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+    .img-floating-tag .tag-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
+    
+    .card-content h3 { font-size: 26px; font-weight: 900; color: #fff; margin-bottom: 14px; letter-spacing: -0.3px; }
+    .card-content p { color: var(--text-muted); font-size: 15px; line-height: 1.8; margin-bottom: 24px; }
+    
+    /* Key Metric Pills */
+    .metric-pills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 28px; }
+    .metric-item { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 12px 16px; }
+    .metric-item .val { font-size: 20px; font-weight: 900; color: var(--accent); }
+    .metric-item .lbl { font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+    
+    /* Modern 3-Column Grid for Standard & High-Precision Machines */
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 32px; }
+    .machinery-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s; }
+    .machinery-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+    .machinery-card .card-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #030712; }
+    .machinery-card .card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .machinery-card:hover .card-thumb img { transform: scale(1.05); }
+    .machinery-card .card-body { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+    .machinery-card .card-body h3 { font-size: 20px; font-weight: 800; color: #fff; margin: 12px 0 10px; }
+    .machinery-card .card-body p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 20px; flex: 1; }
+    .link-arrow { color: var(--accent); font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .machinery-card:hover .link-arrow { gap: 10px; }
+    
+    /* High-Definition Samples Showcase Gallery */
+    .sample-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 80px; }
+    .sample-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 14px; overflow: hidden; transition: all 0.3s; }
+    .sample-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 10px 25px rgba(56, 189, 248, 0.15); }
+    .sample-card .s-thumb { aspect-ratio: 4/3; overflow: hidden; background: #000; position: relative; }
+    .sample-card .s-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .sample-card:hover .s-thumb img { transform: scale(1.06); }
+    .sample-card .s-tag { position: absolute; top: 12px; left: 12px; background: rgba(3, 7, 18, 0.85); color: #38bdf8; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 700; border: 1px solid rgba(56, 189, 248, 0.3); }
+    .sample-card .s-info { padding: 20px; text-align: left; }
+    .sample-card .s-info h4 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 6px; }
+    .sample-card .s-info p { color: var(--text-muted); font-size: 13px; line-height: 1.6; }
+    
+    /* Factory Real-Scene Showcase Grid */
+    .factory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
+    .factory-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 14px; overflow: hidden; transition: all 0.3s; }
+    .factory-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+    .factory-card .f-thumb { aspect-ratio: 4/3; overflow: hidden; background: #000; }
+    .factory-card .f-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .factory-card:hover .f-thumb img { transform: scale(1.06); }
+    .factory-card .f-info { padding: 18px; text-align: center; }
+    .factory-card .f-info h4 { color: #fff; font-size: 15px; font-weight: 800; margin-bottom: 4px; }
+    .factory-card .f-info p { color: var(--text-muted); font-size: 13px; }
+    
+    /* Engineering Hub & Interactive Tools Grid */
+    .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; margin-bottom: 60px; }
+    .tool-card { background: linear-gradient(135deg, var(--dark-surface) 0%, #1e293b 100%); border: 1px solid var(--dark-border); border-radius: 14px; padding: 26px; display: flex; flex-direction: column; transition: all 0.3s; }
+    .tool-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 25px rgba(2, 132, 199, 0.2); }
+    .tool-card .t-icon { font-size: 26px; margin-bottom: 12px; }
+    .tool-card h4 { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 8px; }
+    .tool-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; flex: 1; }
+    .tool-card .t-link { color: var(--accent); font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 6px; }
+    
+    /* CTA High-Tech Banner */
+    .cta-banner { background: radial-gradient(circle at 50% 50%, #0369a1 0%, #0c4a6e 60%, #082f49 100%); border-radius: 20px; padding: 60px 32px; text-align: center; margin: 80px 0 40px; border: 1px solid rgba(56,189,248,0.4); box-shadow: 0 20px 50px rgba(2, 132, 199, 0.25); position: relative; overflow: hidden; }
+    .cta-banner h2 { font-size: clamp(28px, 4vw, 42px); color: #fff; font-weight: 900; margin-bottom: 16px; }
+    .cta-banner p { color: #e0f2fe; max-width: 780px; margin: 0 auto 32px; font-size: 17px; }
+    
+    /* Footer */
+    footer { background: #020617; border-top: 1px solid rgba(255,255,255,0.08); padding: 70px 32px 36px; color: var(--text-muted); font-size: 14px; }
+    .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; margin-bottom: 50px; text-align: left; }
+    .footer-col h4 { color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 20px; letter-spacing: 0.5px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 30px; text-align: center; font-size: 13px; }
+    
+    @media (max-width: 900px) {
+      .video-grid { grid-template-columns: 1fr; gap: 24px; }
+      .featured-split-card, .featured-split-card.reverse { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+      header { padding: 14px 20px; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://actcnc.com/#organization",
+        "name": "ACTCNC Heavy Industry Laser Systems",
+        "url": "https://actcnc.com/",
+        "logo": "https://actcnc.com/assets/global-component-partners.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+86-155-6620-6930",
+          "contactType": "sales",
+          "areaServed": "Global",
+          "availableLanguage": ["English", "Russian", "Spanish", "German", "Portuguese", "Arabic"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://actcnc.com/#website",
+        "url": "https://actcnc.com/",
+        "name": "ACTCNC",
+        "publisher": { "@id": "https://actcnc.com/#organization" }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Top Bar with Multi-language Navigation -->
+  <div class="top-bar">
+    <div class="top-bar-badges">
+      <span class="cert-pill">ISO 9001 / CE / FDA</span>
+      <span>ACTCNC Heavy Industry & High-Power Laser Machinery Global Direct</span>
+    </div>
+    <div style="display:flex;gap:18px;align-items:center;">
+      <a href="/ru/" style="color:#93c5fd;">Русский (RU)</a>
+      <a href="/es/" style="color:#93c5fd;">Español (ES)</a>
+      <a href="/de/" style="color:#93c5fd;">Deutsch (DE)</a>
+      <a href="/ar/" style="color:#93c5fd;">العربية (AR)</a>
+      <span>WhatsApp: <strong style="color:#fff;">+86 155 6620 6930</strong></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30kW–60kW Cutters</a></li>
+      <li><a href="/products/heavy-tube-pipe-fiber-laser-cutters.html">Tube Cutters</a></li>
+      <li><a href="/products/laser-cladding-hardening-remanufacturing.html">Laser Cladding</a></li>
+      <li><a href="/engineering/" style="color:var(--accent);font-weight:700;">Engineering Hub</a></li>
+      <li><a href="#live-video" style="color:#f8fafc;">Live Demo</a></li>
+      <li><a href="#samples" style="color:#f8fafc;">Samples</a></li>
+      <li><a href="#calculators" style="color:#f8fafc;">Calculators</a></li>
+      <li><a href="#factory" style="color:#f8fafc;">Factory</a></li>
+      <li>
+        <a href="https://wa.me/8615566206930?text=Direct%20Inquiry%20ACTCNC%20Equipment" class="btn-wa" target="_blank">
+          <span>WhatsApp Application Team</span>
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">Industrial Heavy Machinery & Extreme-Power Laser Systems</div>
+    <h1>Global Heavy Industry Laser Systems<br><span class="gradient-text">1.5kW to 60,000W</span> Extreme Precision</h1>
+    <p>From 60,000W ground-rail heavy plate cutters to 3-chuck zero-tailing tube beveling machines and automated 3D 5-axis robotic laser cells, ACTCNC engineers the high-takt equipment that powers modern manufacturing.</p>
+    <div class="btn-group">
+      <a href="https://wa.me/8615566206930?text=Request%202026%20Equipment%20Catalog" class="btn-primary" target="_blank">
+        <span>Download 2026 Engineering Specs</span> &rarr;
+      </a>
+      <a href="/engineering/fiber-laser-cutting-parameters-database.html" class="btn-outline">
+        Explore 1kW–60kW Cutting Matrix
+      </a>
+    </div>
+  </section>
+
+  <div class="container">
+    
+    <!-- Section: Live Machinery Video Demonstration (High-Impact Industrial Multimedia) -->
+    <div id="live-video" class="video-showcase-section">
+      <div class="video-grid">
+        <div class="video-player-wrapper">
+          <video controls autoplay muted loop playsinline poster="/assets/heavy-sheet-metal-fiber-cutter-hero.jpg">
+            <source src="/assets/fiber-laser-machining-live-demo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-badge-live">
+            <div class="pulse-dot"></div>
+            <span>Machinery Live Demonstration</span>
+          </div>
+        </div>
+        <div class="video-info">
+          <span class="cert-pill orange">LIVE FACTORY CNC TEST BENCH</span>
+          <h3 style="margin-top:12px;">Extreme-Speed Laser Processing in Real Action</h3>
+          <p>Experience ACTCNC high-power fiber laser dynamics. Watch multi-axis high-speed optical beam positioning, thick plate flash piercing algorithms, and ultra-smooth burr-free edge quality under continuous 24/7 industrial duty cycle.</p>
+          <ul class="video-features-list">
+            <li><span class="check-icon">✓</span> High-acceleration gantry motion (>2.0G dynamic response)</li>
+            <li><span class="check-icon">✓</span> Millisecond-level proportional gas step modulation</li>
+            <li><span class="check-icon">✓</span> Real-time capacitive auto-focus & height sensing</li>
+            <li><span class="check-icon">✓</span> Zero dross, zero secondary edge grinding finish</li>
+          </ul>
+          <a href="https://wa.me/8615566206930?text=Request%20Custom%20Sample%20Cutting%20Video" class="btn-primary" target="_blank">
+            <span>Request Custom Material Test Video</span> &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tier-1 Supply Chain Brand Wall Container -->
+    <div class="brand-wall-container">
+      <span class="cert-pill" style="margin-bottom:12px;display:inline-block;">GLOBAL TIER-1 INTEGRATION</span>
+      <h3 style="color:#fff;font-size:22px;font-weight:800;margin-bottom:12px;">Standard Certified Components from Global Industry Leaders</h3>
+      <p style="color:var(--text-muted);font-size:14px;max-width:800px;margin:0 auto 24px;">Every ACTCNC machine integrates first-tier laser sources, precision cutting heads, and CNC control systems (Raycus, MAX, RECI, RuiDa, Sino-Galvo, Leadshine, Shimpo, Schneider):</p>
+      <img src="/assets/global-component-partners.png" alt="ACTCNC Global Certified Supply Chain Partners" class="brand-wall-img">
+    </div>
+
+    <!-- Section: Flagship Heavy Machinery Showcase (Magazine-style Split Visuals with 2K HD Assets) -->
+    <div class="section-header">
+      <span class="cert-pill">FLAGSHIP HEAVY-DUTY LASER MACHINERY</span>
+      <h2>Engineered for 24/7 Heavy Structural Fabrication</h2>
+      <p>High-rigidity annealed machine beds, modular ground-rail beds, and intelligent multi-chuck CNC synchronizers.</p>
+    </div>
+
+    <!-- Flagship Item 1: 30kW–60kW Ultra-High Power Plate Cutter -->
+    <div class="featured-split-card">
+      <div class="img-frame">
+        <img src="/assets/heavy-sheet-metal-fiber-cutter-hero.jpg" alt="ACTCNC 30kW-60kW Ultra-High Power Ground Rail Laser Cutter">
+        <div class="img-floating-tag">
+          <div class="tag-dot"></div>
+          <span>Max Plate Thickness: 100mm Carbon Steel | Renishaw Calibrated</span>
+        </div>
+      </div>
+      <div class="card-content">
+        <span class="cert-pill">30,000W – 60,000W GROUND RAIL</span>
+        <h3>Ultra-High Power Sheet & Plate Cutters</h3>
+        <p>Engineered for shipyards, pressure vessel manufacturing, and mega-scale steel structures. Features modular ground-rail beds up to 48 meters and dual smoke exhaust partitions for clean, heavy-duty processing without edge beveling delays.</p>
+        <div class="metric-pills">
+          <div class="metric-item">
+            <div class="val">100 mm</div>
+            <div class="lbl">Max Cutting Thickness</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">±0.03 mm</div>
+            <div class="lbl">Positioning Accuracy</div>
+          </div>
+        </div>
+        <a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html" class="btn-primary">
+          View 30kW–60kW Full Specs &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Flagship Item 2: Heavy Tube & Pipe Beveling Cutter (Reverse Layout) -->
+    <div class="featured-split-card reverse">
+      <div class="card-content">
+        <span class="cert-pill">Φ15–500mm | ZERO TAILING</span>
+        <h3>Heavy Tube & Profile CNC Laser Cutters</h3>
+        <p>3-chuck pneumatic synchronous clamping with full-stroke rotation. Cuts round, square, rectangular tubes, H-beams, and channel steels with <strong>0mm tailing loss</strong> and ±45° beveling in a single pass.</p>
+        <div class="metric-pills">
+          <div class="metric-item">
+            <div class="val">0 mm</div>
+            <div class="lbl">Tailing Scrap Loss</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">±45°</div>
+            <div class="lbl">Heavy Beveling Head</div>
+          </div>
+        </div>
+        <a href="/products/heavy-tube-pipe-fiber-laser-cutters.html" class="btn-primary">
+          Explore Tube Laser Systems &rarr;
+        </a>
+      </div>
+      <div class="img-frame">
+        <img src="/assets/cnc-tube-laser-cutting-station.jpg" alt="ACTCNC Heavy-Duty CNC Tube and Pipe Laser Cutting Station">
+        <div class="img-floating-tag">
+          <div class="tag-dot"></div>
+          <span>3-Chuck Pneumatic Sync | Automatic Bundle Feeder</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flagship Item 3: 3D 5-Axis Robotic Laser Cutting Cell -->
+    <div class="featured-split-card">
+      <div class="img-frame">
+        <img src="/assets/robotic-3d-5axis-laser-arm.jpg" alt="ACTCNC 3D 5-Axis Robotic Fiber Laser Cutting Workstation">
+        <div class="img-floating-tag">
+          <div class="tag-dot"></div>
+          <span>6-Axis Industrial Arm | Automotive Hydroforming Ready</span>
+        </div>
+      </div>
+      <div class="card-content">
+        <span class="cert-pill">AUTOMOTIVE & AEROSPACE</span>
+        <h3>3D 5-Axis Robotic Laser Cutting Workstation</h3>
+        <p>Equipped with high-precision industrial articulated robots and dynamic 3D cutting heads. Specially optimized for thermoformed automotive components, curved irregular deep-drawn parts, and aerospace metal trimming.</p>
+        <div class="metric-pills">
+          <div class="metric-item">
+            <div class="val">±0.05 mm</div>
+            <div class="lbl">3D Repeatability</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">3600 mm</div>
+            <div class="lbl">Robotic Working Radius</div>
+          </div>
+        </div>
+        <a href="/products/3d-5-axis-fiber-laser-cutting-robot.html" class="btn-primary">
+          Discover 3D Robotic Systems &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Flagship Item 4: Laser Cladding & Remanufacturing System (Reverse Layout) -->
+    <div class="featured-split-card reverse">
+      <div class="card-content">
+        <span class="cert-pill">OIL, GAS & MINING REMANUFACTURING</span>
+        <h3>Extreme-Speed Laser Cladding & Hardening Cells</h3>
+        <p>Additive remanufacturing system for hydraulic support rods, turbine shafts, oil pipelines, and wear-resistant mining tooling. Metallurgical bonding with near-zero substrate thermal distortion.</p>
+        <div class="metric-pills">
+          <div class="metric-item">
+            <div class="val">&gt;1.2 m²/h</div>
+            <div class="lbl">High-Speed Cladding Rate</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">&lt;3%</div>
+            <div class="lbl">Ultra-Low Dilution Rate</div>
+          </div>
+        </div>
+        <a href="/products/laser-cladding-hardening-remanufacturing.html" class="btn-primary">
+          Explore Laser Cladding Tech &rarr;
+        </a>
+      </div>
+      <div class="img-frame">
+        <img src="/assets/laser-cladding-remanufacturing-cell.jpg" alt="ACTCNC Heavy-Duty Laser Cladding and Surface Hardening Cell">
+        <div class="img-floating-tag">
+          <div class="tag-dot"></div>
+          <span>High-Speed Deposition | Stellite & Inconel Alloys</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: High-Precision Marking, Cleaning & Versatile Machine Lineup -->
+    <div class="section-header" style="margin-top:70px;">
+      <span class="cert-pill">PRECISION SYSTEMS & SHOP-FLOOR LINEUP</span>
+      <h2>Versatile Laser Machinery for Agile Workshops</h2>
+      <p>High-efficiency dual exchange sheet cutters, 3-in-1 handheld welding & cleaning, and MOPA industrial color markers.</p>
+    </div>
+
+    <div class="grid-3">
+      <!-- Dual Exchange Table Sheet Cutter -->
+      <div class="machinery-card">
+        <div class="card-thumb">
+          <img src="/assets/dual-exchange-table-sheet-cutter.jpg" alt="ACTCNC Dual Exchange Table Fiber Laser Cutting Machine">
+        </div>
+        <div class="card-body">
+          <span class="cert-pill" style="align-self:flex-start;">3kW–12kW SHUTTLE TABLE</span>
+          <h3>Dual Exchange Table Fiber Laser Cutters</h3>
+          <p>Automatic high-speed hydraulic shuttle table with 10-second exchange cycle. Fully enclosed safety cabin with CE OD6+ laser protective viewing glass.</p>
+          <a href="/products/fiber-laser-cutting-machines.html" class="link-arrow">Explore Standard Cutters &rarr;</a>
+        </div>
+      </div>
+
+      <!-- 3-in-1 Handheld Laser Welder / Cleaner / Cutter -->
+      <div class="machinery-card">
+        <div class="card-thumb">
+          <img src="/assets/handheld-laser-welder-cleaner-combo.jpg" alt="ACTCNC Handheld 3-in-1 Fiber Laser Welder, Cleaner and Cutter">
+        </div>
+        <div class="card-body">
+          <span class="cert-pill" style="align-self:flex-start;">1.5kW–3kW PORTABLE</span>
+          <h3>3-in-1 Handheld Laser Welder & Cleaner</h3>
+          <p>Continuous wobble welding head, rust/oxide cleaning nozzle, and thin sheet cutting tip in a single ultra-compact unit. 4x faster than traditional TIG welding.</p>
+          <a href="/products/handheld-laser-welder-cleaner.html" class="link-arrow">Discover Handheld 3-in-1 &rarr;</a>
+        </div>
+      </div>
+
+      <!-- MOPA Color & Deep Engraving Fiber Markers -->
+      <div class="machinery-card">
+        <div class="card-thumb">
+          <img src="/assets/desktop-fiber-laser-marking-machine.jpg" alt="ACTCNC MOPA Color and Deep Engraving Fiber Laser Marker">
+        </div>
+        <div class="card-body">
+          <span class="cert-pill" style="align-self:flex-start;">20W–100W PULSE CONTROL</span>
+          <h3>MOPA Color & Industrial Fiber Laser Markers</h3>
+          <p>Adjustable pulse width (2–500ns) for stainless steel color marking, black marking on anodized aluminum, and high-contrast 2D Datamatrix serialization.</p>
+          <a href="/products/mopa-color-fiber-laser-markers.html" class="link-arrow">View Marking Systems &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Finished Workpiece & Precision Laser Samples Showcase -->
+    <div id="samples" class="section-header" style="margin-top:90px;">
+      <span class="cert-pill orange">MICRON-LEVEL CRAFTSMANSHIP</span>
+      <h2>Finished Laser Processing Sample Showcase</h2>
+      <p>Inspect close-up macros of heavy plate flash piercing, complex pipe saddle joints, micro color marking, and cladding layers.</p>
+    </div>
+
+    <div class="sample-gallery-grid">
+      <div class="sample-card">
+        <div class="s-thumb">
+          <img src="/assets/thick-plate-cutting-samples-showcase.jpg" alt="Thick Carbon Steel and Stainless Steel Laser Cutting Samples">
+          <span class="s-tag">Heavy Plate Cutting</span>
+        </div>
+        <div class="s-info">
+          <h4>30mm–60mm Heavy Plate Finish</h4>
+          <p>Mirror-grade verticality with zero bottom dross on high-thickness structural steels.</p>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="s-thumb">
+          <img src="/assets/tube-beveling-and-branch-samples.jpg" alt="CNC Tube Beveling and Intersecting Saddle Branch Samples">
+          <span class="s-tag">Tube & Profile Beveling</span>
+        </div>
+        <div class="s-info">
+          <h4>±45° Beveled Pipe Saddle Joints</h4>
+          <p>Seamless interlocking joints for structural trusses, oil piping, and automotive chassis.</p>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="s-thumb">
+          <img src="/assets/mopa-color-marking-samples.jpg" alt="MOPA Color Laser Marking Samples on Stainless Steel">
+          <span class="s-tag">MOPA High Frequency</span>
+        </div>
+        <div class="s-info">
+          <h4>Vibrant Multi-Color Annealing</h4>
+          <p>Nanosecond pulse control producing rich oxide interference colors on stainless steel.</p>
+        </div>
+      </div>
+
+      <div class="sample-card">
+        <div class="s-thumb">
+          <img src="/assets/laser-cladding-hydraulic-rod-sample.jpg" alt="Laser Cladding Hydraulic Rod Surface Remanufacturing Sample">
+          <span class="s-tag">Cladding & Hardening</span>
+        </div>
+        <div class="s-info">
+          <h4>Hydraulic Rod Metallurgical Clad</h4>
+          <p>Crack-free Stellite 6 coating with 58 HRC surface hardness and zero porosity.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Core Engineering Calculators & Diagnostic Hub -->
+    <div id="calculators" class="section-header" style="margin-top:70px;">
+      <span class="cert-pill">INTERACTIVE ENGINEERING SIMULATION TOOLS</span>
+      <h2>Calculate Your Production Economics & Machine Sizing</h2>
+      <p>Industrial simulation tools developed by ACTCNC applications engineering team to calculate ROI, nesting efficiency, and thermal balance.</p>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="t-icon">📐</div>
+        <h4>Tube Nesting & Tailing Loss Calculator</h4>
+        <p>Quantify raw material cost savings with 3-chuck zero-tailing tube laser cutting versus conventional dual-chuck machines.</p>
+        <a href="/engineering/tube-laser-nesting-savings-calculator.html" class="t-link">Launch Calculator &rarr;</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="t-icon">💰</div>
+        <h4>Laser Cleaning & Welding ROI Calculator</h4>
+        <p>Simulate payback timeframe, consumable elimination, and labor cost savings against traditional MIG/TIG and chemical stripping.</p>
+        <a href="/engineering/laser-cleaning-welding-roi-calculator.html" class="t-link">Launch Calculator &rarr;</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="t-icon">📊</div>
+        <h4>1kW–60kW Cutting Parameter Database</h4>
+        <p>Instant lookup for cutting speed, assist gas consumption, focal position, and nozzle clearance across 5 major industrial metals.</p>
+        <a href="/engineering/fiber-laser-cutting-parameters-database.html" class="t-link">Access Database &rarr;</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="t-icon">💨</div>
+        <h4>Gas Pipeline Pressure Drop Simulator</h4>
+        <p>Size workshop nitrogen and oxygen gas delivery lines (0–30 Bar) to avoid high-power corner burnout and pressure starvation.</p>
+        <a href="/engineering/laser-gas-pipeline-pressure-drop-calculator.html" class="t-link">Launch Calculator &rarr;</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="t-icon">❄️</div>
+        <h4>Chiller Thermal Load & Dew Point Tool</h4>
+        <p>Calculate dual-circuit chiller cooling tonnage and ambient condensation dew points for humid factory conditions.</p>
+        <a href="/engineering/laser-chiller-cooling-capacity-and-dew-point-calculator.html" class="t-link">Launch Calculator &rarr;</a>
+      </div>
+
+      <div class="tool-card">
+        <div class="t-icon">🔧</div>
+        <h4>All 9 Online Engineering Calculators</h4>
+        <p>Access our comprehensive engineering portal with gantry deflection, cabinet thermal balance, and shuttle table takt tools.</p>
+        <a href="/engineering/" class="t-link">Open Engineering Hub &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Section: Manufacturing Factory & Global Delivery Strength -->
+    <div id="factory" class="section-header" style="margin-top:90px;">
+      <span class="cert-pill">WORLD-CLASS MANUFACTURING & QA</span>
+      <h2>ACTCNC Heavy Machinery Production Facility</h2>
+      <p>50,000 m² standardized manufacturing base with 600°C stress-relief annealing furnaces, 24m CNC portal milling, and Renishaw laser interferometer calibration.</p>
+    </div>
+
+    <div class="factory-grid">
+      <div class="factory-card">
+        <div class="f-thumb">
+          <img src="/assets/factory-quality-control-interferometer.jpg" alt="Renishaw Laser Interferometer Quality Inspection and Calibration">
+        </div>
+        <div class="f-info">
+          <h4>Laser Interferometer QA</h4>
+          <p>Pitch error & backlash laser compensation</p>
+        </div>
+      </div>
+      <div class="factory-card">
+        <div class="f-thumb">
+          <img src="/assets/precision-cnc-bed-gantry-structure.jpg" alt="Heavy-Duty Annealed Machine Bed and Aviation Aluminum Gantry">
+        </div>
+        <div class="f-info">
+          <h4>600°C Annealed Bed</h4>
+          <p>Zero structural deformation for 20+ years</p>
+        </div>
+      </div>
+      <div class="factory-card">
+        <div class="f-thumb">
+          <img src="/assets/global-container-loading-export.jpg" alt="ACTCNC Heavy Laser Machinery Vacuum Packing and Container Export">
+        </div>
+        <div class="f-info">
+          <h4>Global Container Export</h4>
+          <p>Multi-layer moisture & rustproof packaging</p>
+        </div>
+      </div>
+      <div class="factory-card">
+        <div class="f-thumb">
+          <img src="/assets/after-sales-engineering-team-support.jpg" alt="ACTCNC Worldwide Factory Field Commissioning Engineers">
+        </div>
+        <div class="f-info">
+          <h4>Global Field Service</h4>
+          <p>Factory-certified on-site setup & training</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA High-Tech Banner -->
+    <div class="cta-banner">
+      <h2>Accelerate Your Heavy Fabrication Capabilities</h2>
+      <p>Speak directly with ACTCNC application engineers to get tailored machine configurations, custom nesting simulations, and turn-key factory layout proposals.</p>
+      <div class="btn-group">
+        <a href="https://wa.me/8615566206930?text=Request%20Tailored%20Laser%20Quotation" class="btn-primary" style="background:#fff;color:#0369a1;font-weight:900;" target="_blank">
+          <span>Chat with Application Specialist on WhatsApp</span> &rarr;
+        </a>
+        <a href="mailto:sales@actcnc.com" class="btn-outline" style="border-color:rgba(255,255,255,0.6);">
+          Email Engineering RFQ: sales@actcnc.com
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="brand-logo" style="margin-bottom:16px;">ACT<span>CNC</span></div>
+        <p style="line-height:1.8;margin-bottom:16px;">ACTCNC is a dedicated global manufacturer of extreme-power fiber laser cutting machines, heavy zero-tailing tube laser cutters, and advanced laser cladding systems.</p>
+        <p><strong>Factory Address:</strong> Industrial Equipment Cluster, High-Tech Industrial Zone, China</p>
+      </div>
+      <div class="footer-col">
+        <h4>Heavy Machinery</h4>
+        <ul>
+          <li><a href="/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30,000W–60,000W Plate Cutters</a></li>
+          <li><a href="/products/heavy-tube-pipe-fiber-laser-cutters.html">Heavy Tube & Pipe Cutters</a></li>
+          <li><a href="/products/3d-5-axis-fiber-laser-cutting-robot.html">3D 5-Axis Robotic Workcells</a></li>
+          <li><a href="/products/laser-cladding-hardening-remanufacturing.html">Laser Cladding Systems</a></li>
+          <li><a href="/products/fiber-laser-cutting-machines.html">Dual Exchange Sheet Cutters</a></li>
+          <li><a href="/products/handheld-laser-welder-cleaner.html">3-in-1 Handheld Laser Welders</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Engineering & Calculators</h4>
+        <ul>
+          <li><a href="/engineering/tube-laser-nesting-savings-calculator.html">Tube Nesting Calculator</a></li>
+          <li><a href="/engineering/laser-cleaning-welding-roi-calculator.html">Cleaning & Welding ROI Tool</a></li>
+          <li><a href="/engineering/fiber-laser-cutting-parameters-database.html">Cutting Parameter Database</a></li>
+          <li><a href="/engineering/laser-gas-pipeline-pressure-drop-calculator.html">Gas Pressure Drop Tool</a></li>
+          <li><a href="/engineering/laser-chiller-cooling-capacity-and-dew-point-calculator.html">Chiller Cooling Sizer</a></li>
+          <li><a href="/engineering/">Full Engineering Knowledge Hub</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Global & Direct Contact</h4>
+        <ul>
+          <li><a href="/ru/">Русская версия (RU)</a></li>
+          <li><a href="/es/">Versión en Español (ES)</a></li>
+          <li><a href="/de/">Deutsche Version (DE)</a></li>
+          <li><a href="/ar/">النسخة العربية (AR)</a></li>
+          <li><a href="/pt/">Versão em Português (PT)</a></li>
+          <li style="margin-top:10px;"><strong>WhatsApp:</strong> +86 155 6620 6930</li>
+          <li><strong>Telegram:</strong> +86 155 6620 6930</li>
+          <li><strong>Email:</strong> sales@actcnc.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 ACTCNC Heavy Industry & Laser Machinery Co., Ltd. All Rights Reserved. ISO 9001, CE & FDA Certified.
+    </div>
+  </footer>
+</body>
+</html>

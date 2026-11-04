@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Laser Machine Sizing & Power Configurator | ACTCNC</title>
+  <meta name="description" content="Configure your custom fiber laser cutting and tube beveling machine in 60 seconds. Calculate optimal laser power (1.5kW to 60kW), bed dimensions, and assist gas cost for your specific metal inventory.">
+  <link rel="canonical" href="https://actcnc.com/engineering/interactive-laser-machine-configurator.html">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --dark-bg: #090d16;
+      --dark-surface: #111827;
+      --dark-card: #1f2937;
+      --dark-border: #374151;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 8px 24px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid #1f2937; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(9,13,22,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 1.5px; }
+    .brand-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 20px; list-style: none; font-size: 14px; font-weight: 600; align-items: center; }
+    .btn-wa { background: #22c55e; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none; }
+    .page-hero { padding: 60px 24px 50px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2,132,199,0.18) 0%, rgba(9,13,22,0) 75%); border-bottom: 1px solid #1f2937; }
+    .hero-tag { display: inline-block; padding: 4px 14px; background: rgba(2,132,199,0.2); color: #38bdf8; border: 1px solid rgba(2,132,199,0.3); border-radius: 20px; font-size: 12px; font-weight: 700; margin-bottom: 14px; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 50px 24px; }
+    .config-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; padding: 36px; box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+    .step-header { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .step-num { background: var(--primary); color: #fff; width: 28px; height: 28px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; }
+    .options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 30px; }
+    .opt-label { display: block; background: #1f2937; border: 2px solid #374151; border-radius: 10px; padding: 16px; cursor: pointer; transition: 0.2s; }
+    .opt-label:hover { border-color: var(--primary); }
+    .opt-label input { display: none; }
+    .opt-label.active { border-color: #38bdf8; background: rgba(2,132,199,0.15); }
+    .opt-title { font-weight: 700; color: #fff; font-size: 15px; margin-bottom: 4px; }
+    .opt-desc { font-size: 12px; color: #9ca3af; }
+    .result-box { background: #0b1329; border: 1px solid #0284c7; border-radius: 12px; padding: 28px; margin-top: 30px; }
+    footer { background: #030712; border-top: 1px solid #1f2937; padding: 50px 24px 30px; color: var(--text-muted); font-size: 14px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div><span>ACTCNC Engineering Automation Studio</span></div>
+    <div>WhatsApp: <strong style="color:#fff;">+86 155 6620 6930</strong></div>
+  </div>
+
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/fiber-laser-cutting-machines.html">Machinery</a></li>
+      <li><a href="/engineering/laser-source-comparison-ipg-raycus-max-nlight.html">White Papers</a></li>
+      <li><a href="https://wa.me/8615566206930" class="btn-wa" target="_blank">Contact Engineering</a></li>
+    </ul>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-tag">60-SECOND CAPITAL SIZING TOOL</div>
+    <h1 style="color:#fff;font-size:36px;font-weight:900;">Interactive Machine Configurator & ROI Sizer</h1>
+    <p>Select your primary material, peak thickness, and production format to receive instant laser power sizing, assist gas requirements, and machine architecture recommendations.</p>
+  </section>
+
+  <div class="container">
+    <div class="config-card">
+      <!-- Step 1 -->
+      <div class="step-header"><span class="step-num">1</span> Select Primary Material</div>
+      <div class="options-grid" id="matGrid">
+        <div class="opt-label active" onclick="selectOpt(this, 'mat', 'Carbon Steel')">
+          <div class="opt-title">Carbon Steel</div>
+          <div class="opt-desc">Structural steel, machinery frames, ship plates</div>
+        </div>
+        <div class="opt-label" onclick="selectOpt(this, 'mat', 'Stainless Steel')">
+          <div class="opt-title">Stainless Steel</div>
+          <div class="opt-desc">Kitchenware, food machinery, chemical tanks</div>
+        </div>
+        <div class="opt-label" onclick="selectOpt(this, 'mat', 'Aluminum / Copper')">
+          <div class="opt-title">Aluminum / Copper</div>
+          <div class="opt-desc">Aerospace, electrical busbars, EV battery cases</div>
+        </div>
+        <div class="opt-label" onclick="selectOpt(this, 'mat', 'Tubes & Profiles')">
+          <div class="opt-title">Tubes & Beams</div>
+          <div class="opt-desc">Round, square pipes, channel steel, H-beams</div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="step-header"><span class="step-num">2</span> Maximum Cutting Thickness</div>
+      <div class="options-grid" id="thickGrid">
+        <div class="opt-label active" onclick="selectOpt(this, 'thick', 'Thin (1 - 6 mm)')">
+          <div class="opt-title">1 – 6 mm (Sheet)</div>
+          <div class="opt-desc">High-speed precision sheet metal</div>
+        </div>
+        <div class="opt-label" onclick="selectOpt(this, 'thick', 'Medium (8 - 20 mm)')">
+          <div class="opt-title">8 – 20 mm (Medium)</div>
+          <div class="opt-desc">Heavy fabrication & equipment parts</div>
+        </div>
+        <div class="opt-label" onclick="selectOpt(this, 'thick', 'Thick (25 - 50 mm)')">
+          <div class="opt-title">25 – 50 mm (Thick)</div>
+          <div class="opt-desc">Mining, pressure vessels, construction</div>
+        </div>
+        <div class="opt-label" onclick="selectOpt(this, 'thick', 'Extra Thick (60 - 100 mm)')">
+          <div class="opt-title">60 – 100 mm (Ultra)</div>
+          <div class="opt-desc">Shipbuilding, massive ground rail steel</div>
+        </div>
+      </div>
+
+      <!-- Live Recommendation Output -->
+      <div class="result-box">
+        <h3 style="color:#38bdf8;font-size:20px;margin-bottom:12px;">Recommended Machine Architecture & Sizing:</h3>
+        <div id="recOutput" style="color:#e5e7eb;font-size:15px;line-height:1.8;">
+          <strong>Target Machine</strong>: ACTCNC Dual Pallet Exchange Fiber Laser (6,000W – 12,000W)<br>
+          <strong>Recommended Laser Engine</strong>: Raycus / IPG High-Density Single-Module Fiber Laser<br>
+          <strong>Optimized Assist Gas</strong>: High-Pressure Compressed Air (16 Bar) for 80% gas cost reduction on medium steel<br>
+          <strong>Cutting Speed Estimate</strong>: 3.5 – 6.0 meters/min on 6mm carbon steel
+        </div>
+        <div style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap;">
+          <a id="waQuoteBtn" href="https://wa.me/8615566206930?text=Inquiry%20Configured%20Machine%3A%20Carbon%20Steel%20Thin" class="btn-primary" target="_blank" style="background:#22c55e;">
+            Get Formal Quote & Layout for This Setup
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let selectedMat = 'Carbon Steel';
+    let selectedThick = 'Thin (1 - 6 mm)';
+
+    function selectOpt(elem, type, val) {
+      const parent = elem.parentElement;
+      const allLabels = parent.querySelectorAll('.opt-label');
+      allLabels.forEach(l => l.classList.remove('active'));
+      elem.classList.add('active');
+      
+      if (type === 'mat') selectedMat = val;
+      if (type === 'thick') selectedThick = val;
+
+      updateRec();
+    }
+
+    function updateRec() {
+      const rec = document.getElementById('recOutput');
+      const waBtn = document.getElementById('waQuoteBtn');
+      let machine = "Dual Pallet Exchange Sheet Cutter (3kW–6kW)";
+      let power = "3,000W – 6,000W Fiber";
+      let gas = "High-Pressure Air / O2";
+      let speed = "4.0 – 8.0 m/min";
+
+      if (selectedThick.includes('Medium')) {
+        machine = "Heavy-Duty Dual Pallet Sheet Cutter (12kW–20kW)";
+        power = "12,000W – 20,000W High-Density Fiber";
+        gas = "Oxygen for Carbon Steel / Nitrogen for Stainless";
+        speed = "2.5 – 4.5 m/min";
+      } else if (selectedThick.includes('Thick')) {
+        machine = "Ground Rail Heavy Sheet Laser Cutter (30kW–40kW)";
+        power = "30,000W – 40,000W Ground Rail Gantry";
+        gas = "Oxygen (O2) with Intelligent Anti-Burn Nozzle";
+        speed = "1.2 – 2.8 m/min";
+      } else if (selectedThick.includes('Extra Thick')) {
+        machine = "Ultra-High Power Ground Rail Heavy Gantry (60kW)";
+        power = "60,000W Ultra-High Power Ground Rail Format";
+        gas = "Oxygen (O2) Ultra-Thick Plate Penetration";
+        speed = "0.6 – 1.5 m/min on 80mm+ Plate";
+      }
+
+      if (selectedMat.includes('Tubes')) {
+        machine = "Heavy-Duty CNC Automatic Tube & Pipe Laser Cutter (Zero-Tailing 3-Chuck)";
+        gas = "Oxygen / Nitrogen with ±45° Bevel Head";
+      }
+
+      rec.innerHTML = `
+        <strong>Target Machine</strong>: ${machine}<br>
+        <strong>Recommended Power</strong>: ${power}<br>
+        <strong>Primary Assist Gas</strong>: ${gas}<br>
+        <strong>Estimated Productivity</strong>: ${speed}
+      `;
+
+      waBtn.href = `https://wa.me/8615566206930?text=Inquiry%20Configured%20Setup%3A%20${encodeURIComponent(machine)}%20for%20${encodeURIComponent(selectedMat)}%20(${encodeURIComponent(selectedThick)})`;
+    }
+  </script>
+
+  <footer>
+    &copy; 2026 ACTCNC Heavy Industry & Laser Tech Co., Ltd. All rights reserved.
+  </footer>
+</body>
+</html>

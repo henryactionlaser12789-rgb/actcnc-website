@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiber Laser Chiller Sizing, Heat Load & Dew Point Anti-Condensation Calculator | ACTCNC</title>
+  <meta name="description" content="Calculate required dual-circuit water chiller cooling capacity (kW / BTU), ambient dew point temperatures, and anti-condensation safety thresholds for 1.5kW to 60kW fiber lasers in desert (50°C) and high-humidity climates.">
+  <link rel="canonical" href="https://actcnc.com/engineering/laser-chiller-cooling-capacity-and-dew-point-calculator.html">
+  <style>
+    :root { --primary: #0284c7; --accent: #38bdf8; --dark-bg: #070a11; --dark-surface: #0f172a; --dark-card: #1e293b; --dark-border: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
+    .hero-sec { text-align: center; margin-bottom: 50px; }
+    .hero-sec h1 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; color: #fff; margin-bottom: 16px; }
+    .hero-sec p { color: var(--text-muted); max-width: 820px; margin: 0 auto 30px; font-size: 16px; }
+    
+    .calc-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; }
+    .panel { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 18px; padding: 32px; }
+    .results { background: linear-gradient(145deg, #0c4a6e 0%, #082f49 100%); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 18px; padding: 32px; }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 14px; font-weight: 700; color: #e2e8f0; margin-bottom: 8px; }
+    .form-group select, .form-group input { width: 100%; background: #030712; border: 1px solid rgba(255,255,255,0.15); border-radius: 10px; padding: 12px 16px; color: #fff; font-size: 15px; font-weight: 600; outline: none; }
+    
+    .stat-row { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 15px; }
+    .stat-row:last-of-type { border-bottom: none; }
+    .stat-row .val { font-weight: 800; color: #fff; }
+    .stat-row .val.green { color: #4ade80; font-size: 20px; }
+    
+    .btn-action { display: block; width: 100%; text-align: center; background: #22c55e; color: #fff; padding: 16px; border-radius: 10px; font-weight: 800; font-size: 16px; margin-top: 24px; }
+    
+    @media (max-width: 900px) {
+      .calc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Fiber Laser Chiller Sizing and Dew Point Anti-Condensation Engineering Guide",
+    "description": "Calculate dual-temperature water chiller cooling capacities and ambient dew points to prevent water droplet condensation on high-power optical modules.",
+    "author": { "@type": "Organization", "name": "ACTCNC Heavy Industry" }
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <span>ACTCNC Thermal Management & Industrial Chiller Engineering Tool</span>
+    <span>WhatsApp Support: +86 155 6620 6930</span>
+  </div>
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <div style="font-size:14px;font-weight:700;"><a href="/" style="color:var(--accent);">&larr; Back to Main Portal</a></div>
+  </header>
+
+  <div class="container">
+    <div class="hero-sec">
+      <span style="background:rgba(2,132,199,0.15);color:#38bdf8;padding:4px 14px;border-radius:20px;font-size:12px;font-weight:800;text-transform:uppercase;">Thermal Engineering Tool</span>
+      <h1 style="margin-top:14px;">Laser Chiller Sizing & Dew Point Anti-Condensation Calculator</h1>
+      <p>Optical module internal condensation (dew formation) is the #1 killer of fiber laser diodes in tropical or desert climates. Calculate exact chiller heat dissipation and safe temperature setpoints.</p>
+    </div>
+
+    <div class="calc-grid">
+      <div class="panel">
+        <h3 style="color:#fff;font-size:18px;font-weight:800;margin-bottom:20px;">1. Operational & Climate Inputs</h3>
+
+        <div class="form-group">
+          <label>Fiber Laser Optical Output Power</label>
+          <select id="laserKw" onchange="calculateChiller()">
+            <option value="6">6,000 W (6 kW Fiber Laser)</option>
+            <option value="12">12,000 W (12 kW Fiber Laser)</option>
+            <option value="20" selected>20,000 W (20 kW Heavy Plate Laser)</option>
+            <option value="30">30,000 W (30 kW Ultra-High Power)</option>
+            <option value="60">60,000 W (60 kW Mega Ground Rail)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Workshop Peak Ambient Temperature (°C)</label>
+          <input type="number" id="ambTemp" value="38" min="10" max="55" oninput="calculateChiller()">
+        </div>
+
+        <div class="form-group">
+          <label>Workshop Relative Humidity (RH %)</label>
+          <input type="number" id="relHum" value="70" min="10" max="98" oninput="calculateChiller()">
+        </div>
+      </div>
+
+      <div class="results">
+        <h3 style="color:#fff;font-size:20px;font-weight:800;margin-bottom:20px;">2. Chiller Sizing & Dew Point Thresholds</h3>
+
+        <div class="stat-row">
+          <span>Required Chiller Heat Dissipation</span>
+          <span class="val green" id="heatLoad">32.0 kW (109,200 BTU/h)</span>
+        </div>
+        <div class="stat-row">
+          <span>Ambient Air Dew Point (Td)</span>
+          <span class="val" id="dewPoint" style="color:#f59e0b;">31.8&deg;C (Condensation Risk!)</span>
+        </div>
+        <div class="stat-row">
+          <span>Safe Low-Temp Water Setpoint (Laser Source)</span>
+          <span class="val" id="safeLowTemp">24.0&deg;C (Requires Air-Conditioned Laser Enclosure)</span>
+        </div>
+        <div class="stat-row">
+          <span>Safe Room Water Setpoint (Optics/QBH)</span>
+          <span class="val" id="safeRoomTemp">32.0&deg;C</span>
+        </div>
+
+        <a href="https://wa.me/8615566206930?text=Direct%20Inquiry%20Laser%20Chiller%20Thermal%20Consultation" target="_blank" class="btn-action">
+          Inquire About Desert High-Temperature Air-Conditioned Enclosures &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateChiller() {
+      const kw = parseFloat(document.getElementById('laserKw').value) || 20;
+      const t = parseFloat(document.getElementById('ambTemp').value) || 35;
+      const rh = parseFloat(document.getElementById('relHum').value) || 60;
+      
+      // Heat generation: electrical efficiency ~38%, so ~62% dissipated as heat + 15% head safety margin
+      const totalHeatKw = (kw * 1.6).toFixed(1);
+      const btu = Math.round(totalHeatKw * 3412.14);
+      
+      // Magnus formula for Dew Point approximation
+      const a = 17.27;
+      const b = 237.7;
+      const alpha = ((a * t) / (b + t)) + Math.log(rh / 100.0);
+      const dp = ((b * alpha) / (a - alpha)).toFixed(1);
+      
+      let safeLow = "24.0°C";
+      let dpNote = dp + "°C (Safe)";
+      if (dp >= 22.0) {
+        dpNote = dp + "°C (HIGH Condensation Risk!)";
+        document.getElementById('dewPoint').style.color = "#f87171";
+        safeLow = "24.0°C (MANDATORY: Isolated A/C Cabinet)";
+      } else {
+        document.getElementById('dewPoint').style.color = "#4ade80";
+        safeLow = "22.0°C – 24.0°C";
+      }
+      
+      document.getElementById('heatLoad').innerText = totalHeatKw + " kW (" + btu.toLocaleString() + " BTU/h)";
+      document.getElementById('dewPoint').innerText = dpNote;
+      document.getElementById('safeLowTemp').innerText = safeLow;
+      document.getElementById('safeRoomTemp').innerText = (t > 30 ? (t - 2).toFixed(1) : "28.0") + "°C";
+    }
+    calculateChiller();
+  </script>
+</body>
+</html>

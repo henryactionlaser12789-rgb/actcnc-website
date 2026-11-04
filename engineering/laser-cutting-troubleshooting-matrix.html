@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laser Cutting & Welding Troubleshooting & Defect Resolution Matrix | ACTCNC</title>
+  <meta name="description" content="Comprehensive shop floor diagnostic guide solving dross, corner burnout, rough striations, and piercing blowout on carbon steel and stainless steel.">
+  <link rel="canonical" href="https://actcnc.com/engineering/laser-cutting-troubleshooting-matrix.html">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent: #f59e0b;
+      --dark-bg: #090d16;
+      --dark-surface: #111827;
+      --dark-card: #1f2937;
+      --dark-border: #374151;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
+    .top-bar { background: #030712; padding: 8px 24px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid #1f2937; }
+    header { position: sticky; top: 0; z-index: 100; background: rgba(9,13,22,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 1.5px; }
+    .brand-logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 16px; list-style: none; font-size: 13px; font-weight: 600; align-items: center; flex-wrap: wrap; }
+    .btn-wa { background: #22c55e; color: #fff; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
+    .page-hero { padding: 70px 24px 60px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2,132,199,0.18) 0%, rgba(9,13,22,0) 75%); border-bottom: 1px solid #1f2937; }
+    .hero-tag { display: inline-block; padding: 4px 14px; background: rgba(2,132,199,0.2); color: #38bdf8; border: 1px solid rgba(2,132,199,0.3); border-radius: 20px; font-size: 12px; font-weight: 700; margin-bottom: 14px; letter-spacing: 0.5px; }
+    .page-hero h1 { font-size: clamp(26px, 4.5vw, 42px); font-weight: 900; margin-bottom: 16px; color: #fff; line-height: 1.25; }
+    .page-hero p { max-width: 860px; margin: 0 auto; color: var(--text-muted); font-size: clamp(14px, 2vw, 17px); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 50px 24px; }
+    .card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; padding: 28px; margin-bottom: 30px; }
+    .spec-table-box { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; overflow-x: auto; margin: 24px 0; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+    th { background: #111827; color: #38bdf8; padding: 14px 16px; border-bottom: 1px solid var(--dark-border); font-weight: 700; }
+    td { padding: 14px 16px; border-bottom: 1px solid #1f2937; color: #e5e7eb; }
+    .cta-banner { background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%); border-radius: 16px; padding: 48px; text-align: center; margin: 60px 0; border: 1px solid rgba(56,189,248,0.3); }
+    footer { background: #030712; border-top: 1px solid #1f2937; padding: 60px 24px 30px; color: var(--text-muted); font-size: 14px; text-align: center; }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Laser Cutting & Welding Process Defect Resolution Matrix",
+  "description": "Diagnostic and troubleshooting procedures for dross, corner burnout, rough striations, and thick plate piercing blowout.",
+  "author": {
+    "@type": "Organization",
+    "name": "ACTCNC Heavy Industry Engineering Department"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ACTCNC",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://actcnc.com/assets/global-component-partners.png"
+    }
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="top-bar">
+    <div><span>ACTCNC Heavy Industry Laser Engineering Portal</span></div>
+    <div>WhatsApp: <strong style="color:#fff;">+86 155 6620 6930</strong> | Telegram: <strong style="color:#fff;">@ACTCNC_Laser</strong></div>
+  </div>
+
+  <header>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/products/fiber-laser-cutting-machines.html">Machinery</a></li>
+      <li><a href="/engineering/laser-cutting-troubleshooting-matrix.html">Troubleshooting</a></li>
+      <li><a href="/engineering/international-compliance-safety-standards.html">Compliance</a></li>
+      <li><a href="/engineering/laser-consumables-maintenance-sop.html">Maintenance</a></li>
+      <li><a href="/case-studies/global-installation-case-studies.html">Case Studies</a></li>
+      <li><a href="https://wa.me/8615566206930" class="btn-wa" target="_blank">Contact Engineers</a></li>
+    </ul>
+  </header>
+
+  <section class="page-hero">
+    <div class="hero-tag">SHOP FLOOR PROCESS DIAGNOSTICS</div>
+    <h1>Laser Cutting & Welding Troubleshooting Matrix</h1>
+    <p>Diagnose and eliminate dross, cutting burrs, piercing explosion, and weld seam porosity with proven parameter corrections.</p>
+  </section>
+
+  <div class="container">
+    
+<div class="card">
+  <h2 style="color:#fff;font-size:24px;font-weight:800;margin-bottom:12px;">Laser Cutting & Welding Process Defect Resolution Matrix</h2>
+  <p style="color:#9ca3af;margin-bottom:24px;">An engineer's diagnostic guide to identifying and fixing dross/slag, thermal burnouts, cut edge discoloration, and porosity in real-time shop floor operations.</p>
+
+  <div class="spec-table-box">
+    <table>
+      <thead>
+        <tr>
+          <th>Observed Defect / Symptom</th>
+          <th>Root Cause Analysis</th>
+          <th>Immediate Operator Solution</th>
+          <th>Recommended Parameter Adjustment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Bottom Dross / Slag on Stainless Steel</strong></td>
+          <td>Insufficient N2 gas pressure or focal point positioned too high above sheet.</td>
+          <td>Increase Nitrogen assist pressure (16–20 Bar) and lower the focal position into the bottom 1/3 of plate thickness.</td>
+          <td>Focal Position: -2.0mm to -4.0mm<br>Gas Pressure: +3.0 Bar</td>
+        </tr>
+        <tr>
+          <td><strong>Corner Burnout / Overheating on Carbon Steel</strong></td>
+          <td>Excessive heat buildup at sharp vertices during oxygen cutting.</td>
+          <td>Enable CNC Corner Deceleration and Power Frequency Modulation (Curve Power Control).</td>
+          <td>Enable "Corner Cooling Point"<br>Reduce Duty Cycle to 60% at turns</td>
+        </tr>
+        <tr>
+          <td><strong>Rough Striations / Vertical Grooving</strong></td>
+          <td>Cutting speed too high or dirty/damaged protective window absorbing beam energy.</td>
+          <td>Inspect lower protective lens under 100X microscope. If clean, reduce feed rate by 15%.</td>
+          <td>Feed Rate: -10% to -15%<br>Check Nozzle Centering & Coaxiality</td>
+        </tr>
+        <tr>
+          <td><strong>Piercing Blowout on Extra-Thick Plates (20mm+)</strong></td>
+          <td>Single-stage blast piercing causing explosive molten spatter backfire.</td>
+          <td>Switch from direct piercing to 3-Stage Progressive Frequency-Ramped Piercing with Oil Spray.</td>
+          <td>Use Stage 1-3 Pulse Piercing<br>Nozzle Stand-off: 5.0mm &rarr; 1.0mm</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </div>
+
+  <footer>
+    &copy; 2026 ACTCNC Heavy Industry & Laser Tech Co., Ltd. All rights reserved.
+  </footer>
+</body>
+</html>
