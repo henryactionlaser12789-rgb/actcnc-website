@@ -52,12 +52,12 @@
     .section-header h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: #fff; margin: 12px 0 16px; }
     .section-header p { color: var(--text-muted); max-width: 760px; margin: 0 auto; font-size: 16px; }
     
-    /* 核心机型卡片：强化居中对齐与视觉比例 */
+    /* 核心机型卡片：强化暗黑棚拍居中对齐与视觉比例 */
     .featured-split-card { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-card) 100%); border: 1px solid var(--dark-border); border-radius: 20px; padding: 36px; margin-bottom: 44px; align-items: center; }
     .featured-split-card.reverse { grid-template-columns: 0.85fr 1.15fr; }
     
-    /* 容器：深色高科技边框，内部图片采用绝对居中与自适应填充 */
-    .img-frame { position: relative; border-radius: 14px; overflow: hidden; background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); border: 1px solid rgba(255,255,255,0.12); aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
+    /* 容器：暗黑科技背景，纯黑机柜高光 */
+    .img-frame { position: relative; border-radius: 14px; overflow: hidden; background: #070a11; border: 1px solid rgba(255,255,255,0.12); aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
     .img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
     .img-floating-tag { position: absolute; bottom: 14px; left: 14px; background: rgba(3, 7, 18, 0.88); backdrop-filter: blur(10px); border: 1px solid rgba(56, 189, 248, 0.4); color: #fff; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; z-index: 2; }
     .img-floating-tag .tag-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
@@ -72,7 +72,7 @@
     
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; margin-bottom: 50px; }
     .machinery-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
-    .machinery-card .card-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); display: flex; align-items: center; justify-content: center; }
+    .machinery-card .card-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #070a11; display: flex; align-items: center; justify-content: center; }
     .machinery-card .card-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
     .machinery-card .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
     .machinery-card .card-body h3 { font-size: 19px; font-weight: 800; color: #fff; margin: 10px 0 8px; }
@@ -150,34 +150,34 @@
   </section>
 
   <div class="container">
-    <!-- Section 1: Flagship Heavy Machinery Showcase -->
+    <!-- Section 1: Flagship Heavy Machinery Showcase (Dark Studio Unified Style) -->
     <div class="section-header">
       <span class="cert-pill">FLAGSHIP HEAVY-DUTY LASER MACHINERY</span>
       <h2>Engineered for 24/7 Heavy Structural Fabrication</h2>
       <p>High-rigidity annealed machine beds, modular ground-rail beds, and intelligent multi-chuck CNC synchronizers.</p>
     </div>
 
-    <!-- Flagship Item 1: 重型管材激光切割机 (百超迪能/宏山标杆实拍，3500px超清居中) -->
+    <!-- Flagship Item 1: 重型管材激光切割机 (统一暗黑科技棚拍) -->
     <div class="featured-split-card">
       <div class="img-frame">
-        <img src="/assets/dne-heavy-tube-laser-cutter-520.jpg" alt="ACTCNC 520 Heavy Tube Laser Beveling Machine">
+        <img src="/assets/dark-studio-heavy-4chuck-tube-cutter-m.jpg" alt="ACTCNC 4-Chuck Heavy Tube Laser Beveling Machine">
         <div class="img-floating-tag">
           <div class="tag-dot"></div>
-          <span>Heavy Duty Φ15–520mm Tube & Profile | Zero Tailing Loss</span>
+          <span>4-Chuck Synchronous Rotation | 0mm Tailing Loss | ±45° Beveling</span>
         </div>
       </div>
       <div class="card-content">
-        <span class="cert-pill">Φ15–520mm | HEAVY TUBE & PROFILE</span>
+        <span class="cert-pill">Φ15–530mm | 4-CHUCK ZERO TAILING</span>
         <h3>Heavy Tube & Profile CNC Laser Beveling Machine</h3>
-        <p>Full-stroke pneumatic synchronous clamping system with intelligent follower support. Cuts round, square, rectangular tubes, H-beams, and channel steels with <strong>0mm tailing loss</strong> and ±45° beveling in a single pass.</p>
+        <p>4-chuck synchronous pneumatic clamping system with full-stroke rotation. Cuts round, square, rectangular tubes, H-beams, and channel steels with <strong>0mm tailing loss</strong> and ±45° beveling in a single pass.</p>
         <div class="metric-pills">
           <div class="metric-item">
             <div class="val">0 mm</div>
             <div class="lbl">Tailing Material Waste</div>
           </div>
           <div class="metric-item">
-            <div class="val">520 mm</div>
-            <div class="lbl">Max Tube Diameter</div>
+            <div class="val">±45°</div>
+            <div class="lbl">Beveling Angle Range</div>
           </div>
         </div>
         <a href="/products/heavy-tube-pipe-fiber-laser-cutters.html" class="btn-primary">
@@ -186,7 +186,7 @@
       </div>
     </div>
 
-    <!-- Flagship Item 2: 超高功率大幅面地轨切割机 (5158px 超清实景居中) -->
+    <!-- Flagship Item 2: 30kW–60kW 超大功率地轨切割机 (统一暗黑科技棚拍 - Reverse) -->
     <div class="featured-split-card reverse">
       <div class="card-content">
         <span class="cert-pill">30,000W – 60,000W GROUND RAIL</span>
@@ -207,7 +207,7 @@
         </a>
       </div>
       <div class="img-frame">
-        <img src="/assets/dne-ultra-large-ground-rail-cutter.jpg" alt="ACTCNC Ultra Large Ground Rail Laser Cutter">
+        <img src="/assets/dark-studio-ultra-power-ground-rail-h.jpg" alt="ACTCNC 30kW-60kW Ultra High Power Ground Rail Laser Cutter">
         <div class="img-floating-tag">
           <div class="tag-dot"></div>
           <span>Max Plate Thickness: 100mm Carbon Steel | Renishaw Calibrated</span>
@@ -215,17 +215,17 @@
       </div>
     </div>
 
-    <!-- Flagship Item 3: 自动化料塔与交换工作台 (3500px 超清居中) -->
+    <!-- Flagship Item 3: 自动化料塔与智能上下料系统 (统一暗黑科技棚拍) -->
     <div class="featured-split-card">
       <div class="img-frame">
-        <img src="/assets/dne-automatic-material-loading-shuttle.jpg" alt="ACTCNC Automated Material Loading & Shuttle Table">
+        <img src="/assets/dark-studio-automated-loading-tower.jpg" alt="ACTCNC Automated Material Storage & Loading Tower">
         <div class="img-floating-tag">
           <div class="tag-dot"></div>
           <span>Automatic Sheet Loading / Unloading | 24/7 Lights-Out Operation</span>
         </div>
       </div>
       <div class="card-content">
-        <span class="cert-pill">AUTOMATION & MATERIAL SHUTTLE</span>
+        <span class="cert-pill">AUTOMATION & MATERIAL STORAGE</span>
         <h3>Intelligent Automated Material Storage & Loading Cell</h3>
         <p>Unattended continuous fabrication cell with multi-layer sheet metal raw material cassette storage, pneumatic vacuum suction cups, and dual pallet automatic shuttle exchange system.</p>
         <div class="metric-pills">
@@ -244,7 +244,7 @@
       </div>
     </div>
 
-    <!-- Section 2: 6-Model Machinery Grid -->
+    <!-- Section 2: 6-Model Machinery Grid (Unified Dark Studio Style) -->
     <div class="section-header" style="margin-top:60px;">
       <span class="cert-pill">FULL INDUSTRIAL MACHINERY PORTFOLIO</span>
       <h2>Specialized CNC Laser Machining Cells</h2>
@@ -265,10 +265,23 @@
         </div>
       </div>
 
-      <!-- Card 2: Heavy Structural Steel H-Beam Cutter -->
+      <!-- Card 2: 旗舰全包围光纤板材切割机 (暗黑棚拍) -->
       <div class="machinery-card">
         <div class="card-thumb">
-          <img src="/assets/heavy-structural-steel-h-beam-cutter.jpg" alt="ACTCNC Heavy Structural Profile & H-Beam Laser Cutter">
+          <img src="/assets/dark-studio-heavy-sheet-cutter-x.jpg" alt="ACTCNC High Speed Enclosed Sheet Laser Cutter">
+        </div>
+        <div class="card-body">
+          <span class="cert-pill" style="align-self:flex-start;">DUAL EXCHANGE TABLE</span>
+          <h3>High-Speed Enclosed Sheet Fiber Laser Cutter</h3>
+          <p>Full protective CE-standard enclosure with OD6 laser safety glass, active anti-collision optical head, and 15-second high-speed hydraulic shuttle table.</p>
+          <a href="/products/fiber-laser-cutting-machines.html" class="link-arrow">View Enclosed Cutters &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Heavy Structural Steel H-Beam Cutter (暗黑棚拍) -->
+      <div class="machinery-card">
+        <div class="card-thumb">
+          <img src="/assets/dark-studio-heavy-h-beam-cutter.jpg" alt="ACTCNC Heavy Structural Profile & H-Beam Laser Cutter">
         </div>
         <div class="card-body">
           <span class="cert-pill" style="align-self:flex-start;">H-BEAM & PROFILES</span>
@@ -278,7 +291,7 @@
         </div>
       </div>
 
-      <!-- Card 3: High-Speed Laser Cladding & Hardening -->
+      <!-- Card 4: High-Speed Laser Cladding & Hardening -->
       <div class="machinery-card">
         <div class="card-thumb">
           <img src="/assets/laser-cladding-remanufacturing-cell.jpg" alt="ACTCNC Laser Cladding & Hardening Remanufacturing System">
@@ -291,29 +304,16 @@
         </div>
       </div>
 
-      <!-- Card 4: Fiber Laser Marking System Matrix -->
+      <!-- Card 5: 工业手持焊与清洗机 (暗黑棚拍) -->
       <div class="machinery-card">
         <div class="card-thumb">
-          <img src="/assets/fiber-laser-marking-5models.jpg" alt="ACTCNC Fiber Laser Marking Machine 5-Model Series">
+          <img src="/assets/dark-studio-handheld-welder-pro.jpg" alt="ACTCNC Handheld Laser Welder and Cleaner">
         </div>
         <div class="card-body">
-          <span class="cert-pill" style="align-self:flex-start;">20W - 100W FIBER</span>
-          <h3>Fiber Laser Marking Machine (5 Chassis Types)</h3>
-          <p>Available in Desktop, Split, Portable, Enclosed Cabinet, and Handheld configurations with Sino-Galvo scanners for deep engraving and part serial numbers.</p>
-          <a href="/products/mopa-color-fiber-laser-markers.html" class="link-arrow">Explore Marking Series &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Card 5: MOPA Color Marking System -->
-      <div class="machinery-card">
-        <div class="card-thumb">
-          <img src="/assets/mopa-laser-marking-machine.jpg" alt="ACTCNC MOPA Color Laser Marking Machine">
-        </div>
-        <div class="card-body">
-          <span class="cert-pill" style="align-self:flex-start;">MOPA JPT PULSE</span>
-          <h3>MOPA Color & Deep Engraving Laser Marker</h3>
-          <p>Adjustable pulse width (2–500ns) enables vibrant true-color oxidation marking on stainless steel and high-contrast dark marking on anodized aluminum.</p>
-          <a href="/products/mopa-color-fiber-laser-markers.html" class="link-arrow">View MOPA Marker &rarr;</a>
+          <span class="cert-pill" style="align-self:flex-start;">3-IN-1 HANDHELD</span>
+          <h3>Industrial Handheld Laser Welder & Cleaner</h3>
+          <p>Continuous fiber laser welding, rust stripping, and cutting in a single compact mobile unit with wire feeder and wobble welding torch.</p>
+          <a href="/products/handheld-laser-welder-cleaner.html" class="link-arrow">View Handheld Welder &rarr;</a>
         </div>
       </div>
 
