@@ -52,12 +52,14 @@
     .section-header h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; color: #fff; margin: 12px 0 16px; }
     .section-header p { color: var(--text-muted); max-width: 760px; margin: 0 auto; font-size: 16px; }
     
+    /* 核心机型卡片：强化居中对齐与视觉比例 */
     .featured-split-card { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; background: linear-gradient(135deg, var(--dark-surface) 0%, var(--dark-card) 100%); border: 1px solid var(--dark-border); border-radius: 20px; padding: 36px; margin-bottom: 44px; align-items: center; }
     .featured-split-card.reverse { grid-template-columns: 0.85fr 1.15fr; }
     
-    .img-frame { position: relative; border-radius: 14px; overflow: hidden; background: #020617; border: 1px solid rgba(255,255,255,0.12); aspect-ratio: 16/10; }
-    .img-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .img-floating-tag { position: absolute; bottom: 14px; left: 14px; background: rgba(3, 7, 18, 0.88); backdrop-filter: blur(10px); border: 1px solid rgba(56, 189, 248, 0.4); color: #fff; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    /* 容器：深色高科技边框，内部图片采用绝对居中与自适应填充 */
+    .img-frame { position: relative; border-radius: 14px; overflow: hidden; background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); border: 1px solid rgba(255,255,255,0.12); aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
+    .img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+    .img-floating-tag { position: absolute; bottom: 14px; left: 14px; background: rgba(3, 7, 18, 0.88); backdrop-filter: blur(10px); border: 1px solid rgba(56, 189, 248, 0.4); color: #fff; padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; z-index: 2; }
     .img-floating-tag .tag-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 10px #22c55e; }
     
     .card-content h3 { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 12px; }
@@ -70,8 +72,8 @@
     
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; margin-bottom: 50px; }
     .machinery-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
-    .machinery-card .card-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #030712; }
-    .machinery-card .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .machinery-card .card-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: radial-gradient(circle at 50% 50%, #0f172a 0%, #020617 100%); display: flex; align-items: center; justify-content: center; }
+    .machinery-card .card-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
     .machinery-card .card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
     .machinery-card .card-body h3 { font-size: 19px; font-weight: 800; color: #fff; margin: 10px 0 8px; }
     .machinery-card .card-body p { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px; flex: 1; }
@@ -81,7 +83,7 @@
     .sample-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 60px; }
     .sample-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; overflow: hidden; }
     .sample-card .s-thumb { aspect-ratio: 4/3; overflow: hidden; background: #030712; }
-    .sample-card .s-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .sample-card .s-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
     .sample-card .s-info { padding: 14px; text-align: center; }
     .sample-card .s-info h4 { color: #fff; font-size: 14px; font-weight: 700; margin-bottom: 4px; }
     .sample-card .s-info p { color: var(--text-muted); font-size: 12px; }
@@ -155,27 +157,27 @@
       <p>High-rigidity annealed machine beds, modular ground-rail beds, and intelligent multi-chuck CNC synchronizers.</p>
     </div>
 
-    <!-- Flagship Item 1: 4-Chuck Heavy Tube & Beveling Cutter -->
+    <!-- Flagship Item 1: 重型管材激光切割机 (百超迪能/宏山标杆实拍，3500px超清居中) -->
     <div class="featured-split-card">
       <div class="img-frame">
-        <img src="/assets/hsg-4plus1-heavy-beveling-tube-cutter.jpg" alt="ACTCNC 4-Chuck Heavy Tube Laser Beveling Machine">
+        <img src="/assets/dne-heavy-tube-laser-cutter-520.jpg" alt="ACTCNC 520 Heavy Tube Laser Beveling Machine">
         <div class="img-floating-tag">
           <div class="tag-dot"></div>
-          <span>4-Chuck Synchronous Clamping | 0mm Tailing Loss | ±45° Beveling</span>
+          <span>Heavy Duty Φ15–520mm Tube & Profile | Zero Tailing Loss</span>
         </div>
       </div>
       <div class="card-content">
-        <span class="cert-pill">Φ15–530mm | 4-CHUCK ZERO TAILING</span>
+        <span class="cert-pill">Φ15–520mm | HEAVY TUBE & PROFILE</span>
         <h3>Heavy Tube & Profile CNC Laser Beveling Machine</h3>
-        <p>4-chuck synchronous pneumatic clamping with full-stroke rotation. Cuts round, square, rectangular tubes, H-beams, and channel steels with <strong>0mm tailing loss</strong> and ±45° beveling in a single pass.</p>
+        <p>Full-stroke pneumatic synchronous clamping system with intelligent follower support. Cuts round, square, rectangular tubes, H-beams, and channel steels with <strong>0mm tailing loss</strong> and ±45° beveling in a single pass.</p>
         <div class="metric-pills">
           <div class="metric-item">
             <div class="val">0 mm</div>
             <div class="lbl">Tailing Material Waste</div>
           </div>
           <div class="metric-item">
-            <div class="val">±45°</div>
-            <div class="lbl">Beveling Angle Range</div>
+            <div class="val">520 mm</div>
+            <div class="lbl">Max Tube Diameter</div>
           </div>
         </div>
         <a href="/products/heavy-tube-pipe-fiber-laser-cutters.html" class="btn-primary">
@@ -184,11 +186,11 @@
       </div>
     </div>
 
-    <!-- Flagship Item 2: 30kW–60kW Ultra-High Power Plate Cutter (Reverse) -->
+    <!-- Flagship Item 2: 超高功率大幅面地轨切割机 (5158px 超清实景居中) -->
     <div class="featured-split-card reverse">
       <div class="card-content">
         <span class="cert-pill">30,000W – 60,000W GROUND RAIL</span>
-        <h3>Ultra-High Power Sheet & Plate Cutters</h3>
+        <h3>Ultra-High Power Ground-Rail Sheet & Plate Cutters</h3>
         <p>Engineered for shipyards, pressure vessel manufacturing, and mega-scale steel structures. Features modular ground-rail beds up to 48 meters and dual smoke exhaust partitions for clean, heavy-duty processing without edge beveling delays.</p>
         <div class="metric-pills">
           <div class="metric-item">
@@ -205,7 +207,7 @@
         </a>
       </div>
       <div class="img-frame">
-        <img src="/assets/heavy-sheet-metal-fiber-cutter-hero.jpg" alt="ACTCNC 30kW-60kW Ultra-High Power Ground Rail Laser Cutter">
+        <img src="/assets/dne-ultra-large-ground-rail-cutter.jpg" alt="ACTCNC Ultra Large Ground Rail Laser Cutter">
         <div class="img-floating-tag">
           <div class="tag-dot"></div>
           <span>Max Plate Thickness: 100mm Carbon Steel | Renishaw Calibrated</span>
@@ -213,18 +215,18 @@
       </div>
     </div>
 
-    <!-- Flagship Item 3: Automated Material Loading Tower & Cell -->
+    <!-- Flagship Item 3: 自动化料塔与交换工作台 (3500px 超清居中) -->
     <div class="featured-split-card">
       <div class="img-frame">
-        <img src="/assets/automated-laser-loading-material-tower.jpg" alt="ACTCNC Automated Laser Loading Material Tower">
+        <img src="/assets/dne-automatic-material-loading-shuttle.jpg" alt="ACTCNC Automated Material Loading & Shuttle Table">
         <div class="img-floating-tag">
           <div class="tag-dot"></div>
           <span>Automatic Sheet Loading / Unloading | 24/7 Lights-Out Operation</span>
         </div>
       </div>
       <div class="card-content">
-        <span class="cert-pill">AUTOMATION & MATERIAL STORAGE</span>
-        <h3>Intelligent Automated Material Storage & Loading Tower</h3>
+        <span class="cert-pill">AUTOMATION & MATERIAL SHUTTLE</span>
+        <h3>Intelligent Automated Material Storage & Loading Cell</h3>
         <p>Unattended continuous fabrication cell with multi-layer sheet metal raw material cassette storage, pneumatic vacuum suction cups, and dual pallet automatic shuttle exchange system.</p>
         <div class="metric-pills">
           <div class="metric-item">
