@@ -1,202 +1,102 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <title>ACTCNC™ Россия | Оптоволоконные лазерные станки раскроя металла 1.5–30 кВт</title>
-  <meta name="description" content="ACTCNC (actcnc.com/ru) производит мощные оптоволоконные лазерные станки резки металла до 30 кВт, ручные лазерные сварочные аппараты 3-в-1 и маркираторы. Доставка по РФ и СНГ.">
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ACTCNC | Промышленные станки лазерной резки и тяжелые труборезы</title>
+  <meta name="description" content="Официальный завод ACTCNC: тяжелые волоконные лазерные станки от 1.5 кВт до 60 000 Вт, 4-кулачковые труборезы с нулевым остатком и роботизированные 3D комплексы.">
+  <link rel="canonical" href="https://actcnc.com/ru/">
   <style>
     :root {
       --primary: #0284c7;
-      --primary-hover: #0369a1;
-      --primary-dark: #0c4a6e;
-      --accent: #f59e0b;
-      --dark-bg: #090d16;
-      --dark-surface: #111827;
-      --dark-card: #1f2937;
-      --dark-border: #374151;
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --text-dim: #6b7280;
-      --success: #10b981;
+      --accent: #38bdf8;
+      --dark-bg: #070a11;
+      --dark-surface: #0f172a;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--dark-bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
     a { color: inherit; text-decoration: none; }
-    .top-bar {
-      background: #030712;
-      border-bottom: 1px solid #1f2937;
-      font-size: 13px;
-      color: var(--text-muted);
-      padding: 8px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .badge-iso {
-      background: #1e3a8a;
-      color: #93c5fd;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(9, 13, 22, 0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .brand-logo { font-size: 24px; font-weight: 900; color: #fff; letter-spacing: 1.5px; }
-    .brand-logo span { color: var(--primary); }
-    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 15px; font-weight: 600; }
-    .nav-links a:hover { color: var(--primary); }
-    .lang-switcher { display: flex; gap: 8px; font-size: 13px; font-weight: 700; }
-    .lang-btn { padding: 4px 8px; border-radius: 4px; border: 1px solid var(--dark-border); color: var(--text-muted); }
-    .lang-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-    .btn-wa {
-      background: #22c55e;
-      color: #fff;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .page-hero {
-      padding: 60px 24px 50px;
-      text-align: center;
-      background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.15) 0%, rgba(9, 13, 22, 0) 70%);
-      border-bottom: 1px solid #1f2937;
-    }
-    .page-hero h1 { font-size: clamp(28px, 4.5vw, 44px); font-weight: 900; margin-bottom: 16px; color: #fff; }
-    .page-hero p { font-size: 17px; color: var(--text-muted); max-width: 800px; margin: 0 auto 24px; }
-    .content-container { max-width: 1200px; margin: 0 auto; padding: 60px 24px; }
-    .spec-table-box {
-      background: var(--dark-surface);
-      border: 1px solid var(--dark-border);
-      border-radius: 12px;
-      overflow: hidden;
-      margin: 30px 0;
-    }
-    table { width: 100%; border-collapse: collapse; font-size: 14px; text-align: left; }
-    th { background: #111827; color: #38bdf8; padding: 14px 18px; border-bottom: 1px solid var(--dark-border); }
-    td { padding: 14px 18px; border-bottom: 1px solid var(--dark-border); color: #e2e8f0; }
-    .btn-quote {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 14px;
-      margin-top: 15px;
-    }
-    footer {
-      background: #030712;
-      border-top: 1px solid #1f2937;
-      padding: 50px 24px 25px;
-      font-size: 14px;
-      color: var(--text-muted);
-    }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .cert-pill { background: linear-gradient(135deg, #1e3a8a, #0284c7); color: #fff; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; }
+    .brand-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; }
+    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    
+    .hero { padding: 90px 24px 70px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.25) 0%, rgba(7, 10, 17, 0) 70%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); }
+    .hero h1 { font-size: clamp(30px, 4.5vw, 50px); font-weight: 900; color: #fff; margin-bottom: 18px; }
+    .hero p { max-width: 860px; margin: 0 auto 30px; font-size: 17px; color: var(--text-muted); }
+    
+    .container { max-width: 1240px; margin: 0 auto; padding: 60px 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; }
+    .card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+    .card .thumb { aspect-ratio: 16/10; background: #070a11; overflow: hidden; }
+    .card .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .card .body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .card h3 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; flex: 1; }
+    
+    footer { background: #020617; border-top: 1px solid var(--dark-border); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 13px; }
   </style>
-
 </head>
 <body>
   <div class="top-bar">
-    <div>🌐 Официальный портал: <strong>actcnc.com/ru</strong> | <span class="badge-iso">СЕРТИФИКАТЫ CE & ISO9001</span></div>
-    <div>Горячая линия / WhatsApp: <a href="https://wa.me/8615566206930" style="color:#38bdf8; font-weight:700;">+86 155 6620 6930</a></div>
+    <div><span class="cert-pill">ГОСТ / CE / ISO 9001</span> Прямые заводские поставки промышленного лазерного оборудования</div>
+    <div>WhatsApp: <strong style="color:#fff;">+86 155 6620 6930</strong> (Русскоязычная поддержка)</div>
   </div>
   <header>
-    <a href="/ru/" class="brand-logo">ACT<span>CNC</span>™</a>
+    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
     <ul class="nav-links">
-      <li><a href="/ru/#products">Оборудование</a></li>
-      <li><a href="/ru/#tech">Характеристики</a></li>
-      <li><a href="/ru/#contact">Контакты</a></li>
+      <li><a href="/">Главная (EN)</a></li>
+      <li><a href="/ru/" style="color:var(--accent);">Русский (RU)</a></li>
+      <li><a href="/es/">Español (ES)</a></li>
+      <li><a href="/ar/">العربية (AR)</a></li>
     </ul>
-    <div class="lang-switcher">
-      <a href="/" class="lang-btn">EN</a>
-      <a href="/ru/" class="lang-btn active">RU</a>
-      <a href="/es/" class="lang-btn">ES</a>
-    </div>
+    <a href="https://wa.me/8615566206930?text=Запрос%20лазерного%20оборудования%20ACTCNC" class="btn-wa" target="_blank">Связаться в WhatsApp</a>
   </header>
 
-  <div class="page-hero">
-    <h1>Промышленные оптоволоконные лазерные станки раскроя металла (1.5 кВт – 30 кВт)</h1>
-    <p>Тяжелая сварная станина с отжигом при 600°C в печи. Прецизионная резка углеродистой стали до 50+ мм и нержавеющей стали до 40 мм с системой ЧПУ FSCUT / CypCut на русском языке.</p>
-    <a href="https://wa.me/8615566206930?text=Здравствуйте%20ACTCNC%2C%20интересует%20цена%20и%20параметры%20лазерного%20станка%20для%20России." target="_blank" class="btn-wa">💬 Запросить КП и карту резки в WhatsApp</a>
-  </div>
+  <section class="hero">
+    <span class="cert-pill" style="margin-bottom:14px;display:inline-block;">ПРОМЫШЛЕННЫЕ СТАНКИ ЛАЗЕРНОЙ РЕЗКИ 1.5 – 60 КВТ</span>
+    <h1>Промышленное лазерное оборудование сверхвысокой мощности</h1>
+    <p>От тяжелых наземных комплексов 60 000 Вт для судостроения до 4-патронных труборезов с нулевым остатком и роботизированных 3D систем.</p>
+  </section>
 
-  <div class="content-container">
-    <h2>Таблица параметров резки металлов (10 кВт – 20 кВт)</h2>
-    <div class="spec-table-box">
-      <table>
-        <thead>
-          <tr>
-            <th>Модель станка</th>
-            <th>Мощность лазера</th>
-            <th>Углеродистая сталь (O₂)</th>
-            <th>Нержавеющая сталь (N₂)</th>
-            <th>Алюминиевые сплавы</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>ACT-3015-10KW</strong></td>
-            <td>10 000 Вт</td>
-            <td>до 32 мм</td>
-            <td>до 25 мм</td>
-            <td>до 20 мм</td>
-          </tr>
-          <tr>
-            <td><strong>ACT-4020-15KW</strong></td>
-            <td>15 000 Вт</td>
-            <td>до 45 мм</td>
-            <td>до 35 мм</td>
-            <td>до 30 мм</td>
-          </tr>
-          <tr>
-            <td><strong>ACT-6025-20KW</strong></td>
-            <td>20 000 Вт</td>
-            <td>до 50+ мм</td>
-            <td>до 40 мм</td>
-            <td>до 35 мм</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="background:var(--dark-surface); border:1px solid var(--dark-border); padding:30px; border-radius:12px; margin-top:30px;">
-      <h3 style="color:#38bdf8; margin-bottom:12px;">Преимущества для тяжелых промышленных условий:</h3>
-      <ul style="padding-left:20px; color:var(--text-muted); line-height:1.8;">
-        <li><strong>Усиленный челночный стол (15 сек смена паллет):</strong> Автоматическая гидравлическая смена столов для непрерывной круглосуточной резки.</li>
-        <li><strong>Защита оптического тракта и двойной контур охлаждения:</strong> Устойчивость к перепадам температур и запыленности цеха.</li>
-        <li><strong>Прямая поставка от производителя с шеф-монтажом и гарантией 2 года.</strong></li>
-      </ul>
+  <div class="container">
+    <div class="grid-3">
+      <div class="card">
+        <div class="thumb"><img src="/assets/dark-studio-heavy-4chuck-tube-cutter-m.jpg" alt="Тяжелый лазерный труборез с 4 патронами"></div>
+        <div class="body">
+          <span class="cert-pill" style="align-self:flex-start;">ТРУБОРЕЗЫ Φ15–530 ММ</span>
+          <h3>Тяжелый 4-кулачковый лазерный труборез</h3>
+          <p>Резка круглых, профильных труб и балок с нулевым отходом (0 мм) и снятием фаски ±45° под сварку за один проход.</p>
+          <a href="https://wa.me/8615566206930?text=Интересует%20труборез" style="color:var(--accent);font-weight:700;">Запросить каталог и КП &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"><img src="/assets/dark-studio-ultra-power-ground-rail-h.jpg" alt="Наземный комплекс раскроя 30кВт-60кВт"></div>
+        <div class="body">
+          <span class="cert-pill" style="align-self:flex-start;">30 000 ВТ – 60 000 ВТ</span>
+          <h3>Наземный комплекс для толстолистового металла</h3>
+          <p>Модульная станина до 48 метров для раскроя углеродистой стали толщиной до 100 мм без образования грата.</p>
+          <a href="https://wa.me/8615566206930?text=Интересует%20листорез%20сверхмощный" style="color:var(--accent);font-weight:700;">Запросить спецификацию &rarr;</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb"><img src="/assets/dark-studio-automated-loading-tower.jpg" alt="Автоматический склад-башня"></div>
+        <div class="body">
+          <span class="cert-pill" style="align-self:flex-start;">АВТОМАТИЗАЦИЯ</span>
+          <h3>Складская башня и автоподача металла</h3>
+          <p>Непрерывный цикл работы 24/7 с автоматической сменой столов за 45 секунд и вакуумными захватами.</p>
+          <a href="https://wa.me/8615566206930?text=Интересует%20автоматизация" style="color:var(--accent);font-weight:700;">Узнать подробнее &rarr;</a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <footer>
-    <div style="max-width:1200px; margin:0 auto; text-align:center;">
-      <p>© 2026 ACTCNC Systems Inc. (actcnc.com/ru) | WhatsApp / Телефон: +86 155 6620 6930</p>
-    </div>
-  </footer>
+  <footer>&copy; 2026 ACTCNC Heavy Industry & Laser Tech Co., Ltd. Доставка и пусконаладка в СНГ.</footer>
 </body>
 </html>
