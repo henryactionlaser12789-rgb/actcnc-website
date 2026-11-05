@@ -88,8 +88,26 @@
     .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 30px; }
     .prod-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s; }
     .prod-card:hover { transform: translateY(-4px); border-color: var(--dark-border-hover); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-    .prod-thumb { aspect-ratio: 16/10; background: #000; overflow: hidden; position: relative; }
-    .prod-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .prod-thumb { 
+      aspect-ratio: 16/10; 
+      background: radial-gradient(circle at 50% 50%, #1e293b 0%, #030712 100%); 
+      overflow: hidden; 
+      position: relative; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      padding: 10px;
+    }
+    .prod-thumb img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain; 
+      transform: scale(1.18); 
+      transition: transform 0.5s ease; 
+    }
+    .prod-card:hover .prod-thumb img { 
+      transform: scale(1.28); 
+    }
     .prod-card:hover .prod-thumb img { transform: scale(1.05); }
     .prod-badge { position: absolute; top: 14px; left: 14px; background: rgba(7, 10, 17, 0.85); backdrop-filter: blur(8px); border: 1px solid var(--dark-border); color: var(--accent); padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; }
     .prod-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
@@ -233,7 +251,7 @@
         <div class="prod-card">
           <div class="prod-thumb">
             <span class="prod-badge">LASER &bull; 30,000W–60,000W</span>
-            <img src="/assets/dark-studio-ultra-power-ground-rail-h.jpg" alt="30kW–60kW Ground-Rail Sheet Cutter">
+            <img src="/assets/ultra-high-power-ground-rail-plate-cutter.jpg" alt="30kW–60kW Ground-Rail Sheet Cutter">
           </div>
           <div class="prod-body">
             <h3>Ultra-High Power Ground-Rail Sheet Cutter</h3>
@@ -253,7 +271,7 @@
         <div class="prod-card">
           <div class="prod-thumb">
             <span class="prod-badge">LASER &bull; ZERO TAILING</span>
-            <img src="/assets/dark-studio-heavy-4chuck-tube-cutter-m.jpg" alt="Heavy 4-Chuck Tube Cutter">
+            <img src="/assets/cnc-heavy-4chuck-tube-cutter-m5.jpg" alt="Heavy 4-Chuck Tube Cutter">
           </div>
           <div class="prod-body">
             <h3>Heavy 4-Chuck Tube & Profile Laser Cutter</h3>
