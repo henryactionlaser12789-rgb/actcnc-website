@@ -3,164 +3,392 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THM Series 5-Axis Precision Horizontal Machining Center | ACTCNC</title>
-  <meta name="description" content="ACTCNC THM6350IV / THM6380IV 5-axis precision HMC. Direct-drive dual-axis cradle table, symmetrical thermal compensation, and sub-micron positioning.">
-  <link rel="canonical" href="https://actcnc.com/products/cnc/thm-5-axis-horizontal-machining-center.html">
+  <title>Ningjiang THM Series 5-Axis Precision Horizontal Machining Center | Aerospace & Complex Mold Milling</title>
+  <meta name="description" content="Sichuan Push Ningjiang THM6380IV / THM6350IV simultaneous 5-axis precision horizontal machining center. Features direct-drive A/B rotary cradle, BT50/HSK-A100 spindle, 0.005mm positioning accuracy for aerospace impellers and precision casings.">
+  <link rel="canonical" href="https://actcnc.com/products/cnc/thm-5-axis-horizontal-machining-center.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
+      --bg: #030712;
+      --card-bg: #0b1329;
+      --card-border: rgba(255, 255, 255, 0.08);
       --primary: #0284c7;
-      --accent: #38bdf8;
-      --dark-bg: #070a11;
-      --dark-surface: #0f172a;
-      --dark-border: rgba(255, 255, 255, 0.1);
+      --primary-glow: #38bdf8;
+      --accent: #fbbf24;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-stack); background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+    }
     a { color: inherit; text-decoration: none; }
-    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .cert-pill { background: linear-gradient(135deg, #1e3a8a, #0284c7); color: #fff; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
-    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; }
-    .brand-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; }
-    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
     
-    .hero { padding: 80px 24px 60px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.25) 0%, rgba(7, 10, 17, 0) 70%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); }
-    .hero h1 { font-size: clamp(30px, 4.5vw, 48px); font-weight: 900; color: #fff; margin-bottom: 14px; }
-    .hero p { max-width: 840px; margin: 0 auto 30px; font-size: 16px; color: var(--text-muted); }
+    .top-bar {
+      background: #020617;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
     
-    .container { max-width: 1200px; margin: 0 auto; padding: 50px 24px; }
-    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; }
-    .img-box { border-radius: 16px; overflow: hidden; border: 1px solid var(--dark-border); background: #000; }
-    .img-box img { width: 100%; height: auto; display: block; }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(3, 7, 18, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo .logo-box {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 20px;
+    }
+    .brand-name { font-size: 18px; font-weight: 800; }
+    .brand-name span { color: var(--primary-glow); }
+    .brand-sub { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; font-size: 14px; font-weight: 600; }
+    .nav-links a:hover { color: var(--primary-glow); }
     
-    table { width: 100%; border-collapse: collapse; margin-top: 24px; background: var(--dark-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--dark-border); }
-    th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--dark-border); font-size: 14px; }
-    th { background: #030712; color: var(--accent); font-weight: 700; }
-    td:first-child { font-weight: 600; color: #fff; }
+    .hero {
+      padding: 80px 0 50px;
+      background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.12) 0%, transparent 70%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: var(--primary-glow);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
     
-    .feature-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-    .f-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; padding: 24px; }
-    .f-card h3 { color: var(--accent); font-size: 18px; margin-bottom: 10px; }
-    .f-card p { font-size: 14px; color: var(--text-muted); }
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 30px; }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5); }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
     
-    footer { background: #020617; border-top: 1px solid var(--dark-border); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 13px; }
-    @media (max-width: 900px) { .spec-grid, .feature-cards { grid-template-columns: 1fr; } }
+    .hero-img-box {
+      background: radial-gradient(circle at 50% 50%, #1e293b 0%, #030712 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-img-box img {
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.85));
+      transform: scale(1.05);
+    }
+    
+    .section { padding: 70px 0; }
+    .section-title { font-size: 30px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .section-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 40px; }
+    
+    /* Spec Table */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow-x: auto;
+      margin-top: 30px;
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+    th {
+      background: rgba(255,255,255,0.03);
+      color: var(--primary-glow);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--card-border);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--text-muted);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.02); color: #fff; }
+    td strong { color: #fff; font-family: 'JetBrains Mono', monospace; }
+    
+    /* Feature Cards */
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    
+    .footer {
+      background: #020617;
+      border-top: 1px solid var(--card-border);
+      padding: 50px 0 25px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Ningjiang THM Series 5-Axis Precision Horizontal Machining Center",
+    "model": "THM6380IV",
+    "brand": {
+      "@type": "Brand",
+      "name": "Sichuan Push Ningjiang Machine Tool"
+    },
+    "description": "5-axis simultaneous horizontal machining center with direct-drive A/B rotary cradle, BT50 12,000rpm spindle, and 0.005mm positioning accuracy for aerospace and mold milling.",
+    "image": "https://actcnc.com/assets/ningjiang/thm6380-main.png",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "price": "Contact for Factory Direct Quote"
+    }
+  }
+  </script>
 </head>
 <body>
+
   <div class="top-bar">
-    <div><span class="cert-pill">PRECISION CNC</span> ACTCNC Heavy Industry & Precision Machinery Co., Ltd.</div>
-    <div>WhatsApp: <strong style="color:#fff;">+86 155 6620 6930</strong></div>
+    <div class="container top-bar-inner">
+      <div>🏛️ SICHUAN PUSH NINGJIANG MACHINE TOOL CO., LTD. (SINCE 1965)</div>
+      <div>
+        <span>Overseas Engineering: </span>
+        <a href="mailto:henry_wang@actionlasers.com" style="color:#fff;">henry_wang@actionlasers.com</a> | 
+        <a href="tel:+8615566206930" style="color:#fff;">+86 155 6620 6930</a>
+      </div>
+    </div>
   </div>
-  <header>
-    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/products/fiber-laser-cutting-machines.html">Laser Machinery</a></li>
-      <li><a href="/products/cnc/thm-5-axis-horizontal-machining-center.html" style="color:var(--accent);">5-Axis CNC (THM)</a></li>
-      <li><a href="/products/cnc/th6363-precision-horizontal-machining-center.html">Heavy HMC (TH6363)</a></li>
-    </ul>
-    <a href="https://wa.me/8615566206930?text=Inquiry%20THM%205-Axis%20HMC" class="btn-wa" target="_blank">Contact Engineering Team</a>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="brand-logo">
+        <div class="logo-box">NJ</div>
+        <div>
+          <div class="brand-name">PUSH <span>NINGJIANG</span></div>
+          <div class="brand-sub">Machine Tool Co., Ltd.</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About Ningjiang</a></li>
+        <li><a href="../../index.html#all-machinery">All Machinery</a></li>
+        <li><a href="../../engineering/interactive-laser-machine-configurator.html">TCO Configurator</a></li>
+        <li><a href="../../engineering/thick-plate-flash-piercing-technology.html">Whitepapers</a></li>
+        <li><a href="../../ningjiang.html">Master Portal</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">SIMULTANEOUS 5-AXIS PRECISION HMC</div>
+        <h1 class="hero-title">THM Series 5-Axis Precision Horizontal Machining Center</h1>
+        <p class="hero-desc">
+          Engineered for continuous multi-surface complex milling of aerospace impellers, turbine blade casings, and automotive transmission cases in a single setup. Features direct-drive torque motor A/B dual-axis cradle table and symmetrical Meehanite thermal compensation bed.
+        </p>
+        <div class="btn-group">
+          <a href="#quote" class="btn-primary">Request CAD Cut-Test / Quote →</a>
+          <a href="../../assets/ningjiang/thm6380-main.png" target="_blank" class="btn-secondary">Download High-Res CAD Specs</a>
+        </div>
+        <div style="font-size:13px;color:var(--accent);font-weight:700;">
+          ✓ 0.005mm Volumetric Positioning Accuracy | ✓ Renishaw Laser Calibrated
+        </div>
+      </div>
+      <div class="hero-img-box">
+        <img src="../../assets/ningjiang/thm6380-main.png" alt="Ningjiang THM6380IV 5-Axis Horizontal Machining Center">
+      </div>
+    </div>
   </header>
 
-  <section class="hero">
-    <span class="cert-pill" style="margin-bottom:14px;display:inline-block;">PRECISION WITHOUT COMPROMISE</span>
-    <h1>THM Series 5-Axis Precision Horizontal Machining Center</h1>
-    <p>Engineered for complex aerospace impellers, turbine blades, and precision automotive molds with simultaneous 5-axis contouring and high dynamic rigidity.</p>
+  <section class="section" style="background:#040711;">
+    <div class="container">
+      <h2 class="section-title">Master Specification Matrix (THM Series)</h2>
+      <p class="section-desc">Comprehensive factory engineering parameters across the THM simultaneous 5-axis platform.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Technical Specification</th>
+              <th>THM6350IV</th>
+              <th>THM6380IV (Flagship)</th>
+              <th>THM63120IV</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>X / Y / Z Axis Travel</td>
+              <td><strong>800 / 700 / 800 mm</strong></td>
+              <td><strong>1,000 / 800 / 900 mm</strong></td>
+              <td><strong>1,300 / 1,000 / 1,100 mm</strong></td>
+            </tr>
+            <tr>
+              <td>A / B Rotary Cradle Axis Range</td>
+              <td><strong>A: ±120°, B: 360° Continuous</strong></td>
+              <td><strong>A: ±120°, B: 360° Continuous</strong></td>
+              <td><strong>A: ±120°, B: 360° Continuous</strong></td>
+            </tr>
+            <tr>
+              <td>Pallet / Table Size</td>
+              <td><strong>500 × 500 mm</strong></td>
+              <td><strong>630 × 630 mm (Dual APC)</strong></td>
+              <td><strong>800 × 800 mm (Dual APC)</strong></td>
+            </tr>
+            <tr>
+              <td>Max Table Load Capacity</td>
+              <td><strong>800 kg</strong></td>
+              <td><strong>1,200 kg</strong></td>
+              <td><strong>2,000 kg</strong></td>
+            </tr>
+            <tr>
+              <td>Spindle Taper & Speed</td>
+              <td><strong>HSK-A63 (15,000 rpm)</strong></td>
+              <td><strong>BT50 / HSK-A100 (12,000 rpm)</strong></td>
+              <td><strong>BT50 Gear Head (8,000 rpm)</strong></td>
+            </tr>
+            <tr>
+              <td>Spindle Motor Power</td>
+              <td><strong>22 / 26 kW</strong></td>
+              <td><strong>30 / 37 kW (High Torque)</strong></td>
+              <td><strong>37 / 45 kW</strong></td>
+            </tr>
+            <tr>
+              <td>Tool Magazine Capacity (ATC)</td>
+              <td><strong>40 / 60 Tools (Chain)</strong></td>
+              <td><strong>60 / 120 Tools (Matrix)</strong></td>
+              <td><strong>80 / 160 Tools (Matrix)</strong></td>
+            </tr>
+            <tr>
+              <td>Positioning Accuracy (ISO 230-2)</td>
+              <td><strong>0.004 mm</strong></td>
+              <td><strong>0.005 mm</strong></td>
+              <td><strong>0.006 mm</strong></td>
+            </tr>
+            <tr>
+              <td>Repeatability Accuracy</td>
+              <td><strong>0.0025 mm</strong></td>
+              <td><strong>0.003 mm</strong></td>
+              <td><strong>0.0035 mm</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </section>
 
-  <div class="container">
-    <div class="spec-grid">
-      <div class="img-box">
-        <img src="/assets/ningjiang/thm6380-main.png" alt="THM6380 5-Axis Machining Center">
-      </div>
-      <div>
-        <h2 style="font-size:28px;margin-bottom:16px;">Core Structural Advantages</h2>
-        <p style="color:var(--text-muted);margin-bottom:20px;">
-          The THM series adopts a positive T-shaped integral bed, double-wall symmetrical thermal box column, and direct-drive A/B axis cradle rotary table to deliver exceptional machining accuracy and surface finishing.
-        </p>
-        <div class="feature-cards" style="grid-template-columns:1fr 1fr;gap:16px;">
-          <div class="f-card">
-            <h3>Direct-Drive A/B Cradle</h3>
-            <p>High-torque torque motors eliminate backlash for micro-arcsecond contouring.</p>
-          </div>
-          <div class="f-card">
-            <h3>Thermal Symmetry Bed</h3>
-            <p>Meehanite dense cast iron with internal cooling channels for zero thermal drift.</p>
-          </div>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Core Engineering Advantages</h2>
+      <div class="grid-3" style="margin-top:30px;">
+        <div class="card">
+          <h4>Direct-Drive Torque Motors</h4>
+          <p>The A/B rotary cradle axes feature zero-backlash direct-drive water-cooled torque motors, eliminating gear wear and ensuring dynamic acceleration for complex curved blade machining.</p>
+        </div>
+        <div class="card">
+          <h4>Thermal Symmetrical Meehanite Casting</h4>
+          <p>Internally symmetric cooling jacket design channels constant-temperature cutting fluid through the casting core to isolate spindle motor heat, maintaining sub-micron accuracy over 24-hour continuous cuts.</p>
+        </div>
+        <div class="card">
+          <h4>FMS Turnkey Line Readiness</h4>
+          <p>Seamlessly integrates with Ningjiang standard automated pallet pools (6-pallet, 12-pallet) and central MES scheduling software for 24/7 lights-out unmanned manufacturing.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <h2 style="font-size:24px;margin-bottom:16px;">Official Master Specification Table</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Key Specification</th>
-          <th>THM6350IV</th>
-          <th>THM6363IV</th>
-          <th>THM6380IV</th>
-          <th>THM63100IV</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Worktable Diameter</td>
-          <td>Ø 500 mm</td>
-          <td>Ø 630 mm</td>
-          <td>Ø 800 mm</td>
-          <td>Ø 1,000 mm</td>
-        </tr>
-        <tr>
-          <td>A-Axis Tilting Range</td>
-          <td>0° ~ 90°</td>
-          <td>0° ~ 90°</td>
-          <td>0° ~ 90°</td>
-          <td>0° ~ 90°</td>
-        </tr>
-        <tr>
-          <td>B-Axis Rotary Range</td>
-          <td>360° (Continuous)</td>
-          <td>360° (Continuous)</td>
-          <td>360° (Continuous)</td>
-          <td>360° (Continuous)</td>
-        </tr>
-        <tr>
-          <td>X/Y/Z Axis Travel (mm)</td>
-          <td>800 / 700 / 750</td>
-          <td>1,000 / 800 / 900</td>
-          <td>1,300 / 1,000 / 1,100</td>
-          <td>1,600 / 1,250 / 1,250</td>
-        </tr>
-        <tr>
-          <td>Spindle Taper & Interface</td>
-          <td>BT50 / HSK-A100</td>
-          <td>BT50 / HSK-A100</td>
-          <td>BT50 / HSK-A100</td>
-          <td>BT50 / HSK-A100</td>
-        </tr>
-        <tr>
-          <td>Spindle Max Speed</td>
-          <td>10,000 rpm</td>
-          <td>8,000 rpm</td>
-          <td>8,000 rpm</td>
-          <td>6,000 rpm</td>
-        </tr>
-        <tr>
-          <td>Positioning Accuracy (ISO 230-2)</td>
-          <td>0.005 mm</td>
-          <td>0.005 mm</td>
-          <td>0.006 mm</td>
-          <td>0.008 mm</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <footer class="footer">
+    <div class="container" style="text-align:center;">
+      <p>&copy; 2026 Sichuan Push Ningjiang Machine Tool Co., Ltd. All rights reserved.</p>
+    </div>
+  </footer>
 
-  <footer>&copy; 2026 ACTCNC Heavy Industry & Precision Machinery Co., Ltd. & ACTCNC Heavy Industry. All Rights Reserved.</footer>
 </body>
 </html>
