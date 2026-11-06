@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNC Machining Cycle Time & Takt Simulator | Five-Axis & Heavy HMC Production Calculator</title>
+  <meta name="description" content="Interactive CNC cycle time and production cost calculator for aerospace impellers, transmission housings, and precision gear parts. Calculate tool changes, rapid traverse, APC pallet swap, and spindle chip-to-chip times for Ningjiang THM, TH6363, and YK3610IV.">
+  <link rel="canonical" href="https://actcnc.com/engineering/cnc-machining-takt-cycle-time-calculator.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #030712;
+      --card-bg: #0b1329;
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #0284c7;
+      --primary-glow: #38bdf8;
+      --accent: #fbbf24;
+      --success: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+    
+    .top-bar {
+      background: #020617;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(3, 7, 18, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo { display: flex; align-items: center; gap: 12px; }
+    .brand-logo .logo-box {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; color: #fff; font-size: 20px;
+    }
+    .brand-name { font-size: 18px; font-weight: 800; }
+    .brand-name span { color: var(--primary-glow); }
+    .brand-sub { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; font-size: 14px; font-weight: 600; }
+    .nav-links a:hover { color: var(--primary-glow); }
+
+    .header-section {
+      padding: 60px 0 30px;
+      text-align: center;
+      background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.15) 0%, transparent 70%);
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: var(--primary-glow);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .page-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 16px;
+    }
+    .page-desc {
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin: 40px 0 80px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 32px;
+    }
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding-bottom: 16px;
+    }
+    
+    .form-group { margin-bottom: 20px; }
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .form-control, select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+    .form-control:focus, select:focus {
+      outline: none;
+      border-color: var(--primary-glow);
+      background: rgba(2, 132, 199, 0.08);
+    }
+    select option { background: #0b1329; color: #fff; }
+
+    .result-box {
+      background: rgba(2, 132, 199, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .result-label { font-size: 13px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
+    .result-val {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--primary-glow);
+      font-family: 'JetBrains Mono', monospace;
+      margin: 8px 0;
+    }
+    .result-sub { font-size: 13px; color: var(--accent); font-weight: 600; }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .metric-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+    }
+    .metric-item .val { font-size: 20px; font-weight: 700; color: #fff; font-family: 'JetBrains Mono', monospace; }
+    .metric-item .lbl { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    .footer {
+      background: #020617;
+      border-top: 1px solid var(--card-border);
+      padding: 50px 0 25px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CNC Machining Cycle Time & Production Takt Simulator",
+    "applicationCategory": "EngineeringCalculator",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "description": "Interactive CNC production takt and machining cycle time simulator for aerospace impellers, gearbox housings, and gear hobbing operations."
+  }
+  </script>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <div>🏛️ SICHUAN PUSH NINGJIANG MACHINE TOOL CO., LTD. & ACTCNC</div>
+      <div>
+        <span>Overseas Engineering: </span>
+        <a href="mailto:henry_wang@actionlasers.com" style="color:#fff;">henry_wang@actionlasers.com</a> | 
+        <a href="tel:+8615566206930" style="color:#fff;">+86 155 6620 6930</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="../index.html" class="brand-logo">
+        <div class="logo-box">NJ</div>
+        <div>
+          <div class="brand-name">PUSH <span>NINGJIANG</span></div>
+          <div class="brand-sub">CNC & Precision Machining</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about.html">About Ningjiang</a></li>
+        <li><a href="../index.html#all-machinery">All Machinery</a></li>
+        <li><a href="../engineering/interactive-laser-machine-configurator.html">Laser Configurator</a></li>
+        <li><a href="../engineering/thick-plate-flash-piercing-technology.html">Whitepapers</a></li>
+        <li><a href="../ningjiang.html">Master Portal</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header-section">
+    <div class="container">
+      <div class="tag">PRECISION TACT & EFFICIENCY ENGINE</div>
+      <h1 class="page-title">CNC Machining Cycle Time & Production Takt Simulator</h1>
+      <p class="page-desc">
+        Accurately simulate cutting time, rapid traverse, automatic tool changer (ATC) chip-to-chip overhead, and dual-pallet changer (APC) swap cycles for Ningjiang 5-Axis, HMC, and Gear Hobbing machines.
+      </p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="calc-grid">
+      
+      <!-- Input Parameters -->
+      <div class="card">
+        <div class="card-title">
+          <span>⚙️</span> Production & Machining Parameters
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Target Machine Platform</label>
+          <select id="machineModel" onchange="calculateTakt()">
+            <option value="thm">THM6363 / THM800 (5-Axis Horizontal Center - Dual Direct Drive)</option>
+            <option value="th6363">TH6363 / TH63125 (Heavy Twin-Pallet HMC - High Rigidity)</option>
+            <option value="yk3610">YK3610IV (7-Axis High-Speed CNC Gear Hobbing)</option>
+            <option value="fms">Ningjiang Turnkey FMS (Flexible Manufacturing Cell)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Workpiece Complexity / Application</label>
+          <select id="partType" onchange="calculateTakt()">
+            <option value="impeller">Aerospace 5-Axis Impeller / Blisk (Titanium / Inconel)</option>
+            <option value="housing">EV Aluminum Transmission Gearbox Housing (6-Face Milling)</option>
+            <option value="valve">Heavy Hydraulic Valve Block (Steel Casting - Multi-Bore)</option>
+            <option value="pinion">Helical Pinion / Transmission Gear (Module 1.5 - 4.0)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Estimated Pure Cutting Time (Minutes)</label>
+          <input type="number" id="cuttingTime" class="form-control" value="18.5" step="0.5" oninput="calculateTakt()">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Number of Tool Changes (ATC Cycles)</label>
+          <input type="number" id="atcCount" class="form-control" value="12" step="1" oninput="calculateTakt()">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Daily Working Hours (Shifts)</label>
+          <select id="workHours" onchange="calculateTakt()">
+            <option value="8">1 Shift (8 Hours)</option>
+            <option value="16" selected>2 Shifts (16 Hours)</option>
+            <option value="24">3 Shifts / Lights-Out FMS (24 Hours)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Monthly Target Output (Parts)</label>
+          <input type="number" id="monthlyTarget" class="form-control" value="600" step="50" oninput="calculateTakt()">
+        </div>
+
+      </div>
+
+      <!-- Real-Time Output Simulation -->
+      <div class="card">
+        <div class="card-title">
+          <span>📊</span> Cycle Time & Output Simulation
+        </div>
+
+        <div class="result-box">
+          <div class="result-label">Total Floor-to-Floor Cycle Time</div>
+          <div class="result-val" id="totalCycleTime">21.8 min</div>
+          <div class="result-sub" id="tactComparison">Optimal Takt Achieved for 2-Shift Batch</div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-item">
+            <div class="val" id="dailyCapacity">44 Parts</div>
+            <div class="lbl">Simulated Daily Output</div>
+          </div>
+          <div class="metric-item">
+            <div class="val" id="monthlyCapacity">1,100 Parts</div>
+            <div class="lbl">Monthly Capacity (25 Days)</div>
+          </div>
+        </div>
+
+        <div class="metrics-row">
+          <div class="metric-item">
+            <div class="val" id="spindleUtilization">88.5%</div>
+            <div class="lbl">Spindle Chip-Cut Utilization</div>
+          </div>
+          <div class="metric-item">
+            <div class="val" id="apcSavingTime">3.5 min/part</div>
+            <div class="lbl">APC Pallet Swap Time Saved</div>
+          </div>
+        </div>
+
+        <div style="background:rgba(255,255,255,0.03);border:1px solid var(--card-border);border-radius:12px;padding:20px;font-size:13px;line-height:1.7;">
+          <div style="font-weight:700;color:var(--primary-glow);margin-bottom:8px;">💡 Engineering Optimization Advice:</div>
+          <div id="engAdvice" style="color:var(--text-muted);">
+            With Ningjiang dual 15s APC exchange table and 3.8s chip-to-chip high-speed ATC, clamping and loading occur completely in the background during machine operation.
+          </div>
+        </div>
+
+        <div style="margin-top:24px;text-align:center;">
+          <a href="../products/cnc/thm-5-axis-horizontal-machining-center.html" class="form-control" style="display:inline-block;background:linear-gradient(135deg,#0284c7,#2563eb);color:#fff;font-weight:700;width:auto;padding:12px 28px;">Request Customized Part Machining Time Study →</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container" style="text-align:center;">
+      <p>&copy; 2026 Sichuan Push Ningjiang Machine Tool Co., Ltd. & ACTCNC. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function calculateTakt() {
+      const model = document.getElementById('machineModel').value;
+      const part = document.getElementById('partType').value;
+      const pureCut = parseFloat(document.getElementById('cuttingTime').value) || 0;
+      const atcCount = parseInt(document.getElementById('atcCount').value) || 0;
+      const hours = parseInt(document.getElementById('workHours').value) || 16;
+      const monthlyTarget = parseInt(document.getElementById('monthlyTarget').value) || 600;
+
+      // Chip-to-chip tool swap overhead in seconds
+      let atcTimePerTool = 3.8; // THM
+      let apcSwapSaving = 3.5;  // Pallet swap saves 3.5 min of fixture clamp
+      let rapidFactor = 1.05;
+
+      if (model === 'th6363') {
+        atcTimePerTool = 4.2;
+        apcSwapSaving = 4.0;
+        rapidFactor = 1.08;
+      } else if (model === 'yk3610') {
+        atcTimePerTool = 2.0;
+        apcSwapSaving = 1.5;
+        rapidFactor = 1.02;
+      } else if (model === 'fms') {
+        atcTimePerTool = 3.5;
+        apcSwapSaving = 5.0;
+        rapidFactor = 1.03;
+      }
+
+      const totalAtcTimeMin = (atcCount * atcTimePerTool) / 60;
+      const rapidTraverseMin = pureCut * (rapidFactor - 1);
+      const totalCycleTimeMin = pureCut + totalAtcTimeMin + rapidTraverseMin;
+
+      const dailyAvailableMin = hours * 60 * 0.90; // 90% OEE
+      const dailyParts = Math.floor(dailyAvailableMin / totalCycleTimeMin);
+      const monthlyParts = dailyParts * 25; // 25 workdays
+      const utilization = ((pureCut / totalCycleTimeMin) * 100).toFixed(1);
+
+      document.getElementById('totalCycleTime').innerText = totalCycleTimeMin.toFixed(1) + " min";
+      document.getElementById('dailyCapacity').innerText = dailyParts + " Parts";
+      document.getElementById('monthlyCapacity').innerText = monthlyParts.toLocaleString() + " Parts";
+      document.getElementById('spindleUtilization').innerText = utilization + "%";
+      document.getElementById('apcSavingTime').innerText = apcSwapSaving.toFixed(1) + " min/part";
+
+      if (monthlyParts >= monthlyTarget) {
+        document.getElementById('tactComparison').innerText = "✓ Output exceeds target of " + monthlyTarget + " parts/month (" + Math.round((monthlyParts/monthlyTarget)*100) + "% buffer)";
+        document.getElementById('tactComparison').style.color = "var(--success)";
+      } else {
+        const gap = monthlyTarget - monthlyParts;
+        document.getElementById('tactComparison').innerText = "⚠️ Shortfall of " + gap + " parts/month. Consider 3-shift FMS or multi-station fixture";
+        document.getElementById('tactComparison').style.color = "var(--accent)";
+      }
+
+      let advice = "";
+      if (model === 'thm') {
+        advice = "THM 5-Axis dual direct-drive rotary table eliminates 4 separate re-clamping setups, slashing overall lead time by 62% and guaranteeing 0.005mm true position across complex geometric features.";
+      } else if (model === 'th6363') {
+        advice = "TH6363 heavy twin-pallet exchange table allows operator fixture loading during live cut. 45kW high-torque spindle handles deep cavity face milling in steel castings effortlessly.";
+      } else if (model === 'yk3610') {
+        advice = "YK3610IV 7-axis CNC high-speed electronic gearbox gear hobbing machine cuts spur/helical gears up to DIN 4 accuracy in a single pass without secondary shaving.";
+      } else if (model === 'fms') {
+        advice = "Ningjiang Turnkey FMS links multiple HMCs with multi-tier pallet automated storage and RGV transfer, achieving 24/7 unmanned lights-out batch production.";
+      }
+      document.getElementById('engAdvice').innerText = advice;
+    }
+
+    calculateTakt();
+  </script>
+
+</body>
+</html>
