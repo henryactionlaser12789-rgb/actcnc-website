@@ -3,123 +3,376 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>YK3610IV 7-Axis High-Precision CNC Gear Hobbing Machine | ACTCNC</title>
-  <meta name="description" content="ACTCNC YK3610IV 7-axis high-speed CNC gear hobber. Direct-drive B/C axes, dry/wet cutting capability, and DIN Class 4 gear precision.">
-  <link rel="canonical" href="https://actcnc.com/products/cnc/yk3610iv-7-axis-cnc-gear-hobbing-machine.html">
+  <title>Ningjiang YK3610IV 7-Axis CNC Gear Hobbing Machine | High-Speed Dry Hobbing & EV Reducers</title>
+  <meta name="description" content="Sichuan Push Ningjiang YK3610IV 7-axis CNC high-precision gear hobbing machine. Features direct-drive torque motor spindles, high-speed dry hobbing up to 6,000rpm, achieving DIN Class 4 / ISO 4 gear accuracy for electric vehicle reducers and robotics.">
+  <link rel="canonical" href="https://actcnc.com/products/cnc/yk3610iv-7-axis-cnc-gear-hobbing-machine.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
     :root {
+      --bg: #030712;
+      --card-bg: #0b1329;
+      --card-border: rgba(255, 255, 255, 0.08);
       --primary: #0284c7;
-      --accent: #38bdf8;
-      --dark-bg: #070a11;
-      --dark-surface: #0f172a;
-      --dark-border: rgba(255, 255, 255, 0.1);
+      --primary-glow: #38bdf8;
+      --accent: #fbbf24;
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
-      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: var(--font-stack); background: var(--dark-bg); color: var(--text-main); line-height: 1.7; }
+    body {
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+    }
     a { color: inherit; text-decoration: none; }
-    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .cert-pill { background: linear-gradient(135deg, #1e3a8a, #0284c7); color: #fff; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 18px 32px; display: flex; justify-content: space-between; align-items: center; }
-    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; }
-    .brand-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; }
-    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
     
-    .hero { padding: 80px 24px 60px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.25) 0%, rgba(7, 10, 17, 0) 70%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); }
-    .hero h1 { font-size: clamp(30px, 4.5vw, 48px); font-weight: 900; color: #fff; margin-bottom: 14px; }
-    .hero p { max-width: 840px; margin: 0 auto 30px; font-size: 16px; color: var(--text-muted); }
+    .top-bar {
+      background: #020617;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .top-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
     
-    .container { max-width: 1200px; margin: 0 auto; padding: 50px 24px; }
-    .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-bottom: 60px; }
-    .img-box { border-radius: 16px; overflow: hidden; border: 1px solid var(--dark-border); background: #000; }
-    .img-box img { width: 100%; height: auto; display: block; }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(3, 7, 18, 0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--card-border);
+      padding: 16px 0;
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo .logo-box {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #fff;
+      font-size: 20px;
+    }
+    .brand-name { font-size: 18px; font-weight: 800; }
+    .brand-name span { color: var(--primary-glow); }
+    .brand-sub { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; font-size: 14px; font-weight: 600; }
+    .nav-links a:hover { color: var(--primary-glow); }
     
-    table { width: 100%; border-collapse: collapse; margin-top: 24px; background: var(--dark-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--dark-border); }
-    th, td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--dark-border); font-size: 14px; }
-    th { background: #030712; color: var(--accent); font-weight: 700; }
-    td:first-child { font-weight: 600; color: #fff; }
+    .hero {
+      padding: 80px 0 50px;
+      background: radial-gradient(circle at 50% 0%, rgba(2, 132, 199, 0.12) 0%, transparent 70%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(2, 132, 199, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      color: var(--primary-glow);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
     
-    footer { background: #020617; border-top: 1px solid var(--dark-border); padding: 40px 24px; text-align: center; color: var(--text-muted); font-size: 13px; }
-    @media (max-width: 900px) { .spec-grid { grid-template-columns: 1fr; } }
+    .btn-group { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 30px; }
+    .btn-primary {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5); }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
+    
+    .hero-img-box {
+      background: radial-gradient(circle at 50% 50%, #1e293b 0%, #030712 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+    }
+    .hero-img-box img {
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.85));
+      transform: scale(1.05);
+    }
+    
+    .section { padding: 70px 0; }
+    .section-title { font-size: 30px; font-weight: 800; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .section-desc { color: var(--text-muted); font-size: 15px; margin-bottom: 40px; }
+    
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow-x: auto;
+      margin-top: 30px;
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+    th {
+      background: rgba(255,255,255,0.03);
+      color: var(--primary-glow);
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--card-border);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--text-muted);
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(255,255,255,0.02); color: #fff; }
+    td strong { color: #fff; font-family: 'JetBrains Mono', monospace; }
+    
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .card h4 { font-size: 18px; font-weight: 700; margin-bottom: 10px; color: #fff; }
+    .card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+    
+    .footer {
+      background: #020617;
+      border-top: 1px solid var(--card-border);
+      padding: 50px 0 25px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Ningjiang YK3610IV 7-Axis High-Precision CNC Gear Hobbing Machine",
+    "model": "YK3610IV",
+    "brand": {
+      "@type": "Brand",
+      "name": "Sichuan Push Ningjiang Machine Tool"
+    },
+    "description": "7-axis CNC gear hobbing machine with direct-drive dual spindles, high-speed dry hobbing up to 6,000rpm, achieving DIN Class 4 / ISO 4 precision for EV gearboxes and robotics.",
+    "image": "https://actcnc.com/assets/ningjiang/yk3610iv-main.png"
+  }
+  </script>
 </head>
 <body>
+
   <div class="top-bar">
-    <div><span class="cert-pill">PRECISION CNC</span> ACTCNC Heavy Industry & Precision Machinery Co., Ltd.</div>
-    <div>WhatsApp: <strong style="color:#fff;">+86 155 6620 6930</strong></div>
-  </div>
-  <header>
-    <a href="/" class="brand-logo">ACT<span>CNC</span></a>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/products/fiber-laser-cutting-machines.html">Laser Machinery</a></li>
-      <li><a href="/products/cnc/thm-5-axis-horizontal-machining-center.html">5-Axis CNC (THM)</a></li>
-      <li><a href="/products/cnc/yk3610iv-7-axis-cnc-gear-hobbing-machine.html" style="color:var(--accent);">CNC Gear Hobber</a></li>
-    </ul>
-    <a href="https://wa.me/8615566206930?text=Inquiry%20YK3610IV%20Gear%20Hobber" class="btn-wa" target="_blank">Contact Engineering Team</a>
-  </header>
-
-  <section class="hero">
-    <span class="cert-pill" style="margin-bottom:14px;display:inline-block;">HIGH-SPEED GEAR GENERATION</span>
-    <h1>YK3610IV 7-Axis High-Precision CNC Gear Hobbing Machine</h1>
-    <p>Equipped with built-in torque motor direct-drive hob spindle and worktable, capable of high-speed dry hobbing and achieving DIN 4 / ISO 4 gear precision.</p>
-  </section>
-
-  <div class="container">
-    <div class="spec-grid">
-      <div class="img-box">
-        <img src="/assets/ningjiang/yk3610iv-main.png" alt="YK3610IV Gear Hobber">
-      </div>
+    <div class="container top-bar-inner">
+      <div>🏛️ SICHUAN PUSH NINGJIANG MACHINE TOOL CO., LTD. (SINCE 1965)</div>
       <div>
-        <h2 style="font-size:28px;margin-bottom:16px;">Precision EV & Reducer Gear Production</h2>
-        <p style="color:var(--text-muted);margin-bottom:20px;">
-          Developed for electric vehicle powertrain gears, planetary reducers, precision robotic cycloidal pinwheels, and high-precision worm gears.
-        </p>
+        <span>Overseas Engineering: </span>
+        <a href="mailto:henry_wang@actionlasers.com" style="color:#fff;">henry_wang@actionlasers.com</a> | 
+        <a href="tel:+8615566206930" style="color:#fff;">+86 155 6620 6930</a>
       </div>
     </div>
-
-    <h2 style="font-size:24px;margin-bottom:16px;">Official Master Specification Table</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Key Specification</th>
-          <th>YK3610IV (Standard)</th>
-          <th>YK3610IV (High-Speed Dry)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Maximum Workpiece Diameter</td>
-          <td>Ø 100 mm</td>
-          <td>Ø 100 mm</td>
-        </tr>
-        <tr>
-          <td>Maximum Machining Module</td>
-          <td>2.5 mm</td>
-          <td>2.5 mm</td>
-        </tr>
-        <tr>
-          <td>Hob Spindle Max Speed (B-Axis)</td>
-          <td>4,000 rpm</td>
-          <td>6,000 rpm (Direct Drive)</td>
-        </tr>
-        <tr>
-          <td>Worktable Max Speed (C-Axis)</td>
-          <td>1,200 rpm</td>
-          <td>2,000 rpm (Direct Drive)</td>
-        </tr>
-        <tr>
-          <td>Machining Precision Grade</td>
-          <td>DIN Class 5</td>
-          <td>DIN Class 4 / ISO 4</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 
-  <footer>&copy; 2026 ACTCNC Heavy Industry & Precision Machinery Co., Ltd. & ACTCNC Heavy Industry. All Rights Reserved.</footer>
+  <nav class="navbar">
+    <div class="container nav-inner">
+      <a href="../../index.html" class="brand-logo">
+        <div class="logo-box">NJ</div>
+        <div>
+          <div class="brand-name">PUSH <span>NINGJIANG</span></div>
+          <div class="brand-sub">Machine Tool Co., Ltd.</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="../../about.html">About Ningjiang</a></li>
+        <li><a href="../../index.html#all-machinery">All Machinery</a></li>
+        <li><a href="../../engineering/interactive-laser-machine-configurator.html">TCO Configurator</a></li>
+        <li><a href="../../engineering/thick-plate-flash-piercing-technology.html">Whitepapers</a></li>
+        <li><a href="../../ningjiang.html">Master Portal</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="tag">7-AXIS HIGH-SPEED DRY GEAR HOBBING</div>
+        <h1 class="hero-title">YK3610IV 7-Axis CNC Precision Gear Hobbing Machine</h1>
+        <p class="hero-desc">
+          Engineered for electric vehicle (EV) reducer gears, robotics harmonic/cycloidal drives, and automotive transmission planetary gears. Features synchronous direct-drive dual torque motors, high-speed dry cutting up to 6,000 rpm, and achieves DIN Class 4 / ISO 4 gear accuracy without subsequent grinding.
+        </p>
+        <div class="btn-group">
+          <a href="#quote" class="btn-primary">Request Gear Cut-Test / Quote →</a>
+          <a href="../../assets/ningjiang/yk3610iv-main.png" target="_blank" class="btn-secondary">Download Gear Spec PDF</a>
+        </div>
+        <div style="font-size:13px;color:var(--accent);font-weight:700;">
+          ✓ DIN Class 4 / ISO 4 Precision | ✓ High-Speed Dry Hobbing | ✓ Direct-Drive Dual Spindles
+        </div>
+      </div>
+      <div class="hero-img-box">
+        <img src="../../assets/ningjiang/yk3610iv-main.png" alt="Ningjiang YK3610IV 7-Axis Gear Hobber">
+      </div>
+    </div>
+  </header>
+
+  <section class="section" style="background:#040711;">
+    <div class="container">
+      <h2 class="section-title">Technical Parameter Matrix (YK3610 Series)</h2>
+      <p class="section-desc">Precision engineering specifications for high-speed gear hobbing operations.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Specification Parameter</th>
+              <th>YK3610IV (Flagship)</th>
+              <th>YK3608IV (Compact)</th>
+              <th>YK3620IV (Heavy)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Max Workpiece Diameter</td>
+              <td><strong>Φ100 mm</strong></td>
+              <td><strong>Φ80 mm</strong></td>
+              <td><strong>Φ200 mm</strong></td>
+            </tr>
+            <tr>
+              <td>Max Machining Module</td>
+              <td><strong>m = 3.0 mm</strong></td>
+              <td><strong>m = 2.0 mm</strong></td>
+              <td><strong>m = 4.5 mm</strong></td>
+            </tr>
+            <tr>
+              <td>Max Axial Travel (Z-Axis)</td>
+              <td><strong>200 mm</strong></td>
+              <td><strong>150 mm</strong></td>
+              <td><strong>300 mm</strong></td>
+            </tr>
+            <tr>
+              <td>Hob Spindle Max Speed</td>
+              <td><strong>6,000 rpm (Direct Drive)</strong></td>
+              <td><strong>6,500 rpm</strong></td>
+              <td><strong>4,500 rpm</strong></td>
+            </tr>
+            <tr>
+              <td>Worktable Max Speed (C-Axis)</td>
+              <td><strong>2,000 rpm (Direct Drive)</strong></td>
+              <td><strong>2,500 rpm</strong></td>
+              <td><strong>1,200 rpm</strong></td>
+            </tr>
+            <tr>
+              <td>Hob Swivel Angle (A-Axis)</td>
+              <td><strong>±45° CNC Controlled</strong></td>
+              <td><strong>±45°</strong></td>
+              <td><strong>±45°</strong></td>
+            </tr>
+            <tr>
+              <td>Gear Quality Class Achieved</td>
+              <td><strong>DIN 4 / ISO 4 (Dry Hobbing)</strong></td>
+              <td><strong>DIN 4 / ISO 4</strong></td>
+              <td><strong>DIN 5 / ISO 5</strong></td>
+            </tr>
+            <tr>
+              <td>Automated Loader Option</td>
+              <td><strong>Truss / Gantry Loader (4s)</strong></td>
+              <td><strong>Gantry Loader (3.5s)</strong></td>
+              <td><strong>Articulated Robot</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Technological Advantages</h2>
+      <div class="grid-3" style="margin-top:30px;">
+        <div class="card">
+          <h4>Direct-Drive Torque Spindles</h4>
+          <p>Both the hob spindle and the workpiece table eliminate traditional worm-gear transmissions, providing zero backlash and extreme angular synchronization for micro-precision gear profiles.</p>
+        </div>
+        <div class="card">
+          <h4>Eco-Friendly Dry Hobbing</h4>
+          <p>Operates without cutting fluid using high-thermal-resistance carbide hobs, slashing coolant disposal costs, eliminating oil smoke, and keeping finished gear parts completely dry.</p>
+        </div>
+        <div class="card">
+          <h4>4-Second Automatic Loading</h4>
+          <p>Integrated double-gripper CNC gantry loader achieves rapid 4-second part swap times, enabling single-operator supervision over a multi-machine cell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container" style="text-align:center;">
+      <p>&copy; 2026 Sichuan Push Ningjiang Machine Tool Co., Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
