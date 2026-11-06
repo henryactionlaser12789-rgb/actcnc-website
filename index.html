@@ -95,6 +95,8 @@
     .prod-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s; }
     .prod-card:hover { transform: translateY(-4px); border-color: var(--dark-border-hover); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
     
+    
+    /* Image Quality & Visual Polish Enhancements */
     .prod-thumb { 
       aspect-ratio: 16/10; 
       background: radial-gradient(circle at 50% 50%, #1e293b 0%, #030712 100%); 
@@ -103,10 +105,22 @@
       display: flex; 
       align-items: center; 
       justify-content: center;
-      padding: 10px;
+      padding: 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-    .prod-thumb img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.15); transition: transform 0.5s ease; }
-    .prod-card:hover .prod-thumb img { transform: scale(1.25); }
+    .prod-thumb img { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: contain; 
+      transform: scale(1.15); 
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease; 
+      filter: drop-shadow(0 15px 25px rgba(0,0,0,0.85)) brightness(1.03) contrast(1.05);
+    }
+    .prod-card:hover .prod-thumb img { 
+      transform: scale(1.25); 
+      filter: drop-shadow(0 20px 35px rgba(2, 132, 199, 0.4)) brightness(1.08) contrast(1.08);
+    }
+
     .prod-badge { position: absolute; top: 14px; left: 14px; background: rgba(7, 10, 17, 0.85); backdrop-filter: blur(8px); border: 1px solid var(--dark-border); color: #fbbf24; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; }
     
     .prod-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
@@ -135,6 +149,108 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
+
+  <!-- Comprehensive Schema.org Structured Data for SEO & GEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://actcnc.com/#organization",
+        "name": "Sichuan Push Ningjiang Machine Tool Co., Ltd.",
+        "alternateName": ["Ningjiang Machine Tool", "Push Ningjiang", "宁江机床", "ACTCNC & Ningjiang"],
+        "url": "https://actcnc.com/",
+        "logo": "https://actcnc.com/assets/ningjiang/factory-overview.png",
+        "foundingDate": "1965",
+        "description": "China National Grade-1 Measuring Enterprise and premier manufacturer of precision 5-axis horizontal machining centers, heavy-duty HMCs, high-speed CNC gear hobbing machines, and industrial laser cutting systems.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+86-155-6620-6930",
+          "contactType": "International Sales & Engineering Support",
+          "availableLanguage": ["English", "Russian", "Spanish", "German", "Arabic", "Chinese"]
+        }
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://actcnc.com/#equipment-portfolio",
+        "name": "Ningjiang Precision Machine Tools & Laser Equipment Lineup",
+        "itemListElement": [
+          {
+            "@type": "Product",
+            "position": 1,
+            "name": "Ningjiang THM Series 5-Axis Precision Horizontal Machining Center",
+            "model": "THM6380IV",
+            "url": "https://actcnc.com/products/cnc/thm-5-axis-horizontal-machining-center.html",
+            "image": "https://actcnc.com/assets/ningjiang/thm6380-main.png",
+            "description": "Simultaneous 5-axis precision HMC with direct-drive A/B rotary cradle, BT50/HSK-A100 spindle, 0.005mm positioning accuracy for aerospace impellers and precision molds."
+          },
+          {
+            "@type": "Product",
+            "position": 2,
+            "name": "Ningjiang TH6363 / TH63125 Heavy-Duty Horizontal Machining Center",
+            "model": "TH6363",
+            "url": "https://actcnc.com/products/cnc/th6363-precision-horizontal-machining-center.html",
+            "image": "https://actcnc.com/assets/ningjiang/th6363-main.png",
+            "description": "High-rigidity box guideway HMC with 15s dual-pallet APC exchange and 45kW gear headstock for 24/7 continuous automotive gearbox part machining."
+          },
+          {
+            "@type": "Product",
+            "position": 3,
+            "name": "Ningjiang YK3610IV 7-Axis High-Precision CNC Gear Hobbing Machine",
+            "model": "YK3610IV",
+            "url": "https://actcnc.com/products/cnc/yk3610iv-7-axis-cnc-gear-hobbing-machine.html",
+            "image": "https://actcnc.com/assets/ningjiang/yk3610iv-main.png",
+            "description": "Direct-drive torque motor spindles achieving DIN Class 4 / ISO 4 gear precision with high-speed dry hobbing capability up to 6,000 rpm for EV reducers."
+          },
+          {
+            "@type": "Product",
+            "position": 4,
+            "name": "Ultra-High Power 30kW–60kW Ground-Rail Laser Plate Cutter",
+            "url": "https://actcnc.com/products/ultra-high-power-30kw-60kw-sheet-cutter.html",
+            "image": "https://actcnc.com/assets/ultra-high-power-ground-rail-plate-cutter.jpg",
+            "description": "Modular ground-rail beds up to 48m for shipyards and heavy structural steel. Cut up to 100mm carbon steel with zero beveling delays."
+          },
+          {
+            "@type": "Product",
+            "position": 5,
+            "name": "Heavy 4-Chuck Zero-Tailing Tube & Profile Laser Cutter",
+            "url": "https://actcnc.com/products/heavy-tube-pipe-fiber-laser-cutters.html",
+            "image": "https://actcnc.com/assets/cnc-heavy-4chuck-tube-cutter-m5.jpg",
+            "description": "Cuts round, square, rectangular pipes, H-beams, and channel steels with 0mm tailing loss and ±45° saddle curve beveling in a single pass."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://actcnc.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What industries are Ningjiang 5-axis HMC and heavy machine tools primarily engineered for?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ningjiang machine tools are widely utilized in aerospace (impellers, turbine casings), automotive powertrain components (gearboxes, engine cylinder blocks), precision gear reducers for robotics/EVs, and high-precision mold manufacturing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does Ningjiang integrate laser systems with traditional CNC machine tool lines?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ningjiang provides complete FMS (Flexible Manufacturing Systems) integrating heavy laser plate/tube cutting cells with precision HMCs via central MES scheduling, automated RGV rail shuttle carts, and multi-tier pallet buffer storage."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
   <!-- Top Bar -->
@@ -377,6 +493,48 @@
               <a href="/ningjiang.html" class="link-arrow">Explore FMS Turnkey Systems &rarr;</a>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Section: Technical Trust, Quality Control & FAQ (GEO / SEO Architecture) -->
+  <section class="section" style="background:#040711;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ENGINEERING RIGOR & FAQ</span>
+        <h2 class="section-title">Technical Integrity, Metrology & Application FAQ</h2>
+        <p class="section-desc">China National Grade-1 Measuring Enterprise standard operating procedures, Renishaw laser calibration, and industrial turnkey engineering.</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-bottom:60px;">
+        <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;">
+          <h4 style="color:#fbbf24;font-size:17px;font-weight:800;margin-bottom:12px;">Q: What positioning accuracy and thermal stability standards does Ningjiang enforce?</h4>
+          <p style="color:#94a3b8;font-size:14px;line-height:1.7;">
+            Every Ningjiang 5-axis and heavy HMC undergoes multi-point Renishaw laser interferometer calibration and dynamic ballbar circle testing. Machine beds utilize Meehanite dense cast iron, secondary thermal aging annealing, and symmetrical internal coolant jackets to guarantee sub-micron repeatability.
+          </p>
+        </div>
+
+        <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;">
+          <h4 style="color:#fbbf24;font-size:17px;font-weight:800;margin-bottom:12px;">Q: How does Ningjiang turnkey FMS automation integrate with existing factory ERP/MES?</h4>
+          <p style="color:#94a3b8;font-size:14px;line-height:1.7;">
+            Our proprietary host computer supervisor connects directly via OPC-UA / MTConnect protocols to SAP, Siemens MES, and bespoke factory scheduling systems. It handles dynamic NC program dispatching, tool life tracking, and unmanned RGV automated pallet routing.
+          </p>
+        </div>
+
+        <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;">
+          <h4 style="color:#38bdf8;font-size:17px;font-weight:800;margin-bottom:12px;">Q: What are the primary advantages of 30kW–60kW ultra-power ground-rail laser cutting?</h4>
+          <p style="color:#94a3b8;font-size:14px;line-height:1.7;">
+            Ground-rail lasers eliminate plate length constraints (supporting 6m to 48m modular beds) and achieve 1.15-second flash piercing on 50mm carbon steel with zero beveling rework required prior to welding.
+          </p>
+        </div>
+
+        <div style="background:#0f172a;border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:32px;">
+          <h4 style="color:#38bdf8;font-size:17px;font-weight:800;margin-bottom:12px;">Q: What warranty and global commissioning support is provided?</h4>
+          <p style="color:#94a3b8;font-size:14px;line-height:1.7;">
+            We offer comprehensive 24-month warranties, on-site mechanical/electrical installation by senior engineers, bilingual machine operation training, and 48-hour global spare parts dispatch.
+          </p>
         </div>
       </div>
     </div>
