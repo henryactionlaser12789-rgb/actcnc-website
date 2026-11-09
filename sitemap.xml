@@ -138,4 +138,28 @@
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
+  <url>
+    <loc>https://actcnc.com/engineering/real-time-laser-cut-quality-monitoring-plasma-detection.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://actcnc.com/de/echtzeit-schnittqualitaetsueberwachung-plasma-kollisionsschutz.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://actcnc.com/engineering/dynamic-beam-shaping-ring-mode-fiber-laser-guide.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://actcnc.com/de/dynamische-strahlformung-ringstrahl-faserlaser-schneiden.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
 </urlset>
