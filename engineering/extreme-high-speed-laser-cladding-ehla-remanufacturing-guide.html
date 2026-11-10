@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extreme High-Speed Laser Cladding (EHLA) & Heavy Industry Remanufacturing Guide (6kW–20kW) | ACTCNC Engineering</title>
+  <meta name="description" content="Engineering whitepaper on Extreme High-Speed Laser Cladding (EHLA, 20–200 m/min) for hydraulic cylinders, mining drill rods, oil/gas valves, and rolling mill rolls. Covers Inconel 625, Stellite 6, and WC-Co cladding, dilution control (<5%), and interactive powder efficiency calculators.">
+  <link rel="canonical" href="https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html">
+  <link rel="alternate" hreflang="en" href="https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html">
+  <link rel="alternate" hreflang="ru" href="https://actcnc.com/ru/vysokoskorostnaya-lazernaya-naplavka-ehla-remont-detaley.html">
+  <link rel="alternate" hreflang="ar" href="https://actcnc.com/ar/at-tala-al-layzari-fa-iq-as-sur-ah-ehla-naft-wa-ghaz.html">
+  <link rel="alternate" hreflang="x-default" href="https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html#article",
+        "headline": "Extreme High-Speed Laser Cladding (EHLA) & Heavy Industry Remanufacturing Engineering Guide (6kW–20kW)",
+        "description": "Comprehensive engineering guide on Extreme High-Speed Laser Cladding (EHLA) technology, metallurgical bonding mechanisms, powder utilization efficiency (>90%), and remanufacturing of mining, oil/gas, and steel rolling mill components.",
+        "inLanguage": "en",
+        "url": "https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html",
+        "author": {
+          "@type": "Organization",
+          "name": "ACTCNC Laser Application Engineering Lab"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACTCNC Industrial Laser Equipment",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://actcnc.com/images/actcnc-logo.png"
+          }
+        },
+        "datePublished": "2026-11-10",
+        "dateModified": "2026-11-10",
+        "about": [
+          "Extreme High-Speed Laser Cladding (EHLA)",
+          "Direct Energy Deposition (DED)",
+          "Hard Chrome Plating Replacement",
+          "Hydraulic Cylinder Rod Remanufacturing",
+          "Inconel 625 & Stellite 6 Cladding"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://actcnc.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Engineering Guides",
+            "item": "https://actcnc.com/engineering/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "EHLA Laser Cladding Guide",
+            "item": "https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the key technological difference between Conventional Laser Cladding and EHLA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "In conventional laser cladding, the laser energy primarily heats and melts the substrate surface creating a molten pool into which powder particles are fed and melted (line speed 0.5–2 m/min, dilution rate 10%–20%, HAZ 1–3 mm). In Extreme High-Speed Laser Cladding (EHLA), powder particles are melted directly inside the laser beam above the molten pool before reaching the substrate. The substrate requires only minimal laser energy to form a micro-molten pool of just a few microns, enabling line speeds of 20–200 m/min, dilution rates below 5%, and a heat-affected zone under 0.1 mm with zero thermal distortion."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does EHLA compare to Hard Chrome Plating (HCP) in environmental compliance and wear resistance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hard Chrome Plating generates hazardous hexavalent chromium (Cr VI) and relies on mechanical/electrostatic bonding susceptible to micro-cracks and flaking under high impact. EHLA provides a 100% metallurgical bond with zero flaking, zero toxic emissions, and allows deposition of crack-free Inconel 625, Stellite 6, or WC-reinforced metal matrix composites (MMC) with hardness up to 62–68 HRC and corrosion resistance exceeding 1,500 hours in salt spray testing (ASTM B117)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What powder capture efficiency and deposition rate can be achieved with ACTCNC 10kW–20kW EHLA systems?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "With ACTCNC proprietary coaxial high-speed annular powder feeding nozzles and dual-vortex inert gas shielding, powder capture efficiency reaches 88%–94%. Deposition rates range from 0.8 to 2.5 m²/hour depending on single-pass layer thickness (0.1 mm to 0.8 mm), reducing post-machining grinding allowances to less than 0.15 mm."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --bg-card: #121824;
+      --bg-card-hover: #1a2234;
+      --accent-blue: #00d2ff;
+      --accent-cyan: #3a7bd5;
+      --accent-gold: #ffb703;
+      --accent-green: #06d6a0;
+      --text-main: #f0f4f8;
+      --text-muted: #94a3b8;
+      --border-color: #222f44;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.7;
+      padding-top: 80px;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 80px;
+      background: rgba(10, 13, 20, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+    .logo span { color: var(--accent-blue); }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active { color: var(--accent-blue); }
+    .btn-quote {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+      color: #000;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-quote:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.4);
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    .hero {
+      text-align: center;
+      padding: 50px 0 40px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 210, 255, 0.1);
+      color: var(--accent-blue);
+      border: 1px solid rgba(0, 210, 255, 0.3);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 860px;
+      margin: 0 auto 30px;
+    }
+
+    /* GEO Direct Answer Callout */
+    .geo-callout {
+      background: linear-gradient(180deg, rgba(0, 210, 255, 0.08) 0%, rgba(18, 24, 36, 0.95) 100%);
+      border: 1px solid var(--accent-blue);
+      border-left: 6px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 28px;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+    .geo-callout h3 {
+      font-size: 20px;
+      color: var(--accent-blue);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .geo-callout p {
+      color: var(--text-main);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    /* Article Content Sections */
+    .section {
+      margin: 50px 0;
+    }
+    .section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #fff;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+    .section h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 25px 0 12px;
+      color: var(--accent-blue);
+    }
+    .section p {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 18px;
+      line-height: 1.8;
+    }
+
+    /* Comparison Table */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 30px 0;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 15px;
+    }
+    th, td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    th {
+      background-color: var(--bg-card);
+      color: #fff;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    tr:nth-child(even) { background-color: rgba(18, 24, 36, 0.4); }
+    tr:hover { background-color: var(--bg-card-hover); }
+    .highlight-cell {
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    /* Interactive Calculator Card */
+    .calc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 35px;
+      margin: 40px 0;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    }
+    .calc-card h2 {
+      font-size: 24px;
+      color: var(--accent-blue);
+      margin-bottom: 10px;
+      border: none;
+      padding: 0;
+    }
+    .calc-card p.subtitle {
+      color: var(--text-muted);
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+    @media(max-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .input-group {
+      margin-bottom: 18px;
+    }
+    .input-group label {
+      display: block;
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .input-group input, .input-group select {
+      width: 100%;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px 15px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .input-group input:focus, .input-group select:focus {
+      border-color: var(--accent-blue);
+    }
+    .result-box {
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 10px;
+    }
+    .result-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .result-item:last-child { border-bottom: none; }
+    .result-item .label { color: var(--text-muted); font-size: 14px; }
+    .result-item .value { color: var(--accent-blue); font-weight: 700; font-size: 18px; }
+
+    /* Key Specs Grid */
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+    .spec-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 24px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .spec-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-blue);
+    }
+    .spec-card h4 {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .spec-card .val {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+    .spec-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 0;
+    }
+
+    /* FAQ Section */
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+    .faq-item h3 {
+      font-size: 18px;
+      color: #fff;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    .faq-item p {
+      margin-bottom: 0;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Internal Linking Hub */
+    .link-hub {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 30px;
+      margin: 50px 0;
+    }
+    .link-hub h3 {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+    }
+    .link-grid a {
+      display: block;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 14px 18px;
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .link-grid a:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      transform: translateX(4px);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      background: #080a10;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://actcnc.com/" class="logo">ACT<span>CNC</span></a>
+    <nav>
+      <a href="https://actcnc.com/">Home</a>
+      <a href="https://actcnc.com/products/">Laser Machines</a>
+      <a href="https://actcnc.com/cnc-machining-centers.html">CNC Centers</a>
+      <a href="https://actcnc.com/engineering/" class="active">Engineering Guides</a>
+      <a href="https://actcnc.com/case-studies/global-installation-case-studies.html">Case Studies</a>
+      <a href="https://actcnc.com/about.html">About</a>
+      <a href="https://actcnc.com/ru/">RU</a>
+      <a href="https://actcnc.com/de/">DE</a>
+      <a href="https://actcnc.com/es/">ES</a>
+      <a href="https://actcnc.com/ar/">AR</a>
+    </nav>
+    <a href="https://actcnc.com/engineering/#quote" class="btn-quote">Request Technical Dossier</a>
+  </header>
+
+  <div class="container">
+    <div class="hero">
+      <div class="badge">Extreme High-Speed Laser Cladding (EHLA) Whitepaper</div>
+      <h1>Extreme High-Speed Laser Cladding & Heavy Component Remanufacturing (6kW–20kW)</h1>
+      <p>A comprehensive technical investigation into metallurgical dilution control, powder capture efficiency (>90%), and high-speed laser deposition (20–200 m/min) for hydraulic cylinders, mining drill rods, oil/gas valves, and steel mill rolls.</p>
+    </div>
+
+    <!-- GEO Direct Answer Definition Box -->
+    <div class="geo-callout">
+      <h3>
+        <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+        Direct Answer: What is Extreme High-Speed Laser Cladding (EHLA) and Why is it Replacing Hard Chrome Plating?
+      </h3>
+      <p>
+        <strong>Extreme High-Speed Laser Cladding (EHLA)</strong> is an advanced direct energy deposition process where metal powder particles are completely melted in-flight within the laser beam focus before entering the substrate molten pool. Operating at surface linear speeds of <strong>20 to 200 m/min</strong> (over 100× faster than conventional cladding), EHLA restricts the substrate molten pool depth to under <strong>10–30 μm</strong>, achieving a metallurgical dilution rate of <strong>&lt;5%</strong>, a heat-affected zone (HAZ) of <strong>&lt;0.1 mm</strong>, and zero thermal distortion. In heavy industrial remanufacturing (mining hydraulic supports, oil & gas valve trim, turbine shafts, and continuous casting rolls), EHLA completely eliminates toxic hexavalent chromium (Cr VI) emissions, delivers 100% metallurgical bonding with zero spallation, and extends component wear and corrosion life by <strong>3× to 5×</strong> compared to conventional electroplating and thermal spraying.
+      </p>
+    </div>
+
+    <!-- Technical Specs Overview -->
+    <div class="specs-grid">
+      <div class="spec-card">
+        <h4>Deposition Linear Speed</h4>
+        <div class="val">20 – 200 m/min</div>
+        <p>100x faster than traditional laser cladding (0.5–2 m/min), enabling high-throughput mass production.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Metallurgical Dilution</h4>
+        <div class="val">&lt; 5%</div>
+        <p>Strictly preserves alloy composition and corrosion resistance from the very first single layer.</p>
+      </div>
+      <div class="spec-card">
+        <h4>Powder Capture Rate</h4>
+        <div class="val">88% – 94%</div>
+        <p>Coaxial high-speed annular aerodynamic nozzle minimizes expensive alloy waste (Inconel/Stellite).</p>
+      </div>
+      <div class="spec-card">
+        <h4>Heat-Affected Zone (HAZ)</h4>
+        <div class="val">&lt; 0.1 mm</div>
+        <p>Negligible thermal residual stress eliminates post-cladding straightening or stress-relief annealing.</p>
+      </div>
+    </div>
+
+    <!-- Technical Section: Working Principle -->
+    <div class="section">
+      <h2>1. Working Principle & In-Flight Powder Melting Dynamics</h2>
+      <p>
+        The fundamental limitation of conventional laser cladding lies in the energy distribution: 80% to 90% of the laser beam is absorbed by the bulk substrate to establish a deep molten pool, into which cold powder particles are injected. This creates a large heat-affected zone (1–3 mm), significant thermal distortion on thin-walled shafts or hydraulic tubes, and high elemental dilution (10%–20%) from the substrate iron base into the protective alloy layer.
+      </p>
+      <p>
+        ACTCNC EHLA systems (6kW to 20kW) reverse this dynamic. By shifting the powder convergence focal point above the substrate surface, metal powder particles absorb over 85% of the laser irradiance during their flight path, reaching molten or semi-molten droplets prior to contact. Consequently, the substrate receives only minimal peripheral laser energy, just sufficient to wet the surface and generate a pure metallurgical bond without bulk substrate overheating.
+      </p>
+    </div>
+
+    <!-- Comparative Table -->
+    <div class="section">
+      <h2>2. Heavy Remanufacturing Process Comparison Matrix</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Performance Dimension</th>
+              <th>Hard Chrome Plating (HCP)</th>
+              <th>Thermal / HVOF Spraying</th>
+              <th>Conventional Laser Cladding</th>
+              <th>ACTCNC EHLA (6kW–20kW)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Bonding Mechanism</strong></td>
+              <td>Mechanical / Electrostatic</td>
+              <td>Mechanical Interlocking</td>
+              <td>Metallurgical Fusion</td>
+              <td class="highlight-cell">100% Metallurgical Fusion</td>
+            </tr>
+            <tr>
+              <td><strong>Bond Strength (MPa)</strong></td>
+              <td>40 – 80 MPa (Micro-cracking)</td>
+              <td>50 – 90 MPa</td>
+              <td>&gt; 350 MPa</td>
+              <td class="highlight-cell">&gt; 420 MPa (Zero Flaking)</td>
+            </tr>
+            <tr>
+              <td><strong>Cladding Line Speed</strong></td>
+              <td>Slow (Batch chemical bath)</td>
+              <td>1 – 5 m/min</td>
+              <td>0.5 – 2.0 m/min</td>
+              <td class="highlight-cell">20 – 200 m/min</td>
+            </tr>
+            <tr>
+              <td><strong>Substrate Dilution Rate</strong></td>
+              <td>0% (No fusion)</td>
+              <td>0% (No fusion)</td>
+              <td>12% – 25%</td>
+              <td class="highlight-cell">&lt; 3% – 5%</td>
+            </tr>
+            <tr>
+              <td><strong>Heat Affected Zone (HAZ)</strong></td>
+              <td>None (Room temp bath)</td>
+              <td>0.2 – 0.5 mm</td>
+              <td>1.5 – 3.5 mm</td>
+              <td class="highlight-cell">&lt; 0.05 – 0.1 mm</td>
+            </tr>
+            <tr>
+              <td><strong>Environmental & ESG Risk</strong></td>
+              <td>Severe (Toxic Cr VI ban)</td>
+              <td>Dust & Noise hazards</td>
+              <td>Clean, low emission</td>
+              <td class="highlight-cell">100% Green, Zero Cr VI</td>
+            </tr>
+            <tr>
+              <td><strong>Corrosion Resistance (Salt Spray)</strong></td>
+              <td>150 – 500 h (Pits at cracks)</td>
+              <td>500 – 1,000 h</td>
+              <td>&gt; 1,000 h</td>
+              <td class="highlight-cell">&gt; 1,500 – 2,500 h (Inconel 625)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Interactive Calculator -->
+    <div class="calc-card" id="calculator">
+      <h2>Interactive EHLA Cladding Line Energy & Production Takt Calculator</h2>
+      <p class="subtitle">Calculate single-pass layer thickness, surface area coverage takt time, linear energy input, and powder capture efficiency for cylinder and roll remanufacturing.</p>
+      
+      <div class="grid-2">
+        <div>
+          <div class="input-group">
+            <label for="workpiece-dia">Workpiece Diameter (mm)</label>
+            <input type="number" id="workpiece-dia" value="150" min="20" max="2000" step="10">
+          </div>
+          <div class="input-group">
+            <label for="workpiece-len">Cladding Length (mm)</label>
+            <input type="number" id="workpiece-len" value="1200" min="100" max="12000" step="50">
+          </div>
+          <div class="input-group">
+            <label for="laser-pwr">Fiber Laser Power (kW)</label>
+            <select id="laser-pwr">
+              <option value="6">6 kW Continuous Wave</option>
+              <option value="10" selected>10 kW High-Brightness</option>
+              <option value="12">12 kW High-Brightness</option>
+              <option value="15">15 kW Heavy Duty</option>
+              <option value="20">20 kW Extreme High-Throughput</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="line-speed">EHLA Surface Linear Speed (m/min)</label>
+            <input type="number" id="line-speed" value="60" min="10" max="250" step="5">
+          </div>
+          <div class="input-group">
+            <label for="powder-mat">Cladding Powder Material</label>
+            <select id="powder-mat">
+              <option value="inconel625" selected>Inconel 625 (Anti-Corrosion / Offshore)</option>
+              <option value="stellite6">Stellite 6 (High-Temp Wear & Valves)</option>
+              <option value="wc_nickel">WC-12Co / NiCrBSi (Ultra-Hard Mining 65 HRC)</option>
+              <option value="stainless431">Martensitic SS 431 (Hydraulic Rods)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <div class="result-box">
+            <div class="result-item">
+              <span class="label">Workpiece Rotational Speed:</span>
+              <span class="value" id="res-rpm">127.3 RPM</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Total Surface Area:</span>
+              <span class="value" id="res-area">0.565 m²</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Estimated Cladding Takt Time:</span>
+              <span class="value" id="res-time">18.8 min</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Linear Energy Input (kJ/m):</span>
+              <span class="value" id="res-energy">10.0 kJ/m</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Powder Catch Rate:</span>
+              <span class="value" id="res-catch">91.5%</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Single Layer Thickness:</span>
+              <span class="value" id="res-thick">0.25 mm</span>
+            </div>
+          </div>
+          <p style="font-size: 12px; color: #64748b; margin-top: 12px; line-height: 1.5;">
+            *Calculated values are based on ACTCNC coaxial multi-channel EHLA heads with argon gas shielding and 15–45 μm spherical gas-atomized powder.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Section: Industrial Applications -->
+    <div class="section">
+      <h2>3. Major Industrial Application Case Scenarios</h2>
+      <h3>A. Coal Mining & Tunneling: Hydraulic Support Cylinder Rods</h3>
+      <p>
+        Coal mine hydraulic cylinders endure acidic mine water corrosion and high mechanical abrasion. Plating replacement with 0.3mm SS 431 + NiCrBSi composite cladding provides 4× service life extension with zero hydrogen embrittlement.
+      </p>
+      <h3>B. Oil & Gas Subsea Valves & Wellhead Mandrels</h3>
+      <p>
+        Inconel 625 cladding over AISI 4130 alloy steel guarantees strict compliance with NACE MR0175/ISO 15156 for sour gas ($H_2S$) service, resisting crevice and pitting corrosion under 15,000 PSI working pressures.
+      </p>
+      <h3>C. Steel Continuous Casting Rolls & Hot Strip Mill Rolls</h3>
+      <p>
+        Stellite 6 and high-vanadium tool steel cladding prevent thermal fatigue fire-cracking and roll peeling, reducing steel plant line-stoppage overhaul intervals from 3 weeks to over 4 months.
+      </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="section">
+      <h2>4. Frequently Asked Questions (FAQ)</h2>
+      <div class="faq-item">
+        <h3>Q1: Can EHLA be applied to internal bores and small ID pipes?</h3>
+        <p>Yes. ACTCNC manufactures dedicated internal cladding optical lances capable of reaching inside pipe diameters down to <strong>ID 60mm</strong> up to 2.5 meters in depth, commonly used for oil cylinder liners and chemical reactor tubing.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q2: What is the post-cladding machining allowance required for EHLA?</h3>
+        <p>Because EHLA surface waviness is exceptionally smooth ($R_z < 15\,\mu\text{m}$) and layer thickness is uniform, post-process finishing requires only <strong>0.10 mm to 0.15 mm</strong> of finish grinding, saving up to 70% in diamond grinding wheel costs compared to conventional thermal spray finishes.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Q3: What powder size distribution is recommended for EHLA systems?</h3>
+        <p>Spherical gas-atomized metal powders with a mesh size distribution of <strong>15–45 μm</strong> or <strong>20–53 μm</strong> with high Hall flowability (&lt;16 s/50g) are required to ensure dense in-flight energy absorption without particle vaporization or nozzle clogging.</p>
+      </div>
+    </div>
+
+    <!-- Internal Linking Hub -->
+    <div class="link-hub">
+      <h3>Explore Related Engineering & Machine Assets</h3>
+      <div class="link-grid">
+        <a href="https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html">
+          &rarr; Ultra-Thick Plate Laser Beveling & Flash Piercing Guide
+        </a>
+        <a href="https://actcnc.com/solutions/oil-gas-pipeline-cladding.html">
+          &rarr; Oil & Gas Pipeline Cladding Solutions
+        </a>
+        <a href="https://actcnc.com/engineering/fiber-laser-cutting-cost-tco-guide.html">
+          &rarr; Fiber Laser Cost & TCO ROI Calculator
+        </a>
+        <a href="https://actcnc.com/solutions/heavy-structural-steel-tower-crane-laser-cutting.html">
+          &rarr; Heavy Structural Steel & Crane Manufacturing Solutions
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 ACTCNC Industrial Equipment. Global Leader in Fiber Laser & CNC Machining Solutions. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    function updateCalc() {
+      const dia = parseFloat(document.getElementById('workpiece-dia').value) || 150;
+      const len = parseFloat(document.getElementById('workpiece-len').value) || 1200;
+      const pwr = parseFloat(document.getElementById('laser-pwr').value) || 10;
+      const v = parseFloat(document.getElementById('line-speed').value) || 60;
+
+      // Area in m2
+      const area = (Math.PI * (dia / 1000) * (len / 1000));
+      // RPM = v (m/min) / (pi * d (m))
+      const rpm = v / (Math.PI * (dia / 1000));
+      // Track overlap pitch ~ 0.8 mm per revolution at 10kW
+      const trackPitch = 0.6 + (pwr * 0.03); 
+      // Time (min) = length (mm) / (RPM * trackPitch)
+      const time = len / (rpm * trackPitch);
+      // Linear energy = Power (kW) / Speed (m/s) -> kJ/m = (kW * 60) / v
+      const energy = (pwr * 60) / v;
+      // Catch rate est
+      const catchRate = Math.min(94.5, 87.0 + (pwr * 0.45));
+      // Layer thickness
+      const thickness = 0.15 + (pwr * 0.012);
+
+      document.getElementById('res-rpm').innerText = rpm.toFixed(1) + ' RPM';
+      document.getElementById('res-area').innerText = area.toFixed(3) + ' m²';
+      document.getElementById('res-time').innerText = time.toFixed(1) + ' min';
+      document.getElementById('res-energy').innerText = energy.toFixed(1) + ' kJ/m';
+      document.getElementById('res-catch').innerText = catchRate.toFixed(1) + '%';
+      document.getElementById('res-thick').innerText = thickness.toFixed(2) + ' mm';
+    }
+
+    document.querySelectorAll('#calculator input, #calculator select').forEach(el => {
+      el.addEventListener('input', updateCalc);
+      el.addEventListener('change', updateCalc);
+    });
+    updateCalc();
+  </script>
+</body>
+</html>
