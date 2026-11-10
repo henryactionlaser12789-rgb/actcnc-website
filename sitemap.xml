@@ -204,4 +204,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
+  <url>
+    <loc>https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://actcnc.com/de/dickblech-fasenschneiden-intelligentes-einstechen-laser.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html</loc>
+    <lastmod>2026-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
 </urlset>
