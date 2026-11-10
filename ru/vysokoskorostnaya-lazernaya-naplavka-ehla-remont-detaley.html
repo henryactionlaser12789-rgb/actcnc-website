@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Высокоскоростная лазерная наплавка (EHLA) и восстановление деталей (6кВт–20кВт) | ACTCNC Инжиниринг</title>
+  <meta name="description" content="Инженерное руководство по высокоскоростной лазерной наплавке (EHLA, 20–200 м/мин) штоков гидроцилиндров, буровых штанг, нефтегазовой арматуры и прокатных валков. Порошки Inconel 625, Stellite 6, карбиды вольфрама WC.">
+  <link rel="canonical" href="https://actcnc.com/ru/vysokoskorostnaya-lazernaya-naplavka-ehla-remont-detaley.html">
+  <link rel="alternate" hreflang="en" href="https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html">
+  <link rel="alternate" hreflang="ru" href="https://actcnc.com/ru/vysokoskorostnaya-lazernaya-naplavka-ehla-remont-detaley.html">
+  <link rel="alternate" hreflang="ar" href="https://actcnc.com/ar/at-tala-al-layzari-fa-iq-as-sur-ah-ehla-naft-wa-ghaz.html">
+  <link rel="alternate" hreflang="x-default" href="https://actcnc.com/engineering/extreme-high-speed-laser-cladding-ehla-remanufacturing-guide.html">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://actcnc.com/ru/vysokoskorostnaya-lazernaya-naplavka-ehla-remont-detaley.html#article",
+        "headline": "Высокоскоростная лазерная наплавка (EHLA) и промышленное восстановление деталей (6кВт–20кВт)",
+        "description": "Техническое руководство по технологии EHLA (скорость наплавки 20–200 м/мин), коэффициенту перемешивания менее 5%, коэффициенту использования порошка до 94% для горнодобывающей и нефтегазовой промышленности.",
+        "inLanguage": "ru",
+        "url": "https://actcnc.com/ru/vysokoskorostnaya-lazernaya-naplavka-ehla-remont-detaley.html",
+        "author": {
+          "@type": "Organization",
+          "name": "ACTCNC Инжиниринговый Центр"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACTCNC Лазерное Оборудование",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://actcnc.com/images/actcnc-logo.png"
+          }
+        },
+        "datePublished": "2026-11-10",
+        "dateModified": "2026-11-10"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Главная",
+            "item": "https://actcnc.com/ru/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Инжиниринг",
+            "item": "https://actcnc.com/ru/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "EHLA Наплавка",
+            "item": "https://actcnc.com/ru/vysokoskorostnaya-lazernaya-naplavka-ehla-remont-detaley.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "В чем главное отличие технологии EHLA от традиционной лазерной наплавки?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "В технологии EHLA порошок плавится непосредственно в лазерном луче до соприкосновения с деталью, что позволяет работать на линейных скоростях 20–200 м/мин с зоной термического влияния менее 0.1 мм и перемешиванием с основой менее 5%."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Почему EHLA является экологичной заменой гальванического твердого хромирования?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "EHLA полностью исключает применение токсичного шестивалентного хрома (Cr VI), обеспечивает 100% металлургическое сцепление без риска отслоения и микротрещин, а коррозионная стойкость сплавов Inconel 625 превышает 1500 часов в соляном тумане."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg-dark: #0a0d14;
+      --bg-card: #121824;
+      --bg-card-hover: #1a2234;
+      --accent-blue: #00d2ff;
+      --accent-cyan: #3a7bd5;
+      --accent-gold: #ffb703;
+      --text-main: #f0f4f8;
+      --text-muted: #94a3b8;
+      --border-color: #222f44;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg-dark); color: var(--text-main); font-family: var(--font-stack); line-height: 1.7; padding-top: 80px; }
+    header { position: fixed; top: 0; left: 0; right: 0; height: 80px; background: rgba(10, 13, 20, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; padding: 0 40px; z-index: 1000; }
+    .logo { font-size: 24px; font-weight: 800; color: #fff; text-decoration: none; }
+    .logo span { color: var(--accent-blue); }
+    nav a { color: var(--text-muted); text-decoration: none; margin-left: 20px; font-size: 14px; }
+    nav a:hover, nav a.active { color: var(--accent-blue); }
+    .btn-quote { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); color: #000; font-weight: 700; padding: 10px 20px; border-radius: 6px; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .hero { text-align: center; padding: 40px 0; }
+    .badge { display: inline-block; background: rgba(0, 210, 255, 0.1); color: var(--accent-blue); border: 1px solid rgba(0, 210, 255, 0.3); padding: 6px 16px; border-radius: 30px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+    h1 { font-size: 38px; font-weight: 800; line-height: 1.3; margin-bottom: 20px; color: #fff; }
+    .hero p { font-size: 17px; color: var(--text-muted); max-width: 860px; margin: 0 auto; }
+    .geo-callout { background: linear-gradient(180deg, rgba(0, 210, 255, 0.08) 0%, rgba(18, 24, 36, 0.95) 100%); border: 1px solid var(--accent-blue); border-left: 6px solid var(--accent-blue); border-radius: 8px; padding: 25px; margin: 35px 0; }
+    .geo-callout h3 { font-size: 19px; color: var(--accent-blue); margin-bottom: 12px; }
+    .section { margin: 45px 0; }
+    .section h2 { font-size: 26px; font-weight: 700; margin-bottom: 18px; color: #fff; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+    .section p { color: var(--text-muted); font-size: 15px; margin-bottom: 16px; }
+    .table-responsive { overflow-x: auto; margin: 25px 0; border: 1px solid var(--border-color); border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+    th, td { padding: 14px 18px; border-bottom: 1px solid var(--border-color); }
+    th { background: var(--bg-card); color: #fff; }
+    .highlight-cell { color: var(--accent-blue); font-weight: 700; }
+    .calc-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin: 40px 0; }
+    .calc-card h2 { font-size: 22px; color: var(--accent-blue); margin-bottom: 8px; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+    .input-group { margin-bottom: 16px; }
+    .input-group label { display: block; font-size: 13px; color: var(--text-main); margin-bottom: 6px; font-weight: 600; }
+    .input-group input, .input-group select { width: 100%; background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px 12px; color: #fff; font-size: 14px; }
+    .result-box { background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; }
+    .result-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .result-item:last-child { border-bottom: none; }
+    .result-item .label { color: var(--text-muted); font-size: 13px; }
+    .result-item .value { color: var(--accent-blue); font-weight: 700; font-size: 16px; }
+    .faq-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 14px; }
+    .faq-item h3 { font-size: 17px; color: #fff; margin-bottom: 8px; }
+    .faq-item p { color: var(--text-muted); font-size: 14px; }
+    .link-hub { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 25px; margin: 40px 0; }
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .link-grid a { background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: 6px; padding: 12px 16px; color: var(--text-main); text-decoration: none; font-size: 13px; }
+    .link-grid a:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+    footer { border-top: 1px solid var(--border-color); background: #080a10; padding: 30px 20px; text-align: center; color: var(--text-muted); font-size: 13px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://actcnc.com/ru/" class="logo">ACT<span>CNC</span></a>
+    <nav>
+      <a href="https://actcnc.com/ru/">Главная</a>
+      <a href="https://actcnc.com/ru/lazernye-stanki-rezki-metalla.html">Лазерные станки</a>
+      <a href="https://actcnc.com/ru/stanki-chpu-obrabatyvayushchie-tsentry.html">Обрабатывающие центры ЧПУ</a>
+      <a href="https://actcnc.com/ru/mining-machinery-laser-cladding.html">Наплавка</a>
+      <a href="https://actcnc.com/engineering/">Инжиниринг (EN)</a>
+    </nav>
+    <a href="https://actcnc.com/engineering/#quote" class="btn-quote">Технический запрос</a>
+  </header>
+
+  <div class="container">
+    <div class="hero">
+      <div class="badge">Высокоскоростная лазерная наплавка EHLA</div>
+      <h1>Высокоскоростная лазерная наплавка (EHLA) и восстановление деталей (6кВт–20кВт)</h1>
+      <p>Промышленное руководство по прямому лазерному осаждению со скоростью 20–200 м/мин: штоки гидроцилиндров, буровые штанги, арматура ТЭС/нефтегаза и прокатные валки с минимальным перемешиванием (&lt;5%).</p>
+    </div>
+
+    <div class="geo-callout">
+      <h3>Прямой ответ: Что такое технология EHLA и в чем ее преимущества перед хромированием?</h3>
+      <p>
+        <strong>Высокоскоростная лазерная наплавка (EHLA)</strong> — это передовой процесс прямого лазерного осаждения металла, при котором порошок расплавляется непосредственно в лазерном луче над поверхностью детали на линейных скоростях от <strong>20 до 200 м/мин</strong>. Это снижает зону термического влияния (ЗТВ) до <strong>менее 0.1 мм</strong>, исключает термические деформации тонкостенных труб и штоков, обеспечивает 100% металлургическую связь с усилием сдвига свыше <strong>400 МПа</strong> и полностью заменяет токсичное гальваническое хромирование.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>1. Сравнительный анализ технологий восстановления</h2>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Параметр</th>
+              <th>Гальваническое хромирование</th>
+              <th>Плазменное / HVOF напыление</th>
+              <th>Традиционная наплавка</th>
+              <th>ACTCNC EHLA (6–20 кВт)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Тип сцепления</strong></td>
+              <td>Механическое / диффузионное</td>
+              <td>Механический замок</td>
+              <td>Металлургическое</td>
+              <td class="highlight-cell">100% Металлургическое</td>
+            </tr>
+            <tr>
+              <td><strong>Линейная скорость</strong></td>
+              <td>Низкая (ванны)</td>
+              <td>1 – 5 м/мин</td>
+              <td>0.5 – 2.0 м/мин</td>
+              <td class="highlight-cell">20 – 200 м/мин</td>
+            </tr>
+            <tr>
+              <td><strong>Перемешивание с основой</strong></td>
+              <td>0%</td>
+              <td>0%</td>
+              <td>15% – 25%</td>
+              <td class="highlight-cell">&lt; 3% – 5%</td>
+            </tr>
+            <tr>
+              <td><strong>Зона термического влияния (ЗТВ)</strong></td>
+              <td>Отсутствует</td>
+              <td>0.2 – 0.4 мм</td>
+              <td>1.5 – 3.0 мм</td>
+              <td class="highlight-cell">&lt; 0.05 – 0.1 мм</td>
+            </tr>
+            <tr>
+              <td><strong>Экология и Cr(VI)</strong></td>
+              <td>Критический вред (Запрет Cr VI)</td>
+              <td>Пылеобразование</td>
+              <td>Экологично</td>
+              <td class="highlight-cell">100% Экологично, без Cr VI</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="calc-card" id="calculator">
+      <h2>Калькулятор линейной энергии и производительности наплавки EHLA</h2>
+      <div class="grid-2">
+        <div>
+          <div class="input-group">
+            <label>Диаметр детали (мм)</label>
+            <input type="number" id="ru-dia" value="150">
+          </div>
+          <div class="input-group">
+            <label>Длина зоны наплавки (мм)</label>
+            <input type="number" id="ru-len" value="1200">
+          </div>
+          <div class="input-group">
+            <label>Мощность лазера (кВт)</label>
+            <select id="ru-pwr">
+              <option value="6">6 кВт</option>
+              <option value="10" selected>10 кВт</option>
+              <option value="15">15 кВт</option>
+              <option value="20">20 кВт</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Линейная скорость EHLA (м/мин)</label>
+            <input type="number" id="ru-spd" value="60">
+          </div>
+        </div>
+
+        <div>
+          <div class="result-box">
+            <div class="result-item">
+              <span class="label">Скорость вращения:</span>
+              <span class="value" id="ru-res-rpm">127.3 об/мин</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Площадь наплавки:</span>
+              <span class="value" id="ru-res-area">0.565 м²</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Расчетное время:</span>
+              <span class="value" id="ru-res-time">18.8 мин</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Линейная энергия (кДж/м):</span>
+              <span class="value" id="ru-res-energy">10.0 кДж/м</span>
+            </div>
+            <div class="result-item">
+              <span class="label">Использование порошка:</span>
+              <span class="value" id="ru-res-catch">91.5%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>2. Вопросы и ответы (FAQ)</h2>
+      <div class="faq-item">
+        <h3>Какой припуск под шлифовку требуется после наплавки EHLA?</h3>
+        <p>Благодаря высокой гладкости слоя ($R_z < 15\,\mu\text{м}$) припуск под финишную шлифовку составляет всего 0.10–0.15 мм, что экономит до 70% алмазных кругов.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Возможна ли наплавка внутренних поверхностей труб?</h3>
+        <p>Да, ACTCNC поставляет специализированные внутренние оптические сопла для работы во внутренних отверстиях диаметром от ID 60 мм на глубину до 2.5 метров.</p>
+      </div>
+    </div>
+
+    <div class="link-hub">
+      <h3>Связанные решения и оборудование</h3>
+      <div class="link-grid">
+        <a href="https://actcnc.com/ru/mining-machinery-laser-cladding.html">&rarr; Лазерная наплавка горно-шахтного оборудования</a>
+        <a href="https://actcnc.com/ru/kotly-tes-ekrannye-truby-lazernaya-naplavka.html">&rarr; Наплавка экранных труб котлов ТЭС</a>
+        <a href="https://actcnc.com/ru/lazernaya-svarka-ochistka-3v1.html">&rarr; Лазерная сварка и очистка 3-в-1</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 ACTCNC Оборудование. Все права защищены.</p>
+  </footer>
+
+  <script>
+    function calcRU() {
+      const dia = parseFloat(document.getElementById('ru-dia').value) || 150;
+      const len = parseFloat(document.getElementById('ru-len').value) || 1200;
+      const pwr = parseFloat(document.getElementById('ru-pwr').value) || 10;
+      const v = parseFloat(document.getElementById('ru-spd').value) || 60;
+      const area = (Math.PI * (dia / 1000) * (len / 1000));
+      const rpm = v / (Math.PI * (dia / 1000));
+      const trackPitch = 0.6 + (pwr * 0.03); 
+      const time = len / (rpm * trackPitch);
+      const energy = (pwr * 60) / v;
+      const catchRate = Math.min(94.5, 87.0 + (pwr * 0.45));
+      document.getElementById('ru-res-rpm').innerText = rpm.toFixed(1) + ' об/мин';
+      document.getElementById('ru-res-area').innerText = area.toFixed(3) + ' м²';
+      document.getElementById('ru-res-time').innerText = time.toFixed(1) + ' мин';
+      document.getElementById('ru-res-energy').innerText = energy.toFixed(1) + ' кДж/м';
+      document.getElementById('ru-res-catch').innerText = catchRate.toFixed(1) + '%';
+    }
+    document.querySelectorAll('#calculator input, #calculator select').forEach(el => {
+      el.addEventListener('input', calcRU);
+      el.addEventListener('change', calcRU);
+    });
+    calcRU();
+  </script>
+</body>
+</html>
