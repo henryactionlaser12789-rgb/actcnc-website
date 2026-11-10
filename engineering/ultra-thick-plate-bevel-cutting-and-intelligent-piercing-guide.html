@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultra-Thick Plate Laser Beveling (V/Y/K/X-Grooves) & Flash Piercing Guide (12kW–60kW) | ACTCNC Engineering</title>
+  <meta name="description" content="Engineering whitepaper & technical guide on ultra-thick plate fiber laser bevel cutting (±45° V, Y, K, X grooves) up to 80mm and intelligent non-inductive flash piercing for 12kW–60kW machines. Includes thermal stress compensation algorithms, interactive bevel heat input calculator, and AWS/ISO 9692-1 weld prep comparison.">
+  <link rel="canonical" href="https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html">
+  <link rel="alternate" hreflang="en" href="https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html" />
+  <link rel="alternate" hreflang="de" href="https://actcnc.com/de/dickblech-fasenschneiden-intelligentes-einstechen-laser.html" />
+  <link rel="alternate" hreflang="es" href="https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html" />
+  <link rel="alternate" hreflang="x-default" href="https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html" />
+  <style>
+    :root {
+      --primary: #0284c7;
+      --accent: #38bdf8;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --dark-bg: #070a11;
+      --dark-surface: #0f172a;
+      --dark-card: #1e293b;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; align-items: center; }
+    .nav-links a:hover { color: var(--accent); }
+    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; transition: 0.2s; }
+    .btn-primary:hover { background: #0369a1; }
+
+    .hero { padding: 70px 24px 50px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.22) 0%, rgba(7, 10, 17, 0) 75%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); }
+    .pill { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; border: 1px solid rgba(56, 189, 248, 0.3); text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(28px, 4.2vw, 42px); font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 16px; max-width: 1080px; margin-left: auto; margin-right: auto; }
+    .hero p { max-width: 880px; margin: 0 auto; font-size: 17px; color: var(--text-muted); }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 60px 24px; }
+    h2 { font-size: 26px; font-weight: 800; color: #fff; margin: 50px 0 20px; border-left: 4px solid var(--accent); padding-left: 16px; display: flex; align-items: center; justify-content: space-between; }
+    h3 { font-size: 20px; font-weight: 700; color: #fff; margin: 30px 0 14px; }
+    p { color: #cbd5e1; margin-bottom: 20px; font-size: 16px; }
+    ul, ol { color: #cbd5e1; margin-left: 24px; margin-bottom: 24px; }
+    li { margin-bottom: 10px; }
+
+    /* GEO Direct Answer Callout Box */
+    .geo-answer-box { background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8)); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; padding: 28px; margin: 30px 0 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+    .geo-badge { position: absolute; top: -12px; left: 24px; background: #0284c7; color: #fff; font-size: 11px; font-weight: 900; text-transform: uppercase; padding: 3px 12px; border-radius: 12px; letter-spacing: 1px; }
+    .geo-answer-box p { font-size: 16.5px; color: #f1f5f9; margin-bottom: 0; font-weight: 500; }
+
+    /* Interactive Calculator Card */
+    .calc-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; padding: 36px; margin: 40px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 30px; }
+    .calc-group label { display: block; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .calc-group select, .calc-group input { width: 100%; background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 15px; outline: none; }
+    .calc-group select:focus, .calc-group input:focus { border-color: var(--accent); }
+    .calc-result-box { background: #0b1329; border: 1px solid var(--primary); border-radius: 12px; padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center; }
+    .calc-stat-val { font-size: 24px; font-weight: 900; color: var(--accent); margin-bottom: 4px; }
+    .calc-stat-lbl { font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+
+    /* Technical Callout Grid */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 30px 0; }
+    .feature-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; padding: 24px; }
+    .feature-card h4 { font-size: 18px; font-weight: 800; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .feature-card p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 0; }
+
+    /* Table Styles */
+    .table-box { width: 100%; border-collapse: collapse; margin: 24px 0 40px; background: var(--dark-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--dark-border); }
+    .table-box th, .table-box td { padding: 14px 18px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+    .table-box th { background: #030712; color: #fff; font-weight: 800; }
+    .table-box tr:hover { background: rgba(255,255,255,0.02); }
+
+    /* Related Links Grid */
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin: 30px 0; }
+    .related-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; padding: 22px; transition: 0.2s; }
+    .related-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .related-card h4 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .related-card p { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+
+    /* CTA Section */
+    .cta-box { background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(15, 23, 42, 0.9)); border: 1px solid var(--primary); border-radius: 16px; padding: 40px 30px; text-align: center; margin-top: 60px; }
+    .cta-box h3 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+
+    footer { background: #030712; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 24px; text-align: center; font-size: 14px; color: var(--text-muted); }
+    footer a { color: var(--accent); margin: 0 10px; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html#article",
+        "headline": "Ultra-Thick Plate Fiber Laser Bevel Cutting (V/Y/K/X-Grooves) & Flash Piercing Engineering Guide (12kW–60kW)",
+        "description": "Comprehensive engineering whitepaper covering 3D 5-axis laser bevel cutting kinematics, V/Y/K/X groove thermal deformation compensation, non-inductive flash piercing, and ISO 9692-1 / AWS D1.1 weld preparation economics for 12kW–60kW ultra-high power fiber lasers.",
+        "author": {
+          "@type": "Organization",
+          "name": "ACTCNC Heavy Industrial Laser Engineering Group",
+          "url": "https://actcnc.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACTCNC",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://actcnc.com/assets/dark-studio-heavy-sheet-cutter-x.webp"
+          }
+        },
+        "datePublished": "2026-11-10",
+        "dateModified": "2026-11-10",
+        "mainEntityOfPage": "https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://actcnc.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Engineering Knowledge Base",
+            "item": "https://actcnc.com/engineering/fiber-laser-cutting-cost-tco-guide.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Thick Plate Laser Beveling & Flash Piercing",
+            "item": "https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the maximum plate thickness and bevel angle achievable with ACTCNC 30kW–60kW fiber lasers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "ACTCNC ultra-high power 5-axis 3D laser bevel cutting systems process carbon steel and stainless steel plates up to 80mm nominal thickness, with continuous rotary bevel angles from -45° to +45°. Supported groove profiles include V-groove, Y-groove (with root face), K-groove (double bevel), and X-groove in compliance with ISO 9692-1 and AWS D1.1 structural welding standards."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does intelligent flash piercing reduce piercing time on 30mm–60mm thick carbon steel plates?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Intelligent flash piercing utilizes dynamic focal length zoom, multi-stage variable gas pressure (switching from high-pressure oxygen to low-pressure nitrogen/air), and acoustic-optical feedback. On 40mm carbon steel, traditional step piercing takes 12–18 seconds per hole and creates heavy slag spatter; ACTCNC flash piercing executes in 0.6–1.2 seconds with zero upward slag blowout, protecting collimation and cover optics."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why is fiber laser bevel cutting superior to traditional flame or plasma beveling and edge milling?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fiber laser bevel cutting combines part perimeter contouring and bevel edge preparation into a single automated setup. It eliminates manual edge planing and secondary bevel milling, achieves dimensional tolerances of ±0.5mm over 12-meter plates, reduces the Heat Affected Zone (HAZ) by 75%, and lowers overall bevel preparation cost per meter by 62% compared to oxy-fuel plus mechanical milling."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div><strong>ACTCNC Engineering Whitepaper Series</strong> | 2026 Ultra-High Power Laser Standards</div>
+    <div>Direct Technical Hotline: <strong>+86 180 8089 2762</strong> | Overseas Project Support</div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="brand-logo"><a href="https://actcnc.com/">ACT<span>CNC</span></a></div>
+    <ul class="nav-links">
+      <li><a href="https://actcnc.com/products/ultra-high-power-30kw-60kw-sheet-cutter.html">30kW–60kW Lasers</a></li>
+      <li><a href="https://actcnc.com/products/heavy-tube-pipe-fiber-laser-cutters.html">Heavy Tube Lasers</a></li>
+      <li><a href="https://actcnc.com/products/3d-5-axis-fiber-laser-cutting-robot.html">5-Axis 3D Robots</a></li>
+      <li><a href="https://actcnc.com/engineering/interactive-laser-machine-configurator.html">Configurator</a></li>
+      <li><a href="https://actcnc.com/solutions/heavy-structural-steel-cutting.html">Solutions</a></li>
+      <li><a href="https://actcnc.com/about.html">About Ningjiang</a></li>
+    </ul>
+    <a href="https://api.whatsapp.com/send?phone=8618080892762" class="btn-wa">WhatsApp Engineering Support</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="pill">Industrial Deep Dive Whitepaper #ENG-2026-11</div>
+    <h1>Ultra-Thick Plate Fiber Laser Bevel Cutting & Intelligent Flash Piercing Engineering Guide (12kW–60kW)</h1>
+    <p>Comprehensive kinematic analysis, V/Y/K/X-groove thermal stress modeling, and microsecond non-inductive piercing algorithms for heavy shipbuilding, bridge engineering, pressure vessels, and defense machinery.</p>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- GEO Direct Answer Section -->
+    <div class="geo-answer-box">
+      <div class="geo-badge">GEO Direct Answer / AI Knowledge Graph Definition</div>
+      <p><strong>What is Ultra-Thick Plate Laser Bevel Cutting and Intelligent Flash Piercing?</strong><br>
+      Ultra-thick plate laser bevel cutting is a 5-axis synchronous CNC process utilizing high-power fiber lasers (12kW to 60kW) to slice and bevel heavy steel plates (16mm to 80mm) at angles up to ±45° in a single pass according to AWS D1.1 and ISO 9692-1 welding specifications. Coupled with <em>Intelligent Flash Piercing</em>—which modulates peak pulse power, variable beam focal diameters, and supersonic gas dynamics—the system reduces piercing cycle times from 15 seconds to under 0.8 seconds per hole while suppressing thermal lens shifting, spatter blowouts, and thermal corner burn-out.</p>
+    </div>
+
+    <h2>1. 3D 5-Axis Laser Bevel Head Kinematics & Groove Profiles</h2>
+    <p>In modern heavy fabrication (offshore oil platforms, container ship hull sections, tower crane booms, and pressure vessels), standard orthogonal 90° straight cuts require costly secondary beveling. Mechanical milling or oxy-fuel beveling introduces significant dimensional distortion, high labor hours, and oxidized edge surfaces that degrade automated submerged arc welding (SAW) and robotic GMAW joints.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4><span style="color:#38bdf8;">◈</span> ±45° Infinite Continuous Rotation</h4>
+        <p>Equipped with dual direct-drive torque motors on the A/C rotary axes, the ACTCNC 3D bevel head provides ±45° continuous tilt without cable wind-up limitations, executing complex closed contours and circular flange bevels seamlessly.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:#38bdf8;">◈</span> Tool Center Point (TCP) Dynamic Lock</h4>
+        <p>Real-time RTCP (Rotational Tool Center Point) kinematics automatically recalculates laser focus coordinates at 10,000Hz, ensuring absolute focal plane stability during high-speed angular vector transitions.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:#38bdf8;">◈</span> Dynamic Focal Zoom (0.8x to 3.2x)</h4>
+        <p>Motorized internal collimation adjusts Rayleigh length dynamically: enlarged spot for instant piercing expulsion, and tight concentrated energy density for ultra-smooth bevel kerf side walls.</p>
+      </div>
+    </div>
+
+    <h3>Standard Weld Preparation Geometries (ISO 9692-1 / AWS D1.1)</h3>
+    <table class="table-box">
+      <thead>
+        <tr>
+          <th>Groove Type</th>
+          <th>Bevel Angle (&theta;)</th>
+          <th>Root Face (b)</th>
+          <th>Max Plate Thickness</th>
+          <th>Primary Industrial Application</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>V-Groove (Single-V)</strong></td>
+          <td>20° to 45°</td>
+          <td>0 mm (Full penetration)</td>
+          <td>50 mm</td>
+          <td>Wind turbine towers, pipeline girth welds, structural trusses</td>
+        </tr>
+        <tr>
+          <td><strong>Y-Groove (Single-V with Root)</strong></td>
+          <td>30° to 45°</td>
+          <td>2.0 mm to 8.0 mm</td>
+          <td>70 mm</td>
+          <td>Shipbuilding hull skin plates, heavy excavator booms, rail bogies</td>
+        </tr>
+        <tr>
+          <td><strong>X-Groove (Double-V)</strong></td>
+          <td>±30° to ±45°</td>
+          <td>2.0 mm to 6.0 mm (Central)</td>
+          <td>80 mm</td>
+          <td>Nuclear containment vessels, heavy pressure vessel shells, hydro-power gates</td>
+        </tr>
+        <tr>
+          <td><strong>K-Groove (Single-Bevel Double-Root)</strong></td>
+          <td>45° / 0° Flat Root</td>
+          <td>3.0 mm to 10.0 mm</td>
+          <td>60 mm</td>
+          <td>Bridge I-beam web-to-flange full penetration T-joints</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Intelligent Flash Piercing vs. Conventional Multi-Step Piercing</h2>
+    <p>Piercing ultra-thick steel (30mm–80mm) is historically the highest-risk phase in fiber laser cutting. Traditional stepped piercing gradually burns down through the material with fixed oxygen pressure, taking 10 to 25 seconds per hole. During this period, upward liquid iron oxide spatter contaminates cover glass optics, creates thermal lens distortion, and generates oversized craters that ruin tight nesting lead-ins.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4>Stepped Piercing (Conventional 12kW)</h4>
+        <p style="color:#f87171;">❌ Time: 12.0s – 18.0s per hole (40mm Q235B)<br>
+        ❌ Upward spatter height: >180mm (high lens risk)<br>
+        ❌ Entry crater diameter: 14mm–18mm<br>
+        ❌ Gas Consumption: Excessive high-purity O2</p>
+      </div>
+      <div class="feature-card">
+        <h4>ACTCNC Intelligent Flash Piercing (30kW–60kW)</h4>
+        <p style="color:#4ade80;">✔ Time: 0.6s – 1.1s per hole (40mm Q235B)<br>
+        ✔ Upward spatter height: &lt;15mm (lateral gas sweep)<br>
+        ✔ Entry crater diameter: &lt;3.5mm (ultra-tight nesting)<br>
+        ✔ Gas Savings: 82% reduction in piercing auxiliary gas</p>
+      </div>
+    </div>
+
+    <!-- Interactive Bevel Thermal Input & Cycle Time Calculator -->
+    <h2>3. Interactive Bevel Heat Input & Cycle Time Calculator</h2>
+    <p>Calculate the effective cutting path thickness ($T_{eff} = T / \cos\theta$), linear heat input ($Q = \eta \cdot \frac{P}{v}$ in kJ/mm), and estimated cycle time for beveling thick plates.</p>
+
+    <div class="calc-card">
+      <div class="calc-grid">
+        <div class="calc-group">
+          <label>Plate Nominal Thickness (mm):</label>
+          <input type="number" id="calcThickness" value="30" min="10" max="100" step="5" oninput="calculateBevel()">
+        </div>
+        <div class="calc-group">
+          <label>Bevel Angle (&theta; Degrees):</label>
+          <select id="calcAngle" onchange="calculateBevel()">
+            <option value="0">0° (Straight Cut)</option>
+            <option value="30" selected>30° (Standard V-Groove)</option>
+            <option value="37.5">37.5° (AWS Weld Prep)</option>
+            <option value="45">45° (Maximum Bevel Angle)</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label>Laser Output Power (kW):</label>
+          <select id="calcPower" onchange="calculateBevel()">
+            <option value="12">12 kW Fiber Laser</option>
+            <option value="20">20 kW Fiber Laser</option>
+            <option value="30" selected>30 kW Ultra-High Power</option>
+            <option value="40">40 kW Ultra-High Power</option>
+            <option value="60">60 kW Heavy Industrial</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label>Auxiliary Cutting Gas:</label>
+          <select id="calcGas" onchange="calculateBevel()">
+            <option value="O2" selected>Oxygen (O2) - Exothermic Cutting</option>
+            <option value="N2">High-Pressure Nitrogen (N2) - Bright Edge</option>
+            <option value="Air">Compressed Air - High Speed Economy</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result-box">
+        <div>
+          <div class="calc-stat-val" id="resEffThickness">34.6 mm</div>
+          <div class="calc-stat-lbl">Effective Bevel Kerf Thickness</div>
+        </div>
+        <div>
+          <div class="calc-stat-val" id="resSpeed">1.65 m/min</div>
+          <div class="calc-stat-lbl">Optimal Feed Speed</div>
+        </div>
+        <div>
+          <div class="calc-stat-val" id="resPierceTime">0.75 s</div>
+          <div class="calc-stat-lbl">Flash Pierce Duration</div>
+        </div>
+        <div>
+          <div class="calc-stat-val" id="resHeatInput">0.91 kJ/mm</div>
+          <div class="calc-stat-lbl">Linear Heat Input (HAZ Control)</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>4. Production Economics: Fiber Laser Beveling vs. Plasma & Mechanical Milling</h2>
+    <p>For a typical structural steel fabrication plant processing 1,000 meters of 30mm–50mm plate weld prep per month, consolidating cutting, trimming, and beveling into one ACTCNC 30kW laser workcell produces compelling ROI:</p>
+
+    <table class="table-box">
+      <thead>
+        <tr>
+          <th>Cost & Performance Metric</th>
+          <th>Oxy-Fuel + Edge Planer Milling</th>
+          <th>HD Plasma Beveling</th>
+          <th>ACTCNC 30kW–60kW Laser Beveling</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Setup & Operation Stages</strong></td>
+          <td>3 Steps (Cut &rarr; Transport &rarr; Mill)</td>
+          <td>2 Steps (Plasma cut &rarr; Grind slag)</td>
+          <td><strong>1 Step (Direct Finished Bevel)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Dimensional Accuracy</strong></td>
+          <td>±1.5 mm to ±2.5 mm</td>
+          <td>±1.2 mm to ±1.8 mm</td>
+          <td><strong>±0.3 mm to ±0.5 mm</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Heat Affected Zone (HAZ)</strong></td>
+          <td>2.5 mm – 4.0 mm (Decarburized)</td>
+          <td>1.8 mm – 3.0 mm (Hardened)</td>
+          <td><strong>0.3 mm – 0.6 mm (Minimal)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Direct Processing Cost / Meter</strong></td>
+          <td>$14.80 / meter</td>
+          <td>$9.20 / meter</td>
+          <td><strong>$3.45 / meter (-62.5%)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Automated Welding Prep Ready</strong></td>
+          <td>Requires manual cleaning</td>
+          <td>Requires grinding removal</td>
+          <td><strong>100% Direct Robot Weld Ready</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Related Engineering Assets & Cross-Links -->
+    <h2>5. Explore Related ACTCNC Engineering & Production Assets</h2>
+    <div class="related-grid">
+      <a href="https://actcnc.com/products/ultra-high-power-30kw-60kw-sheet-cutter.html" class="related-card">
+        <h4>⚡ 30kW–60kW Ground-Rail Sheet Laser Cutters</h4>
+        <p>Heavy duty ground-rail fiber laser machines for plates up to 32m x 4.5m with integrated beveling heads.</p>
+        <span style="color:var(--accent); font-size:13px; font-weight:700;">View Machine Specs &rarr;</span>
+      </a>
+      <a href="https://actcnc.com/engineering/fiber-laser-cutting-parameters-database.html" class="related-card">
+        <h4>📊 Fiber Laser Cutting Parameter Database</h4>
+        <p>Verified feed speeds, nozzle selections, and gas pressures for 1kW to 60kW fiber laser sources.</p>
+        <span style="color:var(--accent); font-size:13px; font-weight:700;">Access Database &rarr;</span>
+      </a>
+      <a href="https://actcnc.com/solutions/heavy-structural-steel-cutting.html" class="related-card">
+        <h4>🏗️ Heavy Structural Steel Solutions</h4>
+        <p>Turnkey automated manufacturing cells for I-beams, H-beams, offshore trusses, and crane structures.</p>
+        <span style="color:var(--accent); font-size:13px; font-weight:700;">Explore Solutions &rarr;</span>
+      </a>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="cta-box">
+      <h3>Accelerate Your Heavy Steel Weld Prep with ACTCNC 5-Axis Laser Beveling</h3>
+      <p style="color:#e2e8f0; max-width:750px; margin:0 auto 24px;">Send your DXF / STEP 3D weld joint drawings to our chief applications engineering lab. We provide free cutting time simulations, bevel sample testing, and guaranteed weld qualification verification.</p>
+      <a href="https://api.whatsapp.com/send?phone=8618080892762" class="btn-primary" style="display:inline-block; margin-right:12px;">Request Sample Testing & Bevel Video</a>
+      <a href="https://actcnc.com/about.html" class="btn-primary" style="background:#1e293b; border:1px solid rgba(255,255,255,0.2); display:inline-block;">Learn About Ningjiang Heritage</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 ACTCNC (Sichuan Push Ningjiang Machine Tool / Heavy Industrial Laser Division). All rights reserved.</p>
+    <p style="margin-top:10px;">
+      <a href="https://actcnc.com/">Home</a> |
+      <a href="https://actcnc.com/products/ultra-high-power-30kw-60kw-sheet-cutter.html">Heavy Lasers</a> |
+      <a href="https://actcnc.com/engineering/interactive-laser-machine-configurator.html">TCO Configurator</a> |
+      <a href="https://actcnc.com/de/dickblech-fasenschneiden-intelligentes-einstechen-laser.html">Deutsch (Fasenschneiden)</a> |
+      <a href="https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html">Español (Biselado Láser)</a>
+    </p>
+  </footer>
+
+  <!-- Script for Interactive Bevel Calculator -->
+  <script>
+    function calculateBevel() {
+      const T = parseFloat(document.getElementById('calcThickness').value) || 30;
+      const angleDeg = parseFloat(document.getElementById('calcAngle').value) || 0;
+      const power = parseFloat(document.getElementById('calcPower').value) || 30;
+      const gas = document.getElementById('calcGas').value;
+
+      // Effective Thickness Teff = T / cos(theta)
+      const angleRad = (angleDeg * Math.PI) / 180;
+      const Teff = T / Math.cos(angleRad);
+      document.getElementById('resEffThickness').innerText = Teff.toFixed(1) + " mm";
+
+      // Estimated Cutting Speed based on Power, Teff, and Gas
+      let baseSpeed = (power * 1.8) / (Teff * 0.95);
+      if (gas === 'O2') {
+        baseSpeed = baseSpeed * 0.95; // O2 controlled speed
+      } else if (gas === 'N2') {
+        baseSpeed = baseSpeed * (power > 30 ? 1.35 : 0.85); // High power N2 flies on medium-thick
+      } else {
+        baseSpeed = baseSpeed * 1.15; // Air economy
+      }
+      if (baseSpeed < 0.25) baseSpeed = 0.25;
+      document.getElementById('resSpeed').innerText = baseSpeed.toFixed(2) + " m/min";
+
+      // Pierce duration (Flash piercing formula)
+      let pierceTime = (Teff * 0.035) * (30 / power);
+      if (pierceTime < 0.35) pierceTime = 0.35;
+      document.getElementById('resPierceTime').innerText = pierceTime.toFixed(2) + " s";
+
+      // Linear Heat Input Q = eta * (P / v) in kJ/mm (eta ~ 0.85 for fiber laser)
+      const v_mm_s = (baseSpeed * 1000) / 60;
+      const heatInput = 0.85 * (power / v_mm_s);
+      document.getElementById('resHeatInput').innerText = heatInput.toFixed(2) + " kJ/mm";
+    }
+
+    // Initialize on load
+    window.addEventListener('DOMContentLoaded', calculateBevel);
+  </script>
+</body>
+</html>
