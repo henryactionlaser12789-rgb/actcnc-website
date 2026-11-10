@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corte Láser de Biselado en Placas Ultra Gruesas (Bisel V/Y/K/X) y Perforación Flash (12kW–60kW) | ACTCNC</title>
+  <meta name="description" content="Guía técnica de ingeniería sobre corte láser de biselado 3D de 5 ejes (bisel ±45° V, Y, K y X) hasta 80 mm de espesor y perforación inteligente flash para láser de fibra de 12kW a 60kW. Preparación de soldadura según normas AWS D1.1 e ISO 9692-1.">
+  <link rel="canonical" href="https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html">
+  <link rel="alternate" hreflang="en" href="https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html" />
+  <link rel="alternate" hreflang="de" href="https://actcnc.com/de/dickblech-fasenschneiden-intelligentes-einstechen-laser.html" />
+  <link rel="alternate" hreflang="es" href="https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html" />
+  <link rel="alternate" hreflang="x-default" href="https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html" />
+  <style>
+    :root {
+      --primary: #0284c7;
+      --accent: #38bdf8;
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --dark-bg: #070a11;
+      --dark-surface: #0f172a;
+      --dark-card: #1e293b;
+      --dark-border: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: var(--dark-bg); color: var(--text-main); line-height: 1.8; }
+    a { color: inherit; text-decoration: none; }
+    .top-bar { background: #030712; padding: 10px 32px; font-size: 13px; color: var(--text-muted); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    header { position: sticky; top: 0; z-index: 1000; background: rgba(7, 10, 17, 0.94); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+    .brand-logo { font-size: 26px; font-weight: 900; color: #fff; letter-spacing: 2px; }
+    .brand-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 24px; list-style: none; font-size: 14px; font-weight: 600; align-items: center; }
+    .nav-links a:hover { color: var(--accent); }
+    .btn-wa { background: #16a34a; color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 12px 24px; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; transition: 0.2s; }
+    .btn-primary:hover { background: #0369a1; }
+
+    .hero { padding: 70px 24px 50px; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(2, 132, 199, 0.22) 0%, rgba(7, 10, 17, 0) 75%), linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, var(--dark-bg) 100%); border-bottom: 1px solid var(--dark-border); }
+    .pill { display: inline-block; background: rgba(56, 189, 248, 0.15); color: var(--accent); padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 800; border: 1px solid rgba(56, 189, 248, 0.3); text-transform: uppercase; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(28px, 4.2vw, 42px); font-weight: 900; color: #fff; line-height: 1.25; margin-bottom: 16px; max-width: 1080px; margin-left: auto; margin-right: auto; }
+    .hero p { max-width: 880px; margin: 0 auto; font-size: 17px; color: var(--text-muted); }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 60px 24px; }
+    h2 { font-size: 26px; font-weight: 800; color: #fff; margin: 50px 0 20px; border-left: 4px solid var(--accent); padding-left: 16px; display: flex; align-items: center; justify-content: space-between; }
+    h3 { font-size: 20px; font-weight: 700; color: #fff; margin: 30px 0 14px; }
+    p { color: #cbd5e1; margin-bottom: 20px; font-size: 16px; }
+    ul, ol { color: #cbd5e1; margin-left: 24px; margin-bottom: 24px; }
+    li { margin-bottom: 10px; }
+
+    /* GEO Direct Answer Callout Box */
+    .geo-answer-box { background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.8)); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; padding: 28px; margin: 30px 0 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+    .geo-badge { position: absolute; top: -12px; left: 24px; background: #0284c7; color: #fff; font-size: 11px; font-weight: 900; text-transform: uppercase; padding: 3px 12px; border-radius: 12px; letter-spacing: 1px; }
+    .geo-answer-box p { font-size: 16.5px; color: #f1f5f9; margin-bottom: 0; font-weight: 500; }
+
+    /* Interactive Calculator Card */
+    .calc-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 16px; padding: 36px; margin: 40px 0; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+    .calc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-bottom: 30px; }
+    .calc-group label { display: block; font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .calc-group select, .calc-group input { width: 100%; background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 12px 14px; color: #fff; font-size: 15px; outline: none; }
+    .calc-group select:focus, .calc-group input:focus { border-color: var(--accent); }
+    .calc-result-box { background: #0b1329; border: 1px solid var(--primary); border-radius: 12px; padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center; }
+    .calc-stat-val { font-size: 24px; font-weight: 900; color: var(--accent); margin-bottom: 4px; }
+    .calc-stat-lbl { font-size: 12px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; }
+
+    /* Feature Grid */
+    .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin: 30px 0; }
+    .feature-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; padding: 24px; }
+    .feature-card h4 { font-size: 18px; font-weight: 800; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .feature-card p { font-size: 14.5px; color: var(--text-muted); margin-bottom: 0; }
+
+    /* Table Styles */
+    .table-box { width: 100%; border-collapse: collapse; margin: 24px 0 40px; background: var(--dark-surface); border-radius: 12px; overflow: hidden; border: 1px solid var(--dark-border); }
+    .table-box th, .table-box td { padding: 14px 18px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 14px; }
+    .table-box th { background: #030712; color: #fff; font-weight: 800; }
+    .table-box tr:hover { background: rgba(255,255,255,0.02); }
+
+    /* Related Links Grid */
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin: 30px 0; }
+    .related-card { background: var(--dark-surface); border: 1px solid var(--dark-border); border-radius: 12px; padding: 22px; transition: 0.2s; }
+    .related-card:hover { border-color: var(--primary); transform: translateY(-3px); }
+    .related-card h4 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .related-card p { font-size: 13.5px; color: var(--text-muted); margin-bottom: 12px; }
+
+    /* CTA Section */
+    .cta-box { background: linear-gradient(135deg, rgba(2, 132, 199, 0.15), rgba(15, 23, 42, 0.9)); border: 1px solid var(--primary); border-radius: 16px; padding: 40px 30px; text-align: center; margin-top: 60px; }
+    .cta-box h3 { font-size: 24px; font-weight: 800; margin-bottom: 12px; }
+
+    footer { background: #030712; border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 24px; text-align: center; font-size: 14px; color: var(--text-muted); }
+    footer a { color: var(--accent); margin: 0 10px; }
+  </style>
+
+  <!-- Schema.org JSON-LD Structured Data (Spanish) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "@id": "https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html#article",
+        "headline": "Guía de Ingeniería: Corte Láser de Biselado en Placas Ultra Gruesas (Bisel V/Y/K/X) y Perforación Flash (12kW–60kW)",
+        "description": "Documento técnico sobre cinemática de corte por biselado láser 3D de 5 ejes, preparación de juntas de soldadura según AWS D1.1 e ISO 9692-1, y perforación flash en espesores de 16 mm a 80 mm.",
+        "author": {
+          "@type": "Organization",
+          "name": "ACTCNC Heavy Industrial Laser Engineering Group",
+          "url": "https://actcnc.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ACTCNC",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://actcnc.com/assets/dark-studio-heavy-sheet-cutter-x.webp"
+          }
+        },
+        "datePublished": "2026-11-10",
+        "dateModified": "2026-11-10",
+        "mainEntityOfPage": "https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://actcnc.com/es/index.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ingeniería y Tecnología",
+            "item": "https://actcnc.com/engineering/fiber-laser-cutting-cost-tco-guide.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Biselado Láser y Perforación Flash",
+            "item": "https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://actcnc.com/es/corte-laser-biselado-placa-gruesa-perforacion-inteligente.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué tipos de biseles para soldadura según AWS D1.1 pueden cortarse directamente con láser?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los sistemas ACTCNC de 30kW–60kW con cabezal de biselado 3D de 5 ejes ejecutan cortes continuos en ángulos de ±45°, incluyendo bisel en V, bisel en Y (con talón o cara de raíz), bisel en K y bisel en X (doble V) listos para soldadura por arco sumergido o robótica."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo ahorra la perforación inteligente flash en placas de acero de 40 mm?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La perforación flash reduce el tiempo de penetración de 12–18 segundos a menos de 1,0 segundo por orificio, eliminando salpicaduras ascendentes y protegiendo el cristal protector óptico contra sobrecalentamiento."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div><strong>Serie de Guías Técnicas ACTCNC</strong> | Estándares Industriales de Láser de Alta Potencia 2026</div>
+    <div>Atención Técnica Directa: <strong>+86 180 8089 2762</strong> | Soporte Global de Proyectos</div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header>
+    <div class="brand-logo"><a href="https://actcnc.com/">ACT<span>CNC</span></a></div>
+    <ul class="nav-links">
+      <li><a href="https://actcnc.com/products/ultra-high-power-30kw-60kw-sheet-cutter.html">Láser 30kW–60kW</a></li>
+      <li><a href="https://actcnc.com/products/heavy-tube-pipe-fiber-laser-cutters.html">Corte de Tubos</a></li>
+      <li><a href="https://actcnc.com/products/3d-5-axis-fiber-laser-cutting-robot.html">Robots 5 Ejes 3D</a></li>
+      <li><a href="https://actcnc.com/engineering/interactive-laser-machine-configurator.html">Configurador</a></li>
+      <li><a href="https://actcnc.com/solutions/heavy-structural-steel-cutting.html">Soluciones</a></li>
+      <li><a href="https://actcnc.com/about.html">Sobre Ningjiang</a></li>
+    </ul>
+    <a href="https://api.whatsapp.com/send?phone=8618080892762" class="btn-wa">WhatsApp Soporte Técnico</a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="pill">Documento Técnico de Ingeniería #ES-2026-11</div>
+    <h1>Corte Láser de Biselado en Placas Ultra Gruesas (Bisel V/Y/K/X) y Perforación Flash (12kW–60kW)</h1>
+    <p>Cinemática de corte en 5 ejes, compensación de tensiones térmicas según AWS D1.1 e ISO 9692-1 y perforación instantánea para minería pesada, calderería, puentes y astilleros navales.</p>
+  </section>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- GEO Direct Answer Section -->
+    <div class="geo-answer-box">
+      <div class="geo-badge">GEO Direct Answer / Definición de Ingeniería</div>
+      <p><strong>¿Qué es el Biselado Láser de Placas Gruesas y la Perforación Inteligente Flash?</strong><br>
+      El biselado láser de placas ultra gruesas es un proceso CNC de 5 ejes síncronos que utiliza láseres de fibra de ultra alta potencia (12kW a 60kW) para cortar y biselar acero pesado (16 mm a 80 mm) en ángulos de hasta ±45° en un solo paso. Integrado con <em>Perforación Flash sin Inercia</em>, reduce el tiempo de penetración inicial de 15 segundos a menos de 0,8 segundos por punto de entrada, eliminando el fresado posterior y garantizando una superficie libre de óxido lista para soldadura robotizada.</p>
+    </div>
+
+    <h2>1. Cinemática de Cabezal 3D de 5 Ejes y Geometría de Biseles</h2>
+    <p>En la fabricación de estructuras de acero para minería (tolvas, molinos SAG), torres eólicas y recipientes a presión, el corte recto convencional obliga a transportar la chapa a un biselador mecánico. Con ACTCNC 30kW–60kW, el corte perimetral y el biselado se realizan simultáneamente con una precisión de ±0,5 mm.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h4><span style="color:#38bdf8;">◈</span> Rotación Continua de ±45°</h4>
+        <p>Motores de par directo en los ejes rotativos A y C permiten un giro continuo sin enrollamiento de cables, asegurando transiciones suaves en esquinas y contornos circulares.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:#38bdf8;">◈</span> Bloqueo Cinemático de Punto Focal (RTCP)</h4>
+        <p>El sistema CNC recalcula en tiempo real las coordenadas focales a 10.000 Hz, manteniendo constante el punto de enfoque durante variaciones de ángulo complejas.</p>
+      </div>
+      <div class="feature-card">
+        <h4><span style="color:#38bdf8;">◈</span> Zona Afectada por el Calor (ZAT) Mínima</h4>
+        <p>Reduce la ZAT en un 75% (&lt;0,5 mm) respecto al oxicorte o plasma, evitando la descarburación del borde y facilitando la homologación de soldadura.</p>
+      </div>
+    </div>
+
+    <h3>Geometría de Preparación de Soldadura (AWS D1.1 / ISO 9692-1)</h3>
+    <table class="table-box">
+      <thead>
+        <tr>
+          <th>Tipo de Bisel</th>
+          <th>Ángulo (&theta;)</th>
+          <th>Cara de Raíz (Talón)</th>
+          <th>Espesor Máximo</th>
+          <th>Aplicación Principal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Bisel en V (Simple)</strong></td>
+          <td>20° a 45°</td>
+          <td>0 mm (Penetración total)</td>
+          <td>50 mm</td>
+          <td>Torres eólicas, tuberías de gran diámetro, celosías</td>
+        </tr>
+        <tr>
+          <td><strong>Bisel en Y (Con Talón)</strong></td>
+          <td>30° a 45°</td>
+          <td>2,0 mm a 8,0 mm</td>
+          <td>70 mm</td>
+          <td>Astilleros navales, brazos de excavadoras pesadas, bogies</td>
+        </tr>
+        <tr>
+          <td><strong>Bisel en X (Doble V)</strong></td>
+          <td>±30° a ±45°</td>
+          <td>2,0 mm a 6,0 mm (Central)</td>
+          <td>80 mm</td>
+          <td>Recipientes a presión pesados, hidroeléctricas, reactores</td>
+        </tr>
+        <tr>
+          <td><strong>Bisel en K (Doble Talón)</strong></td>
+          <td>45° / 0° Recto</td>
+          <td>3,0 mm a 10,0 mm</td>
+          <td>60 mm</td>
+          <td>Vigas I para puentes, uniones en T de alta resistencia</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>2. Calculadora Interactiva de Biselado y Tiempo de Ciclo</h2>
+    <p>Calcule el espesor efectivo de corte ($T_{eff} = T / \cos\theta$) y el aporte térmico lineal para optimizar sus parámetros de producción:</p>
+
+    <div class="calc-card">
+      <div class="calc-grid">
+        <div class="calc-group">
+          <label>Espesor Nominal de Placa (mm):</label>
+          <input type="number" id="calcThicknessEs" value="30" min="10" max="100" step="5" oninput="calculateBevelEs()">
+        </div>
+        <div class="calc-group">
+          <label>Ángulo de Bisel (&theta; Grados):</label>
+          <select id="calcAngleEs" onchange="calculateBevelEs()">
+            <option value="0">0° (Corte Recto Estándar)</option>
+            <option value="30" selected>30° (Bisel en V Común)</option>
+            <option value="37.5">37.5° (Preparación AWS D1.1)</option>
+            <option value="45">45° (Ángulo Máximo de Inclinación)</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label>Potencia Láser (kW):</label>
+          <select id="calcPowerEs" onchange="calculateBevelEs()">
+            <option value="12">12 kW Láser de Fibra</option>
+            <option value="20">20 kW Láser de Fibra</option>
+            <option value="30" selected>30 kW Ultra Alta Potencia</option>
+            <option value="40">40 kW Ultra Alta Potencia</option>
+            <option value="60">60 kW Pesado Industrial</option>
+          </select>
+        </div>
+        <div class="calc-group">
+          <label>Gas de Asistencia:</label>
+          <select id="calcGasEs" onchange="calculateBevelEs()">
+            <option value="O2" selected>Oxígeno (O2) - Corte Exotérmico</option>
+            <option value="N2">Nitrógeno a Alta Presión (N2) - Borde Brillante</option>
+            <option value="Air">Aire Comprimido - Alta Velocidad Económica</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result-box">
+        <div>
+          <div class="calc-stat-val" id="resEffThicknessEs">34.6 mm</div>
+          <div class="calc-stat-lbl">Espesor Efectivo en Ranura</div>
+        </div>
+        <div>
+          <div class="calc-stat-val" id="resSpeedEs">1.65 m/min</div>
+          <div class="calc-stat-lbl">Velocidad Óptima de Avance</div>
+        </div>
+        <div>
+          <div class="calc-stat-val" id="resPierceTimeEs">0.75 s</div>
+          <div class="calc-stat-lbl">Duración de Perforación Flash</div>
+        </div>
+        <div>
+          <div class="calc-stat-val" id="resHeatInputEs">0.91 kJ/mm</div>
+          <div class="calc-stat-lbl">Aporte Térmico Lineal (ZAT)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Related Assets -->
+    <h2>3. Equipos y Soluciones ACTCNC Relacionadas</h2>
+    <div class="related-grid">
+      <a href="https://actcnc.com/products/ultra-high-power-30kw-60kw-sheet-cutter.html" class="related-card">
+        <h4>⚡ Máquinas Láser de Chapa 30kW–60kW</h4>
+        <p>Equipos tipo riel de suelo de gran formato para placas de hasta 32 m x 4,5 m con cabezal de biselado integrado.</p>
+        <span style="color:var(--accent); font-size:13px; font-weight:700;">Ver Especificaciones &rarr;</span>
+      </a>
+      <a href="https://actcnc.com/es/laser-mineria-cobre-litio-chile-peru.html" class="related-card">
+        <h4>⛏️ Soluciones para Minería y Cobre</h4>
+        <p>Corte de aceros antidesgaste (Hardox/NM400) y revestimiento láser para tolvas y componentes mineros.</p>
+        <span style="color:var(--accent); font-size:13px; font-weight:700;">Ver Solución &rarr;</span>
+      </a>
+      <a href="https://actcnc.com/engineering/fiber-laser-cutting-parameters-database.html" class="related-card">
+        <h4>📊 Base de Datos de Parámetros Láser</h4>
+        <p>Velocidades comprobadas, selección de boquillas y presiones de gas para fuentes de 1kW a 60kW.</p>
+        <span style="color:var(--accent); font-size:13px; font-weight:700;">Abrir Base de Datos &rarr;</span>
+      </a>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="cta-box">
+      <h3>Automatice su Preparación de Soldadura con el Biselado Láser ACTCNC</h3>
+      <p style="color:#e2e8f0; max-width:750px; margin:0 auto 24px;">Envíe sus planos en formato STEP o DXF a nuestro laboratorio de aplicaciones. Realizamos simulaciones de tiempo y cortes de muestra gratuitos para calificación de soldadura.</p>
+      <a href="https://api.whatsapp.com/send?phone=8618080892762" class="btn-primary" style="display:inline-block; margin-right:12px;">Solicitar Muestra y Video de Biselado</a>
+      <a href="https://actcnc.com/about.html" class="btn-primary" style="background:#1e293b; border:1px solid rgba(255,255,255,0.2); display:inline-block;">Conozca el Legado de Ningjiang</a>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 ACTCNC (Sichuan Push Ningjiang Machine Tool / Heavy Industrial Laser Division). Todos los derechos reservados.</p>
+    <p style="margin-top:10px;">
+      <a href="https://actcnc.com/es/index.html">Inicio</a> |
+      <a href="https://actcnc.com/products/ultra-high-power-30kw-60kw-sheet-cutter.html">Láser de Gran Formato</a> |
+      <a href="https://actcnc.com/engineering/ultra-thick-plate-bevel-cutting-and-intelligent-piercing-guide.html">Versión en Inglés (Bevel Guide)</a> |
+      <a href="https://actcnc.com/de/dickblech-fasenschneiden-intelligentes-einstechen-laser.html">Versión en Alemán (Fasenschneiden)</a>
+    </p>
+  </footer>
+
+  <!-- Script for Interactive Bevel Calculator (ES) -->
+  <script>
+    function calculateBevelEs() {
+      const T = parseFloat(document.getElementById('calcThicknessEs').value) || 30;
+      const angleDeg = parseFloat(document.getElementById('calcAngleEs').value) || 0;
+      const power = parseFloat(document.getElementById('calcPowerEs').value) || 30;
+      const gas = document.getElementById('calcGasEs').value;
+
+      const angleRad = (angleDeg * Math.PI) / 180;
+      const Teff = T / Math.cos(angleRad);
+      document.getElementById('resEffThicknessEs').innerText = Teff.toFixed(1) + " mm";
+
+      let baseSpeed = (power * 1.8) / (Teff * 0.95);
+      if (gas === 'O2') {
+        baseSpeed = baseSpeed * 0.95;
+      } else if (gas === 'N2') {
+        baseSpeed = baseSpeed * (power > 30 ? 1.35 : 0.85);
+      } else {
+        baseSpeed = baseSpeed * 1.15;
+      }
+      if (baseSpeed < 0.25) baseSpeed = 0.25;
+      document.getElementById('resSpeedEs').innerText = baseSpeed.toFixed(2) + " m/min";
+
+      let pierceTime = (Teff * 0.035) * (30 / power);
+      if (pierceTime < 0.35) pierceTime = 0.35;
+      document.getElementById('resPierceTimeEs').innerText = pierceTime.toFixed(2) + " s";
+
+      const v_mm_s = (baseSpeed * 1000) / 60;
+      const heatInput = 0.85 * (power / v_mm_s);
+      document.getElementById('resHeatInputEs').innerText = heatInput.toFixed(2) + " kJ/mm";
+    }
+    window.addEventListener('DOMContentLoaded', calculateBevelEs);
+  </script>
+</body>
+</html>
